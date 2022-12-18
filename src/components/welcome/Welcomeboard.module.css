@@ -1,0 +1,22 @@
+.img{
+    background-image: url(https://png.pngtree.com/background/20211215/original/pngtree-modern-simple-elegant-beautiful-color-website-landing-page-background-picture-image_1454955.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.welcome{
+    margin-top: 4rem;
+    margin-bottom: 1.8rem;
+}
+
+.welcome h5{
+    color: #c9c4e7;
+}
+.welcome h1{
+    color: white;
+}

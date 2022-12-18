@@ -1,0 +1,26 @@
+import classes from "../welcome/Welcomeboard.module.css";
+
+const WelcomeBoard = () => {
+  return (
+    <>
+      <div className={` ${classes.img}`}>
+        <div className={`container ${classes.welcome}`}>
+          <h5>Welcome back</h5>
+          <h1>Edidiong</h1>
+        </div>
+        <div className="container bot">
+        <div className="container shadowB roboroboS edit">
+        <form class="d-flex" role="search">
+        <input class={`form-control ${classes.foc} me-2 b`} type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn b bGreen" type="submit">
+        <i class="fa-solid fa-magnifying-glass" style={{color: "white"}}></i>
+        </button>
+      </form>
+        </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default WelcomeBoard;
