@@ -1,6 +1,10 @@
+import Ticket from "../components/purchased/ticket/Ticket";
+
 const PurchasedTicket = () => {
     return(
-        <h1>Purchased Ticket</h1>
+        <>
+          <Ticket/>
+        </>
     );
 }
 
