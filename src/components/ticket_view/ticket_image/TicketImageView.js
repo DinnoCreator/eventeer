@@ -1,8 +1,9 @@
 import classes from "../ticket_image/TicketImageView.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const TicketImageView = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleBack = () => {
     return navigate("/");
@@ -10,7 +11,7 @@ const TicketImageView = () => {
     return(
         <div className={classes.img} 
         style={{
-            backgroundImage: `url(${"https://media.istockphoto.com/id/1436949458/photo/multiracial-group-of-happy-friends-using-sparklers-and-having-fun-on-new-years-day-at-home.jpg?s=612x612&w=is&k=20&c=WVvnKvsC5BCUITjUxLJTqySECSDNFExgFLgyRlRrNJM="})`,
+            backgroundImage: `url(${location.state.img})`,
             // backgroundImage: `url(${externalImage})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -36,8 +37,8 @@ const TicketImageView = () => {
                   <img src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large" alt="profile_image"/>
                   <h3>Edidiong Obodom </h3>
                   </div>
-                  <div className={`ms-auto ${classes.imgInfoIcon}`}>
-                  <i class="fa-solid fa-music"></i>
+                  <div className={`ms-auto ${classes.imgInfoIcon}`} style={{backgroundColor: location.state.color}}>
+                  <i class={location.state.icon}></i>
                   </div>
                 </div>
               </div>
