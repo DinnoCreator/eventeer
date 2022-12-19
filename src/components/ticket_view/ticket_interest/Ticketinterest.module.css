@@ -70,3 +70,8 @@ span p{
     font-size: 20px;
     font-weight: 600;
 }
+
+.direction a{
+    font-size: 50px;
+    color: #7165E3;
+}
