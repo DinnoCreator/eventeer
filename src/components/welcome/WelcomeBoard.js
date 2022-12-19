@@ -10,10 +10,10 @@ const WelcomeBoard = () => {
         </div>
         <div className="container bot">
         <div className="container shadowB roboroboS edit">
-        <form class="d-flex" role="search">
-        <input class={`form-control ${classes.foc} me-2 b`} type="search" placeholder="Search" aria-label="Search" />
-        <button class="btn b bGreen" type="submit">
-        <i class="fa-solid fa-magnifying-glass" style={{color: "white"}}></i>
+        <form className="d-flex" role="search">
+        <input className={`form-control ${classes.foc} me-2 b`} type="search" placeholder="Search" aria-label="Search" />
+        <button className="btn b bGreen" type="submit">
+        <i className="fa-solid fa-magnifying-glass" style={{color: "white"}}></i>
         </button>
       </form>
         </div>

@@ -34,54 +34,54 @@ const Categories = () => {
          item="6"
          responsive={state.responsive}
          dots={false}>
-        <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
+        <div className={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
           <span className={`${classes.icon}`}>
-          <i class="fa-solid fa-music"></i>
+          <i className="fa-solid fa-music"></i>
           &nbsp;&nbsp;Concert
           </span>
           
          
         </div>
         
-        <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
+        <div className={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
         <span className={`${classes.icon}`}>
-          <i class="fa-solid fa-vest-patches"></i>
+          <i className="fa-solid fa-vest-patches"></i>
           &nbsp;&nbsp;Pagent
           </span>
         
         </div>
         
-        <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
+        <div className={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
         <span className={`${classes.icon}`}>
-          <i class="fa-solid fa-handshake"></i>
+          <i className="fa-solid fa-handshake"></i>
           &nbsp;&nbsp;Conference
           </span>
         </div>
         
-        <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
+        <div className={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
         <span className={`${classes.icon}`}>
-          <i class="fa-solid fa-book"></i>
+          <i className="fa-solid fa-book"></i>
           &nbsp;&nbsp;Education
           </span>
         </div>
         
-        <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
+        <div className={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
         <span className={`${classes.icon}`}>
-          <i class="fa-solid fa-clapperboard"></i>
+          <i className="fa-solid fa-clapperboard"></i>
           &nbsp;&nbsp;Theatre
           </span>
         </div>
         
-        <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
+        <div className={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
         <span className={`${classes.icon}`}>
-          <i class="fa-solid fa-masks-theater"></i>
+          <i className="fa-solid fa-masks-theater"></i>
           &nbsp;&nbsp;Comedy
           </span>
         </div>
 
-        <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
+        <div className={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
         <span className={`${classes.icon}`}>
-          <i class="fa-solid fa-briefcase"></i>
+          <i className="fa-solid fa-briefcase"></i>
           &nbsp;&nbsp;Services
           </span>
         </div>

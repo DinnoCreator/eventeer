@@ -22,10 +22,10 @@ const TicketImageView = () => {
             <div className={`container`}>
             <div className={`container hstack ${classes.options}`}>
             <div className={`${classes.optionsIcon}`} onClick={handleBack}>
-            <i class="fa-solid fa-arrow-left"></i>
+            <i className="fa-solid fa-arrow-left"></i>
             </div>
             <div className={`ms-auto ${classes.optionsIcon}`}>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
             </div>
             </div>
@@ -38,7 +38,7 @@ const TicketImageView = () => {
                   <h3>Edidiong Obodom </h3>
                   </div>
                   <div className={`ms-auto ${classes.imgInfoIcon}`} style={{backgroundColor: location.state.color}}>
-                  <i class={location.state.icon}></i>
+                  <i className={location.state.icon}></i>
                   </div>
                 </div>
               </div>
