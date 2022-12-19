@@ -17,9 +17,11 @@
 .imgInfo{
     background-color: white;
     margin-top: auto;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
     padding-top: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .imgInfoHolder{
@@ -47,4 +49,20 @@
 }
 .follow{
     color: #7165E3;
+}
+
+.options{
+    margin-top: 2rem;
+}
+
+.optionsIcon{
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: large;
+    font-weight: 800;
+}
+
+.optionsIcon:hover{
+    cursor: pointer;
 }

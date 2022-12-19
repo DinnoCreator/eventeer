@@ -1,8 +1,14 @@
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { useNavigate } from 'react-router-dom';
 
 const PopularEvents = () => {
+    const navigate = useNavigate();
+
+    const handleView = () => {
+        return navigate("/view");
+    }
     const state= {
         responsive:{
             0: {
@@ -33,7 +39,7 @@ const PopularEvents = () => {
          autoplay
          responsive={state.responsive}
          dots={false}>
-        <div class='item shadowB card mt-4 mb-4 roborobo'>
+        <div class='item shadowB card mt-4 mb-4 roborobo' onClick={handleView}>
           <div
           style={{
             backgroundImage: `url(${"https://media.istockphoto.com/id/1436949458/photo/multiracial-group-of-happy-friends-using-sparklers-and-having-fun-on-new-years-day-at-home.jpg?s=612x612&w=is&k=20&c=WVvnKvsC5BCUITjUxLJTqySECSDNFExgFLgyRlRrNJM="})`,

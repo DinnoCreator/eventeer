@@ -1,5 +1,4 @@
 import OwlCarousel from 'react-owl-carousel';
-import { NavLink } from 'react-router-dom';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import classes from "../cathegories/Category.module.css"
@@ -36,52 +35,55 @@ const Categories = () => {
          responsive={state.responsive}
          dots={false}>
         <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
-          <NavLink to="/">
+          <span className={`${classes.icon}`}>
           <i class="fa-solid fa-music"></i>
           &nbsp;&nbsp;Concert
-          </NavLink>
+          </span>
+          
+         
         </div>
         
         <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
-          <NavLink to="/category/pagent">
+        <span className={`${classes.icon}`}>
           <i class="fa-solid fa-vest-patches"></i>
           &nbsp;&nbsp;Pagent
-          </NavLink>
+          </span>
+        
         </div>
         
         <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
-          <NavLink to="/category/conference">
+        <span className={`${classes.icon}`}>
           <i class="fa-solid fa-handshake"></i>
           &nbsp;&nbsp;Conference
-          </NavLink>
+          </span>
         </div>
         
         <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
-          <NavLink to="/category/education">
+        <span className={`${classes.icon}`}>
           <i class="fa-solid fa-book"></i>
           &nbsp;&nbsp;Education
-          </NavLink>
+          </span>
         </div>
         
         <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
-          <NavLink to="/category/theatre">
+        <span className={`${classes.icon}`}>
           <i class="fa-solid fa-clapperboard"></i>
           &nbsp;&nbsp;Theatre
-          </NavLink>
+          </span>
         </div>
         
         <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
-          <NavLink to="/category/comedy">
+        <span className={`${classes.icon}`}>
           <i class="fa-solid fa-masks-theater"></i>
           &nbsp;&nbsp;Comedy
-          </NavLink>
+          </span>
         </div>
 
         <div class={`item ${classes.cat} ca shadowB center card mt-4 mb-4 roborobo`}>
-          <NavLink to="/category/services">
+        <span className={`${classes.icon}`}>
           <i class="fa-solid fa-briefcase"></i>
           &nbsp;&nbsp;Services
-          </NavLink>
+          </span>
         </div>
         </OwlCarousel>
          </div>

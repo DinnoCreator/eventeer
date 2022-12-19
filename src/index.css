@@ -136,7 +136,7 @@ code {
 
 
 /* Help to target active category */
-.ca a.active {
+/* .ca a.active {
   color: white;
 }
 
@@ -146,7 +146,7 @@ code {
 }
 .ca a.active i {
   color: #ABA4F2;
-}
+} */
 
 /* Help to target active category end*/
 /* #7165E3 */
@@ -168,17 +168,37 @@ code {
 /* map */
 /* .mapouter{
   position:relative;
-  text-align:right;
-  width:600px;
+  text-align:left;
+  width:800px;
   height:400px;
   }
-  .gmap_canvas {
+   .gmap_canvas {
   overflow:hidden;
   background:none!important;
-  width:600px;height:400px;
-  }
-  .gmap_iframe {
-  width:600px!important;
-  height:400px!important;
+  width:800px;height:400px;
   } */
+  .mapouter{
+    position:relative;
+    text-align:left;
+    /* width:800px;
+    height:400px; */
+    }
+    .gmap_iframe {
+      width:350px!important;
+      height:300px!important;
+      } 
+  @media (min-width: 960px ) {
+    .mapouter{
+      width:800px!important;
+      height:400px!important;
+    }
+    .gmap_iframe {
+      width:800px!important;
+      height:400px!important;
+      } 
+  }
+  
+  .item{
+    cursor: pointer;
+  }
   /* map end */

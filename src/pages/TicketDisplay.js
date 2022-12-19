@@ -1,7 +1,12 @@
-import TicketImageView from "../components/ticket_view/TicketImageView";
-import TicketInterest from "../components/ticket_view/TicketInterest";
+import TicketImageView from "../components/ticket_view/ticket_image/TicketImageView";
+import TicketInterest from "../components/ticket_view/ticket_interest/TicketInterest";
+import { useEffect } from "react";
 
 const TicketDisplay = () => {
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }, []);
+      
     return (
         <>
         {/* <div class="mapouter">

@@ -1,19 +1,15 @@
-.cat a{
-    text-decoration: none;
-}
 
 .cat {
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     border: thin;
     font-size: 20px;
-}
-
-.cat a {
     color: #3B3B3B;
 }
-.cat a i {
+
+.icon i{
     color: #7165E3;
+    display: inline-block;
 }
 
 

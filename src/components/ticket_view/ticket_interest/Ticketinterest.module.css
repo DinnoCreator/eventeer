@@ -1,0 +1,72 @@
+.imgInfo{
+    background-color: white;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 0;
+}
+.imgInfo h1{
+    font-size: 23px;
+    font-weight: 700;
+    padding-bottom: 2rem;
+}
+
+
+.buy{
+    background-color: #7165E3;
+    color: white;
+}
+
+.buy:hover{
+    background-color: white;
+    color: #7165E3;
+}
+
+.but{
+    margin-top: 0;
+}
+
+.mag{
+    margin-top: 1.3rem;
+    margin-bottom: 1.8rem;
+}
+.pad{
+    margin-top: 2.5rem;
+}
+.go{
+    color: #828282;
+}
+
+.icon i{
+    background-color: #E7E7E9;
+    padding: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 25%;
+    display: inline;
+    border: 1px solid #E7E7E9;
+    display: inline-block;
+}
+
+.icon i{
+    color: #7165E3;
+    font-size: xx-large;
+}
+
+.date{
+    display: inline-block;
+    margin-left: 1rem;
+}
+.date span{
+    display: inline-block;
+}
+span p{
+    line-height: 0.3;
+    font-size: large;
+}
+
+.p2{
+    position: relative;
+    top: 0.8rem;
+    font-size: 20px;
+    font-weight: 600;
+}

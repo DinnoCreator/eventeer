@@ -1,6 +1,12 @@
-import classes from "../ticket_view/TicketImageView.module.css";
+import classes from "../ticket_image/TicketImageView.module.css";
+import { useNavigate } from "react-router-dom";
 
 const TicketImageView = () => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    return navigate("/");
+  }
     return(
         <div className={classes.img} 
         style={{
@@ -9,9 +15,19 @@ const TicketImageView = () => {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            height: '350px',
+            height: '300px',
             width: '100%',
           }}>
+            <div className={`container`}>
+            <div className={`container hstack ${classes.options}`}>
+            <div className={`${classes.optionsIcon}`} onClick={handleBack}>
+            <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div className={`ms-auto ${classes.optionsIcon}`}>
+            <i class="fa-regular fa-bookmark"></i>
+            </div>
+            </div>
+            </div>
             <div className={classes.imgInfo}>
               <div className="container">
                 <div className={`container hstack ${classes.pad}`}>
