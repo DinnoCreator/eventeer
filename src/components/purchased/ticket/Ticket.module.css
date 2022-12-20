@@ -1,5 +1,11 @@
+.img{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
 .options{
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .optionsIcon{
@@ -17,4 +23,29 @@
 
 .ID {
     display: inline-block;
+}
+
+.info{
+    background-color: white;
+    padding-top: 2rem;
+}
+
+.info h3{
+    font-weight: 700;
+}
+
+.date{
+    display: block;
+    margin-left: 1rem;
+}
+.date span{
+    display: inline-block;
+}
+span p{
+    line-height: 0.3;
+    font-size: large;
+}
+
+.info div{
+    display: block;
 }
