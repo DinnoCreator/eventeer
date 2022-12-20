@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 const PopularEvents = () => {
   const navigate = useNavigate();
 
-  // const handleView = () => {
-  //     return navigate("/view", state={img: ""});
+  // const handledisplay = () => {
+  //     return navigate("/display", state={img: ""});
   // }
 
   const img1 =
@@ -59,7 +59,7 @@ const PopularEvents = () => {
           <div
             className="item shadowB card mt-4 mb-4 roborobo"
             onClick={() => {
-              return navigate("/view", {
+              return navigate("/display", {
                 state: {
                   img: img1,
                   icon: "fa-solid fa-music",
@@ -119,7 +119,7 @@ const PopularEvents = () => {
           <div
             className="item shadowB card mt-4 mb-4 roborobo"
             onClick={() => {
-              return navigate("/view", {
+              return navigate("/display", {
                 state: {
                   img: img2,
                   icon: "fa-solid fa-champagne-glasses",
@@ -179,7 +179,7 @@ const PopularEvents = () => {
           <div
             className="item shadowB card mt-4 mb-4 roborobo"
             onClick={() => {
-              return navigate("/view", {
+              return navigate("/display", {
                 state: {
                   img: img3,
                   icon: "fa-solid fa-music",
@@ -239,7 +239,7 @@ const PopularEvents = () => {
           <div
             className="item shadowB card mt-4 mb-4 roborobo"
             onClick={() => {
-              return navigate("/view", {
+              return navigate("/display", {
                 state: {
                   img: img4,
                   icon: "fa-solid fa-music",
@@ -299,7 +299,7 @@ const PopularEvents = () => {
           <div
             className="item shadowB card mt-4 mb-4 roborobo"
             onClick={() => {
-              return navigate("/view", {
+              return navigate("/display", {
                 state: {
                   img: img5,
                   icon: "fa-solid fa-music",
@@ -359,7 +359,7 @@ const PopularEvents = () => {
           <div
             className="item shadowB card mt-4 mb-4 roborobo"
             onClick={() => {
-              return navigate("/view", {
+              return navigate("/display", {
                 state: {
                   img: img6,
                   icon: "fa-solid fa-music",
