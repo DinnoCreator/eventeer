@@ -7,6 +7,7 @@ const Ticket = () => {
   const handleBack = () => {
     return navigate("/");
   };
+  const location = "eleven eleven calabar";
 
   return (
     <div className="container">
@@ -33,19 +34,40 @@ const Ticket = () => {
         ></div>
       </div>
       <div className="container">
-        <div className="container">
-          <div className={`container hstack ${classes.info}`}>
-          <div>
+        <div className={`container ${classes.info}`}>
+          <div className={`container`}>
+          {/* <div className={`${classes.header}`}> */}
           <h3>Calabar Pool Party</h3>
+          {/* </div> */}
+          <div className={`row ${classes.content}`}>
+          <div className={`col-6 ${classes.date}`}>
+              <p className={`${classes.go}`}>Date</p>
+              <p className={`${classes.p2}`}>December 24, 2022</p>
+            </div>
+          <div className={`col-6 ${classes.date} ${classes.left}`}>
+              <p className={`${classes.go}`}>Time</p>
+              <p className={`${classes.p2}`}>8:00 PM</p>
+            </div>
           </div>
-          <div className={`${classes.date}`}>
-              <p className={`${classes.go}`}>Eleven Eleven, Calabar</p>
-              <p className={`${classes.p2}`}>Marina Resort</p>
+          <div className={`row ${classes.content}`}>
+          <div className={`col-6 ${classes.date}`}>
+              <p className={`${classes.go}`}>Place</p>
+              <p className={`${classes.p2}`}>Marina Resort Calabar, CRS NIG</p>
             </div>
-          <div className={`ms-auto ${classes.date}`}>
-              <p className={`${classes.go}`}>Eleven Eleven, Calabar</p>
-              <p className={`${classes.p2}`}>Marina Resort</p>
+          <div className={`col-6 ${classes.date} ${classes.left}`}>
+              <p className={`${classes.imgInfoIcon}`}>
+              <a
+              rel="noreferrer"
+              target="_blank"
+              href={`https://www.google.com/maps/search/${location}`}
+            >
+               <i class="fa-solid fa-diamond-turn-right">
+
+               </i>
+               </a>
+              </p>
             </div>
+          </div>
           </div>
         </div>
       </div>

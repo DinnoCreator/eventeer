@@ -34,18 +34,33 @@
     font-weight: 700;
 }
 
+.content{
+    margin-top: 2rem;
+}
 .date{
-    display: block;
-    margin-left: 1rem;
+    display: inline;
 }
-.date span{
-    display: inline-block;
-}
-span p{
-    line-height: 0.3;
+div p{
+    line-height: 0.5;
     font-size: large;
 }
 
-.info div{
-    display: block;
+.go{
+    color: #828282;
+}
+
+.p2{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.imgInfoIcon a{
+    display: inline-block;
+    color: #7165E3;
+    font-size: 50px;
+}
+
+.left{
+    padding-left: 3.5rem;
 }
