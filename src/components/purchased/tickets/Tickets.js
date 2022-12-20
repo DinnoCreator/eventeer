@@ -22,9 +22,9 @@ const Tickets = () => {
                         <i 
                         style={{
                             color: "white",
-                            backgroundColor: "#0ead69"
+                            backgroundColor: "#55CCF8"
                         }}
-                        class="fa-solid fa-music"></i> 
+                        class="fa-solid fa-champagne-glasses"></i> 
                         <span className={classes.ID}>#04512365741</span>
                     </p>
                 </span>
@@ -40,9 +40,9 @@ const Tickets = () => {
                         <i 
                         style={{
                             color: "white",
-                            backgroundColor: "#0ead69"
+                            backgroundColor: "#55CCF8"
                         }}
-                        class="fa-solid fa-music"></i> 
+                        class="fa-solid fa-champagne-glasses"></i> 
                         <span className={classes.ID}>#04512365741</span>
                     </p>
                 </span>
@@ -58,9 +58,9 @@ const Tickets = () => {
                         <i 
                         style={{
                             color: "white",
-                            backgroundColor: "#0ead69"
+                            backgroundColor: "#55CCF8"
                         }}
-                        class="fa-solid fa-music"></i> 
+                        class="fa-solid fa-champagne-glasses"></i> 
                         <span className={classes.ID}>#04512365741</span>
                     </p>
                 </span>
@@ -76,9 +76,9 @@ const Tickets = () => {
                         <i 
                         style={{
                             color: "white",
-                            backgroundColor: "#0ead69"
+                            backgroundColor: "#55CCF8"
                         }}
-                        class="fa-solid fa-music"></i> 
+                        class="fa-solid fa-champagne-glasses"></i> 
                         <span className={classes.ID}>#04512365741</span>
                     </p>
                 </span>
