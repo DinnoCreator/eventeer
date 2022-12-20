@@ -5,18 +5,21 @@ const Ticket = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    return navigate("/");
+    return navigate("/tickets");
   };
   const location = "eleven eleven calabar";
 
   return (
     <div className="container">
-      <div className={`container grid-container ${classes.options}`}>
+      <div className={`container hstack grid-container ${classes.options}`}>
         <div className={`${classes.optionsIcon}`} onClick={handleBack}>
           <i className="fa-solid fa-arrow-left"></i>
         </div>
         <div className={`grid-item ${classes.ID}`}>
           <h3>#04512365741</h3>
+        </div>
+        <div className={`${classes.optionsIcon} ms-auto`} onClick={handleBack}>
+        <i class="fa-solid fa-share-nodes"></i>
         </div>
       </div>
       <div className="container">

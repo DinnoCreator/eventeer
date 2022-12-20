@@ -30,7 +30,7 @@ const Footer = () => {
                 fontSize: "20px"
               }
             : { color: "#828282" }}
-         className="nav-link" to="/ticket">
+         className="nav-link" to="/tickets">
           <i className="fa-regular fa-square-check"></i><br/>
             <span>Ticket</span>
           </NavLink>
