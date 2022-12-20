@@ -53,26 +53,6 @@ const TicketInterest = () => {
             </a>
           </div>
         </div>
-        <div
-          className="container"
-          style={{ paddingTop: "2rem", textAlign: "center" }}
-        >
-          <h1 style={{ textAlign: "left" }}>Place</h1>
-          <div className="mapouter">
-            <div className="gmap_canvas">
-              <iframe
-                title="Campus Tour"
-                className="gmap_iframe"
-                frameBorder="0"
-                scrolling="no"
-                marginHeight="0"
-                marginWidth="0"
-                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=etta agbor calabar&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-              ></iframe>
-              {/* <a href="https://formatjson.org/">format json</a> */}
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
