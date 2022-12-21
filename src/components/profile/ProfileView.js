@@ -1,16 +1,20 @@
 import classes from "../profile/ProfileView.module.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Layout/Footer";
 
 const ProfileView = () => {
     const navigate = useNavigate();
     const img1 =
     "https://media.istockphoto.com/id/1412446063/photo/multiracial-smiling-friends-enjoying-on-the-boat.jpg?s=612x612&w=is&k=20&c=SSIv0T1DBO9z60EnM_FhVFVUvkXP4vWj54793--xGLY=";
  
+    const handleSettings = () => {
+        return navigate("/settings");
+    }
     return (
       <>
         <div className="container">
             <div className={`container`}>
-                <div className={`${classes.settings}`}>
+                <div className={`${classes.settings}`} onClick={handleSettings}>
                 <i class="fa-solid fa-gear"></i>
                 </div>
             </div>
@@ -53,6 +57,7 @@ const ProfileView = () => {
                 </span>
             </div>
           </div>
+          <Footer/>
       </>
     );
 }

@@ -1,0 +1,49 @@
+.backIcon{
+    font-size: 25px;
+}
+
+.header h2{
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.head{
+    margin-top: 1.5rem;
+}
+
+.setTitle{
+    margin-top: 2rem;
+    color: #AFB8C7;
+}
+
+.setTitle p{
+    font-size: 18px;
+}
+
+.setContent{
+    border: 1px solid #F4F3F3;
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
+    background-color: white;
+}
+
+.setContent p{
+    font-size: 20px;
+    color: #052349;
+    font-weight: 600;
+}
+.setContent i{
+    font-size: 20px;
+}
+.setContent:hover {
+    cursor: pointer;
+}
+.setContent:hover p{
+    font-size: 30px;
+}
+.setContent:hover i{
+    font-size: 30px;
+}
+p.count{
+    color: #7165E3;
+}

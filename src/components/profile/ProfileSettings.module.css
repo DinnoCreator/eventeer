@@ -1,0 +1,37 @@
+:root{
+    --p-size: 12px;
+}
+.settings{
+    margin-top: 1rem;
+    text-align: right;
+    font-size: 40px;
+    color: #7165E3;
+}
+
+.settings:hover{
+    cursor: pointer;
+}
+
+.dp{
+    margin-top: 1rem;
+}
+.dp img{
+    height: 170px;
+    width: 170px;
+    border-radius: 100%;
+}
+
+.dp h3{
+    margin-top: 1rem;
+    font-weight: 700;
+}
+.dp h4{
+    margin-bottom: 1.5rem;
+    color: #828282;
+
+}
+
+.dp i{
+    color: #7165E3;
+    margin-right: 0.5rem;
+}

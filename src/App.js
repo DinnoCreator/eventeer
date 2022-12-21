@@ -4,6 +4,7 @@ import TicketDisplay from "./pages/TicketDisplay";
 import PurchasedTicket from "./pages/PurchasedTicket";
 import OpenedTickets from "./pages/OpenedTickets";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/ticket" element={<PurchasedTicket />} />
         <Route path="/tickets" element={<OpenedTickets />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings />} />
     </Routes>
   );
 }
