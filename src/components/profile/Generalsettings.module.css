@@ -39,10 +39,10 @@
     cursor: pointer;
 }
 .setContent:hover p{
-    font-size: 30px;
+    font-size: 25px;
 }
 .setContent:hover i{
-    font-size: 30px;
+    font-size: 25px;
 }
 p.count{
     color: #7165E3;
