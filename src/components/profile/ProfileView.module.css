@@ -1,0 +1,118 @@
+:root{
+    --p-size: 12px;
+}
+.settings{
+    margin-top: 1rem;
+    text-align: right;
+    font-size: 40px;
+    color: #7165E3;
+}
+
+.settings:hover{
+    cursor: pointer;
+}
+
+.dp{
+    margin-top: 1rem;
+}
+.dp img{
+    height: 170px;
+    width: 170px;
+    border-radius: 100%;
+}
+
+.dp h3{
+    margin-top: 1rem;
+    font-weight: 700;
+}
+.dp h4{
+    margin-bottom: 1.5rem;
+    color: #828282;
+
+}
+
+.dp i{
+    color: #7165E3;
+    margin-right: 0.5rem;
+}
+
+.btn{
+    border-radius: var(--p-size);
+    border: 1px solid #7165E3;
+    color: white;
+    background-color: #7165E3;
+    font-size: larger;
+    font-weight: 700;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    cursor: pointer;
+    color: #7165E3;
+    background-color: white;
+    box-shadow: none;
+}
+.btn1{
+    margin-top: 1rem;
+    color: #7165E3;
+    background-color: white;
+    border: none;
+}
+
+.btn1:hover{
+    color: white;
+    background-color: #7165E3;
+}
+.active{
+    margin-top: 2rem;
+}
+
+.ticketStrip{
+    margin-top: 2rem;
+    background-color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ticketStrip:hover{
+    box-shadow: none;
+}
+.ticketStrip img{
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    display: inline-block;
+}
+
+.ticketStripInfo{
+    display: inline-block;
+    margin-right: 2rem;
+}
+
+.ticketStripInfo i {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 6px;
+}
+@media (max-width: 700px) {
+    .ticketStripInfo{
+        margin-right: 1rem;
+    }
+    
+}
+
+.ticketStripInfo p{
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.ID{
+    margin-left: 0.8rem;
+    color: #828282;
+}

@@ -9,7 +9,7 @@ const Tickets = () => {
     return (
         <div className="container">
             <div className={`container ${classes.pad}`}>
-            <h2>You have 4 opened tickets...</h2>
+            <h2>You have 4 open tickets...</h2>
             </div>
             <div className={`hstack ${classes.ticketStrip}`}
             onClick={() => {
