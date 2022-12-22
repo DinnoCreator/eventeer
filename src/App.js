@@ -5,6 +5,7 @@ import PurchasedTicket from "./pages/PurchasedTicket";
 import OpenedTickets from "./pages/OpenedTickets";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
+import ProfileEdit from "./pages/settings/ProfileEdit";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/tickets" element={<OpenedTickets />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/settings/profile" element={<ProfileEdit />} />
     </Routes>
   );
 }

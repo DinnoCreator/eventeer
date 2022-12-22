@@ -8,6 +8,9 @@ const GeneralSettings = () => {
     return navigate("/profile");
   }
 
+  const handleProfile = () => {
+    return navigate("/settings/profile");
+  }
   return (
     <>
     <div className="container">
@@ -30,7 +33,7 @@ const GeneralSettings = () => {
         </div>
         </div>
       </div>
-        <div className={`${classes.setContent}`}>
+        <div className={`${classes.setContent}`} onClick={handleProfile}>
         <div className={`container`}>
             <div className="container hstack">
             <p>
@@ -129,6 +132,15 @@ const GeneralSettings = () => {
                 <p className={classes.count}>0</p>
             <i class="fa-solid fa-chevron-right"></i>
             </div>
+            </div>
+        </div>
+        </div>
+        <div className={`${classes.setContent}`}>
+        <div className={`container`}>
+            <div className="container hstack">
+            <p>
+            <i class="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;Logout
+            </p>
             </div>
         </div>
         </div>

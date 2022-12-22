@@ -11,7 +11,7 @@ const WelcomeBoard = () => {
         <div className="container bot">
         <div className="container shadowB roboroboS edit">
         <form className="d-flex" role="search">
-        <input className={`form-control ${classes.foc} me-2 b`} type="search" placeholder="Search" aria-label="Search" />
+        <input className={`form-control ${classes.foc} me-2 b`} type="search" placeholder="Search event..." aria-label="Search" />
         <button className="btn b bGreen" type="submit">
         <i className="fa-solid fa-magnifying-glass" style={{color: "white"}}></i>
         </button>
