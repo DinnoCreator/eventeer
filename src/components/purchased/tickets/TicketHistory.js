@@ -25,7 +25,7 @@ const TicketHistory = () => {
                 <div className={`container`}>
                     <div className="container hstack">
                     <p>
-                    <i class="fa-solid fa-right-to-bracket"></i> &nbsp;&nbsp;Opened Tickets
+                    <i class="fa-solid fa-right-to-bracket"></i> &nbsp;&nbsp;Open Tickets
                     </p>
                     <div className="ms-auto">
                     <i class="fa-solid fa-chevron-down"></i>
@@ -44,7 +44,7 @@ const TicketHistory = () => {
             <div className={`container`}>
                 <div className="container hstack">
                 <p>
-                <i class="fa-solid fa-right-to-bracket"></i> &nbsp;&nbsp;Opened Tickets
+                <i class="fa-solid fa-right-to-bracket"></i> &nbsp;&nbsp;Open Tickets
                 </p>
                 <div className="ms-auto">
                 <i class="fa-solid fa-chevron-up"></i>
