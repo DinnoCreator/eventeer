@@ -25,7 +25,7 @@ const TicketHistory = () => {
                 <div className={`container`}>
                     <div className="container hstack">
                     <p>
-                    <i class="fa-solid fa-right-to-bracket"></i> &nbsp;&nbsp;Opened
+                    <i class="fa-solid fa-right-to-bracket"></i> &nbsp;&nbsp;Opened Tickets
                     </p>
                     <div className="ms-auto">
                     <i class="fa-solid fa-chevron-down"></i>
@@ -44,7 +44,7 @@ const TicketHistory = () => {
             <div className={`container`}>
                 <div className="container hstack">
                 <p>
-                <i class="fa-solid fa-right-to-bracket"></i> &nbsp;&nbsp;Opened
+                <i class="fa-solid fa-right-to-bracket"></i> &nbsp;&nbsp;Opened Tickets
                 </p>
                 <div className="ms-auto">
                 <i class="fa-solid fa-chevron-up"></i>
@@ -149,7 +149,7 @@ const TicketHistory = () => {
             <div className={`container`}>
                 <div className="container hstack">
                 <p>
-                <i class="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;Closed
+                <i class="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;Closed Tickets
                 </p>
                 <div className="ms-auto">
                 <i class="fa-solid fa-chevron-down"></i>
@@ -166,7 +166,7 @@ const TicketHistory = () => {
             <div className={`container`}>
                 <div className="container hstack">
                 <p>
-                <i class="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;Closed
+                <i class="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;Closed Tickets
                 </p>
                 <div className="ms-auto">
                 <i class="fa-solid fa-chevron-up"></i>
