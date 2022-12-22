@@ -1,0 +1,25 @@
+.setTitle{
+    margin-top: 2rem;
+    color: #AFB8C7;
+}
+
+.setTitle p{
+    font-size: 18px;
+}
+
+.setContent{
+    margin-top: 2rem;
+    border: 1px solid #F4F3F3;
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
+    background-color: white;
+}
+
+.setContent p{
+    font-size: 20px;
+    color: #052349;
+    font-weight: 600;
+}
+.setContent i{
+    font-size: 20px;
+}

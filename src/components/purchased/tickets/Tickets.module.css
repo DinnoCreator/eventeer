@@ -2,6 +2,9 @@
     padding-top: 2rem;
 }
 
+.switch:hover{
+    cursor: pointer;
+}
 .ticketStrip{
     margin-top: 2rem;
     background-color: white;

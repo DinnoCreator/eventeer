@@ -1,89 +1,42 @@
 import classes from "../tickets/Tickets.module.css";
-import { useNavigate } from "react-router-dom";
+import TicketsBody from "./TicketsBody";
+import TicketHistory from "./TicketHistory";
+import { useState } from "react";
 
 const Tickets = () => {
-    const navigate = useNavigate();
-    const img1 =
-    "https://media.istockphoto.com/id/1412446063/photo/multiracial-smiling-friends-enjoying-on-the-boat.jpg?s=612x612&w=is&k=20&c=SSIv0T1DBO9z60EnM_FhVFVUvkXP4vWj54793--xGLY=";
- 
+    const [switchh, switchhSet] = useState(false);
+
+    const handleSwitch = () => {
+        (!switchh) ? switchhSet(true) : switchhSet(false);
+    }
+  if (!switchh) {
     return (
-        <div className="container">
-            <div className={`container ${classes.pad}`}>
-            <h2>You have 4 open tickets...</h2>
+        <>
+          <div className="container">
+            <div className={`container hstack ${classes.pad}`}>
+              <h2>4 open tickets...</h2>
+              <h2 className={`ms-auto ${classes.switch}`} onClick={handleSwitch}>
+                <i class="fa-solid fa-clock-rotate-left"></i>
+              </h2>
             </div>
-            <div className={`hstack ${classes.ticketStrip}`}
-            onClick={() => {
-              return navigate("/ticket")
-            }}>
-                <img src={img1} width="130x" alt="ticket" />
-                <span className={`ms-auto ${classes.ticketStripInfo}`}>
-                    <p>Calabar Pool Party</p>
-                    <p>
-                        <i 
-                        style={{
-                            color: "white",
-                            backgroundColor: "#55CCF8"
-                        }}
-                        class="fa-solid fa-champagne-glasses"></i> 
-                        <span className={classes.ID}>#04512365741</span>
-                    </p>
-                </span>
+            <TicketsBody/>
+          </div>
+        </>
+      );
+  } else {
+    return (
+        <>
+          <div className="container">
+            <div className={`container hstack ${classes.pad}`}>
+              <h2>Ticket history...</h2>
+              <h2 className={`ms-auto ${classes.switch}`} style={{color: "#7165E3"}} onClick={handleSwitch}>
+                <i class="fa-solid fa-clock-rotate-left"></i>
+              </h2>
             </div>
-            <div className={`hstack ${classes.ticketStrip}`}
-            onClick={() => {
-              return navigate("/ticket")
-            }}>
-                <img src={img1} width="130px" alt="ticket" />
-                <span className={`ms-auto ${classes.ticketStripInfo}`}>
-                    <p>Calabar Pool Party</p>
-                    <p>
-                        <i 
-                        style={{
-                            color: "white",
-                            backgroundColor: "#55CCF8"
-                        }}
-                        class="fa-solid fa-champagne-glasses"></i> 
-                        <span className={classes.ID}>#04512365741</span>
-                    </p>
-                </span>
-            </div>
-            <div className={`hstack ${classes.ticketStrip}`}
-            onClick={() => {
-              return navigate("/ticket")
-            }}>
-                <img src={img1} width="130px" alt="ticket" />
-                <span className={`ms-auto ${classes.ticketStripInfo}`}>
-                    <p>Calabar Pool Party</p>
-                    <p>
-                        <i 
-                        style={{
-                            color: "white",
-                            backgroundColor: "#55CCF8"
-                        }}
-                        class="fa-solid fa-champagne-glasses"></i> 
-                        <span className={classes.ID}>#04512365741</span>
-                    </p>
-                </span>
-            </div>
-            <div className={`hstack ${classes.ticketStrip}`}
-            onClick={() => {
-              return navigate("/ticket")
-            }}>
-                <img src={img1} width="130px" alt="ticket" />
-                <span className={`ms-auto ${classes.ticketStripInfo}`}>
-                    <p>Calabar Pool Party</p>
-                    <p>
-                        <i 
-                        style={{
-                            color: "white",
-                            backgroundColor: "#55CCF8"
-                        }}
-                        class="fa-solid fa-champagne-glasses"></i> 
-                        <span className={classes.ID}>#04512365741</span>
-                    </p>
-                </span>
-            </div>
-        </div>
-    );
-}
+            <TicketHistory/>
+          </div>
+        </>
+      );
+  }
+};
 export default Tickets;
