@@ -2,6 +2,10 @@
     font-size: 25px;
 }
 
+.backIcon:hover{
+    cursor: pointer;
+}
+
 .header h2{
     font-size: 27px;
     font-weight: 700;
