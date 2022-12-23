@@ -1,0 +1,69 @@
+.emailc{
+    margin-top: 2rem;
+}
+
+.form{
+    margin-top: 2rem;
+}
+
+.formPush{
+    margin-top: 1rem;
+}
+
+.hr{
+    margin-top: 2rem;
+}
+
+.dn h5{
+    color: #052349;
+}
+
+.btn{
+    border-radius: var(--p-size);
+    border: 1px solid #7165E3;
+    color: white;
+    background-color: #7165E3;
+    font-size: larger;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    cursor: pointer;
+    color: #7165E3;
+    background-color: white;
+    box-shadow: none;
+}
+
+.setContent{
+    border: 1px solid #F4F3F3;
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
+    background-color: white;
+}
+
+.setContent p{
+    font-size: 20px;
+    color: #052349;
+    font-weight: 600;
+}
+.setContent i{
+    font-size: 20px;
+}
+.setContent:hover {
+    cursor: pointer;
+}
+.setContent:hover p{
+    font-size: 25px;
+}
+.setContent:hover i{
+    font-size: 25px;
+}
+p.count{
+    color: #7165E3;
+}

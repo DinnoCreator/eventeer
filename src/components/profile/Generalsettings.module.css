@@ -42,11 +42,13 @@
 .setContent:hover {
     cursor: pointer;
 }
-.setContent:hover p{
-    font-size: 25px;
-}
-.setContent:hover i{
-    font-size: 25px;
+@media (min-width: 900px) {
+    .setContent:hover p{
+        font-size: 25px;
+    }
+    .setContent:hover i{
+        font-size: 25px;
+    }
 }
 p.count{
     color: #7165E3;

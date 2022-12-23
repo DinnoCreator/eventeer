@@ -1,4 +1,7 @@
 import classes from "../profile/Generalsettings.module.css";
+import EmailSettings from "./general/email/EmailSettings";
+import PhoneSettings from "./general/phone/PhoneSettings";
+import PassSettings from "./general/pass/PassSettings";
 import { useNavigate } from "react-router-dom";
 
 const GeneralSettings = () => {
@@ -10,9 +13,6 @@ const GeneralSettings = () => {
 
   const handleProfile = () => {
     return navigate("/settings/profile");
-  }
-  const handleEdit = () => {
-    return navigate("/settings/email");
   }
   return (
     <>
@@ -58,30 +58,8 @@ const GeneralSettings = () => {
         </div>
         </div>
       </div>
-        <div className={`${classes.setContent}`} onClick={handleEdit}>
-        <div className={`container`}>
-            <div className="container hstack">
-            <p>
-            <i class="fa-solid fa-envelope"></i> &nbsp;&nbsp;Email address
-            </p>
-            <div className="ms-auto">
-            <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-        <div className={`${classes.setContent}`}>
-        <div className={`container`}>
-            <div className="container hstack">
-            <p>
-            <i class="fa-solid fa-phone"></i> &nbsp;&nbsp;Phone number
-            </p>
-            <div className="ms-auto">
-            <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            </div>
-        </div>
-        </div>
+      <EmailSettings/>
+      <PhoneSettings/>
         <div className={`${classes.setContent}`}>
         <div className={`container`}>
             <div className="container hstack">
@@ -103,18 +81,7 @@ const GeneralSettings = () => {
         </div>
         </div>
       </div>
-        <div className={`${classes.setContent}`}>
-        <div className={`container`}>
-            <div className="container hstack">
-            <p>
-            <i class="fa-solid fa-lock"></i> &nbsp;&nbsp;Password reset
-            </p>
-            <div className="ms-auto">
-            <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            </div>
-        </div>
-        </div>
+      <PassSettings/>
 
         <div className="container">
       <div className="container">

@@ -6,7 +6,6 @@ import OpenedTickets from "./pages/OpenedTickets";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import ProfileEdit from "./pages/settings/ProfileEdit";
-import EmailEdit from "./pages/settings/EmailEdit";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/settings/profile" element={<ProfileEdit />} />
-        <Route path="/settings/email" element={<EmailEdit />} />
     </Routes>
   );
 }
