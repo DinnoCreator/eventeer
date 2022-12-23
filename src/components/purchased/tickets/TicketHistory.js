@@ -21,7 +21,7 @@ const TicketHistory = () => {
         if (!open) {
             return (
                 <>
-                <div className={`${classes.setContent}`} onClick={handleOpen}>
+                <div className={`${classes.setContent} roborobo shadowB`} onClick={handleOpen}>
                 <div className={`container`}>
                     <div className="container hstack">
                     <p>
@@ -40,7 +40,7 @@ const TicketHistory = () => {
     
             return (
             <>
-            <div className={`${classes.setContent}`}  onClick={handleOpen}>
+            <div className={`${classes.setContent} roborobo shadowB`}  onClick={handleOpen}>
             <div className={`container`}>
                 <div className="container hstack">
                 <p>
@@ -145,7 +145,7 @@ const TicketHistory = () => {
         if (!close) {
             return (
                 
-            <div className={`${classes.setContent}`}  onClick={handleClose}>
+            <div className={`${classes.setContent} roborobo shadowB`}  onClick={handleClose}>
             <div className={`container`}>
                 <div className="container hstack">
                 <p>
@@ -162,7 +162,7 @@ const TicketHistory = () => {
             return (
                 
             <>
-            <div className={`${classes.setContent}`}  onClick={handleClose}>
+            <div className={`${classes.setContent} roborobo shadowB`}  onClick={handleClose}>
             <div className={`container`}>
                 <div className="container hstack">
                 <p>
