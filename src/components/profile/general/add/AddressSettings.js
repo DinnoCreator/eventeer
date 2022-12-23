@@ -1,9 +1,7 @@
 import classes from "../add/AddressSettings.module.css";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const AddressSettings = () => {
-  const navigate = useNavigate();
 
   const [add, setAdd] = useState(false);
 
