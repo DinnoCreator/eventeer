@@ -2,6 +2,7 @@ import classes from "../profile/Generalsettings.module.css";
 import EmailSettings from "./general/email/EmailSettings";
 import PhoneSettings from "./general/phone/PhoneSettings";
 import PassSettings from "./general/pass/PassSettings";
+import AddressSettings from "./general/add/AddressSettings";
 import { useNavigate } from "react-router-dom";
 
 const GeneralSettings = () => {
@@ -15,9 +16,6 @@ const GeneralSettings = () => {
     return navigate("/settings/profile");
   };
 
-  const handleAddress = () => {
-    return navigate("/settings/address");
-  }
   return (
     <>
       <div className="container">
@@ -60,19 +58,7 @@ const GeneralSettings = () => {
       </div>
       <EmailSettings />
       <PhoneSettings />
-      <div className={`${classes.setContent}`} onClick={handleAddress}>
-        <div className={`container`}>
-          <div className="container hstack">
-            <p>
-              <i class="fa-solid fa-location-dot"></i> &nbsp;&nbsp;Residential
-              addresses
-            </p>
-            <div className="ms-auto">
-              <i class="fa-solid fa-chevron-right"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+      <AddressSettings/>
       <div className="container">
         <div className="container">
           <div className={`${classes.setTitle}`}>
