@@ -9,113 +9,109 @@ const GeneralSettings = () => {
 
   const handleBack = () => {
     return navigate("/profile");
-  }
+  };
 
   const handleProfile = () => {
     return navigate("/settings/profile");
+  };
+
+  const handleAddress = () => {
+    return navigate("/settings/address");
   }
   return (
     <>
-    <div className="container">
-      <div className={`container grid-container ${classes.head}`}>
-        <div onClick={handleBack} className={`${classes.backIcon}`}>
-          <i class="fa-solid fa-chevron-left"></i>
+      <div className="container">
+        <div className={`container grid-container ${classes.head}`}>
+          <div onClick={handleBack} className={`${classes.backIcon}`}>
+            <i class="fa-solid fa-chevron-left"></i>
+          </div>
+          <div className={`grid-item ${classes.header}`}>
+            <h2>Settings</h2>
+          </div>
         </div>
-        <div className={`grid-item ${classes.header}`}>
-          <h2>Settings</h2>
-        </div>
-      </div>
       </div>
 
       <div className="container">
-      <div className="container">
-        <div className={`${classes.setTitle}`}>
-            <p>
-            Account Settings
-            </p>
-        </div>
-        </div>
-      </div>
-        <div className={`${classes.setContent}`} onClick={handleProfile}>
-        <div className={`container`}>
-            <div className="container hstack">
-            <p>
-            <i class="fa-solid fa-circle-user"></i> &nbsp;&nbsp;Profile
-            </p>
-            <div className="ms-auto">
-            <i class="fa-solid fa-chevron-right"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-
-      <div className="container">
-      <div className="container">
-        <div className={`${classes.setTitle}`}>
-            <p>
-            Contact Details
-            </p>
-        </div>
-        </div>
-      </div>
-      <EmailSettings/>
-      <PhoneSettings/>
-        <div className={`${classes.setContent}`}>
-        <div className={`container`}>
-            <div className="container hstack">
-            <p>
-            <i class="fa-solid fa-location-dot"></i> &nbsp;&nbsp;Residential addresses
-            </p>
-            <div className="ms-auto">
-            <i class="fa-solid fa-chevron-right"></i>
-            </div>
-            </div>
-        </div>
-        </div>
         <div className="container">
-      <div className="container">
-        <div className={`${classes.setTitle}`}>
-            <p>
-            Security Settings
-            </p>
-        </div>
+          <div className={`${classes.setTitle}`}>
+            <p>Account Settings</p>
+          </div>
         </div>
       </div>
-      <PassSettings/>
-
-        <div className="container">
-      <div className="container">
-        <div className={`${classes.setTitle}`}>
-            <p>
-            App Settings
-            </p>
-        </div>
-        </div>
-      </div>
-        <div className={`${classes.setContent}`}>
+      <div className={`${classes.setContent}`} onClick={handleProfile}>
         <div className={`container`}>
-            <div className="container hstack">
+          <div className="container hstack">
             <p>
-            <i class="fa-solid fa-bell"></i> &nbsp;&nbsp;Notifications
+              <i class="fa-solid fa-circle-user"></i> &nbsp;&nbsp;Profile
             </p>
             <div className="ms-auto">
-                <p className={classes.count}>0</p>
-            <i class="fa-solid fa-chevron-right"></i>
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
-            </div>
+          </div>
         </div>
+      </div>
+
+      <div className="container">
+        <div className="container">
+          <div className={`${classes.setTitle}`}>
+            <p>Contact Details</p>
+          </div>
         </div>
-        <div className={`${classes.setContent}`}>
+      </div>
+      <EmailSettings />
+      <PhoneSettings />
+      <div className={`${classes.setContent}`} onClick={handleAddress}>
         <div className={`container`}>
-            <div className="container hstack">
+          <div className="container hstack">
             <p>
-            <i class="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;Logout
+              <i class="fa-solid fa-location-dot"></i> &nbsp;&nbsp;Residential
+              addresses
             </p>
+            <div className="ms-auto">
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
+          </div>
         </div>
+      </div>
+      <div className="container">
+        <div className="container">
+          <div className={`${classes.setTitle}`}>
+            <p>Security Settings</p>
+          </div>
         </div>
-        </>
-    
+      </div>
+      <PassSettings />
+
+      <div className="container">
+        <div className="container">
+          <div className={`${classes.setTitle}`}>
+            <p>App Settings</p>
+          </div>
+        </div>
+      </div>
+      <div className={`${classes.setContent}`}>
+        <div className={`container`}>
+          <div className="container hstack">
+            <p>
+              <i class="fa-solid fa-bell"></i> &nbsp;&nbsp;Notifications
+            </p>
+            <div className="ms-auto">
+              <p className={classes.count}>0</p>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={`${classes.setContent}`}>
+        <div className={`container`}>
+          <div className="container hstack">
+            <p>
+              <i class="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;Logout
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
