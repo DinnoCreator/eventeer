@@ -1,12 +1,78 @@
 import classes from "../general/AddressSettings.module.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const AddressSettings = () => {
   const navigate = useNavigate();
 
+  const [add, setAdd] = useState(false)
+
   const handleBack = () => {
     return navigate("/settings");
   };
+
+  const handleCity = () => {
+    return setAdd(true);
+  }
+
+  const address = () => {
+    if (!add) {
+        return (
+        <div className={`form-floating ${classes.formPush}`} onClick={handleCity}>
+          <input
+            class="form-control roboroboS shadowB"
+            type="text"
+            value="Cross River"
+            aria-label="default input example"
+            readOnly
+          />
+          <label>State</label>
+        </div>);
+    } else {
+        return (
+        <div className={`form-floating ${classes.formPush}`}>
+          <select class="form-select roboroboS shadowB" aria-label="Default select example">
+            <option>ABUJA FCT</option>
+            <option>ABIA</option>
+            <option>ADAMAWA</option>
+            <option>AKWA IBOM</option>
+            <option>ANAMBRA</option>
+            <option>BAUCHI</option>
+            <option>BAYELSA</option>
+            <option>BENUE</option>
+            <option>BORNO</option>
+            <option selected>CROSS RIVER</option>
+            <option>DELTA</option>
+            <option>EBONYI</option>
+            <option>EDO</option>
+            <option>EKITI</option>
+            <option>ENUGU</option>
+            <option>GOMBE</option>
+            <option>IMO</option>
+            <option>JIGAWA</option>
+            <option>KADUNA</option>
+            <option>KANO</option>
+            <option>KATSINA</option>
+            <option>KEBBI</option>
+            <option>KOGI</option>
+            <option>KWARA</option>
+            <option>LAGOS</option>
+            <option>NASSARAWA</option>
+            <option>NIGER</option>
+            <option>OGUN</option>
+            <option>ONDO</option>
+            <option>OSUN</option>
+            <option>OYO</option>
+            <option>PLATEAU</option>
+            <option>RIVERS</option>
+            <option>SOKOTO</option>
+            <option>TARABA</option>
+            <option>YOBE</option>
+            <option>ZAMFARA</option>
+          </select>
+        </div>);
+    }
+  }
   return (
     <>
       <div className="container">
@@ -33,47 +99,7 @@ const AddressSettings = () => {
             />
             <label>City</label>
           </div>
-          <div className={`form-floating ${classes.formPush}`}>
-            <select class="form-select roboroboS shadowB" aria-label="Default select example">
-              <option>ABUJA FCT</option>
-              <option>ABIA</option>
-              <option>ADAMAWA</option>
-              <option>AKWA IBOM</option>
-              <option>ANAMBRA</option>
-              <option>BAUCHI</option>
-              <option>BAYELSA</option>
-              <option>BENUE</option>
-              <option>BORNO</option>
-              <option selected>CROSS RIVER</option>
-              <option>DELTA</option>
-              <option>EBONYI</option>
-              <option>EDO</option>
-              <option>EKITI</option>
-              <option>ENUGU</option>
-              <option>GOMBE</option>
-              <option>IMO</option>
-              <option>JIGAWA</option>
-              <option>KADUNA</option>
-              <option>KANO</option>
-              <option>KATSINA</option>
-              <option>KEBBI</option>
-              <option>KOGI</option>
-              <option>KWARA</option>
-              <option>LAGOS</option>
-              <option>NASSARAWA</option>
-              <option>NIGER</option>
-              <option>OGUN</option>
-              <option>ONDO</option>
-              <option>OSUN</option>
-              <option>OYO</option>
-              <option>PLATEAU</option>
-              <option>RIVERS</option>
-              <option>SOKOTO</option>
-              <option>TARABA</option>
-              <option>YOBE</option>
-              <option>ZAMFARA</option>
-            </select>
-          </div>
+          {address()}
         </div>
       </div>
       <hr className={classes.hr} />
