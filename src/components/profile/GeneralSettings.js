@@ -11,6 +11,9 @@ const GeneralSettings = () => {
   const handleProfile = () => {
     return navigate("/settings/profile");
   }
+  const handleEdit = () => {
+    return navigate("/settings/email");
+  }
   return (
     <>
     <div className="container">
@@ -55,14 +58,14 @@ const GeneralSettings = () => {
         </div>
         </div>
       </div>
-        <div className={`${classes.setContent}`}>
+        <div className={`${classes.setContent}`} onClick={handleEdit}>
         <div className={`container`}>
             <div className="container hstack">
             <p>
             <i class="fa-solid fa-envelope"></i> &nbsp;&nbsp;Email address
             </p>
             <div className="ms-auto">
-            <i class="fa-solid fa-chevron-right"></i>
+            <i class="fa-solid fa-chevron-down"></i>
             </div>
             </div>
         </div>
@@ -74,7 +77,7 @@ const GeneralSettings = () => {
             <i class="fa-solid fa-phone"></i> &nbsp;&nbsp;Phone number
             </p>
             <div className="ms-auto">
-            <i class="fa-solid fa-chevron-right"></i>
+            <i class="fa-solid fa-chevron-down"></i>
             </div>
             </div>
         </div>
@@ -107,7 +110,7 @@ const GeneralSettings = () => {
             <i class="fa-solid fa-lock"></i> &nbsp;&nbsp;Password reset
             </p>
             <div className="ms-auto">
-            <i class="fa-solid fa-chevron-right"></i>
+            <i class="fa-solid fa-chevron-down"></i>
             </div>
             </div>
         </div>
