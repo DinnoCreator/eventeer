@@ -31,6 +31,9 @@ code {
 .shadowB {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+.shadowC {
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+}
 .roborobo {
   border-top-left-radius: 24px !important;
   border-top-right-radius: 24px !important;
