@@ -45,7 +45,7 @@ const PopularEvents = () => {
   return (
     <>
       <div className="container roborobo">
-        <h1 style={{ fontWeight: "bold", marginBottom: "0", fontSize: "24px" }}>
+        <h1 style={{ fontWeight: "bold", marginBottom: "20px", fontSize: "20px" }}>
           Popular events
         </h1>
         <OwlCarousel
@@ -57,7 +57,7 @@ const PopularEvents = () => {
           dots={false}
         >
           <div
-            className="item shadowB card mt-4 mb-4 roborobo"
+            className="item shadowB card roborobo"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -75,13 +75,13 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "160px",
+                height: "140px",
                 width: "100%",
               }}
               className="card-image-top roboroboT"
             >
               <div className="row">
-                <div className="col-6 mt-4 mb-4 al">
+                <div className="col-6 mt-3 mb-3 al">
                   <span className="green rad">
                     <i
                       style={{ color: "white" }}
@@ -89,12 +89,12 @@ const PopularEvents = () => {
                     ></i>
                   </span>
                 </div>
-                <div className="col-6 mt-4 mb-4 ar">
+                <div className="col-6 mt-3 mb-3 ar">
                   <span className="white rad">
                     <i className="fa-regular fa-bookmark"></i>
                   </span>
                 </div>
-                <div className="col-6 mt-2  al">
+                <div className="col-6 mt-3  al">
                   <span
                     className="whiteBigi radi row"
                     style={{ display: "block" }}
@@ -105,19 +105,19 @@ const PopularEvents = () => {
                 </div>
               </div>
             </div>
-            <div className="card-body myContainer">
-              <h4>Calabar Pool Party</h4>
-              <h5>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
                 <i
                   style={{ color: "#7165E3" }}
                   className="fa-solid fa-location-dot"
                 ></i>
-                &nbsp;&nbsp;Marina Resort
-              </h5>
+               <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
             </div>
           </div>
           <div
-            className="item shadowB card mt-4 mb-4 roborobo"
+            className="item shadowB card roborobo"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -135,13 +135,13 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "160px",
+                height: "140px",
                 width: "100%",
               }}
               className="card-image-top roboroboT"
             >
               <div className="row">
-                <div className="col-6 mt-4 mb-4 al">
+                <div className="col-6 mt-3 mb-3 al">
                   <span className="green blue rad">
                     <i
                       style={{ color: "white" }}
@@ -149,12 +149,12 @@ const PopularEvents = () => {
                     ></i>
                   </span>
                 </div>
-                <div className="col-6 mt-4 mb-4 ar">
+                <div className="col-6 mt-3 mb-3 ar">
                   <span className="white rad">
                     <i className="fa-regular fa-bookmark"></i>
                   </span>
                 </div>
-                <div className="col-6 mt-2 al">
+                <div className="col-6 mt-3 al">
                   <span
                     className="whiteBigi radi row"
                     style={{ display: "block" }}
@@ -165,19 +165,19 @@ const PopularEvents = () => {
                 </div>
               </div>
             </div>
-            <div className="card-body myContainer">
-              <h4>Calabar Pool Party</h4>
-              <h5>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
                 <i
                   style={{ color: "#7165E3" }}
                   className="fa-solid fa-location-dot"
                 ></i>
-                &nbsp;&nbsp;Marina Resort
-              </h5>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
             </div>
           </div>
           <div
-            className="item shadowB card mt-4 mb-4 roborobo"
+            className="item shadowB card roborobo"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -195,13 +195,13 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "160px",
+                height: "140px",
                 width: "100%",
               }}
               className="card-image-top roboroboT"
             >
               <div className="row">
-                <div className="col-6 mt-4 mb-4 al">
+                <div className="col-6 mt-3 mb-3 al">
                   <span className="green rad">
                     <i
                       style={{ color: "white" }}
@@ -209,12 +209,12 @@ const PopularEvents = () => {
                     ></i>
                   </span>
                 </div>
-                <div className="col-6 mt-4 mb-4 ar">
+                <div className="col-6 mt-3 mb-3 ar">
                   <span className="white rad">
                     <i className="fa-regular fa-bookmark"></i>
                   </span>
                 </div>
-                <div className="col-6 mt-2 al">
+                <div className="col-6 mt-3 al">
                   <span
                     className="whiteBigi radi row"
                     style={{ display: "block" }}
@@ -225,19 +225,19 @@ const PopularEvents = () => {
                 </div>
               </div>
             </div>
-            <div className="card-body myContainer">
-              <h4>Calabar Pool Party</h4>
-              <h5>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
                 <i
                   style={{ color: "#7165E3" }}
                   className="fa-solid fa-location-dot"
                 ></i>
-                &nbsp;&nbsp;Marina Resort
-              </h5>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
             </div>
           </div>
           <div
-            className="item shadowB card mt-4 mb-4 roborobo"
+            className="item shadowB card roborobo"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -255,13 +255,13 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "160px",
+                height: "140px",
                 width: "100%",
               }}
               className="card-image-top roboroboT"
             >
               <div className="row">
-                <div className="col-6 mt-4 mb-4 al">
+                <div className="col-6 mt-3 mb-3 al">
                   <span className="green blue rad">
                     <i
                       style={{ color: "white" }}
@@ -269,12 +269,12 @@ const PopularEvents = () => {
                     ></i>
                   </span>
                 </div>
-                <div className="col-6 mt-4 mb-4 ar">
+                <div className="col-6 mt-3 mb-3 ar">
                   <span className="white rad">
                     <i className="fa-regular fa-bookmark"></i>
                   </span>
                 </div>
-                <div className="col-6 mt-2 al">
+                <div className="col-6 mt-3 al">
                   <span
                     className="whiteBigi radi row"
                     style={{ display: "block" }}
@@ -285,19 +285,19 @@ const PopularEvents = () => {
                 </div>
               </div>
             </div>
-            <div className="card-body myContainer">
-              <h4>Calabar Pool Party</h4>
-              <h5>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
                 <i
                   style={{ color: "#7165E3" }}
                   className="fa-solid fa-location-dot"
                 ></i>
-                &nbsp;&nbsp;Marina Resort
-              </h5>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
             </div>
           </div>
           <div
-            className="item shadowB card mt-4 mb-4 roborobo"
+            className="item shadowB card roborobo"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -315,13 +315,13 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "160px",
+                height: "140px",
                 width: "100%",
               }}
               className="card-image-top roboroboT"
             >
               <div className="row">
-                <div className="col-6 mt-4 mb-4 al">
+                <div className="col-6 mt-3 mb-3 al">
                   <span className="green rad">
                     <i
                       style={{ color: "white" }}
@@ -329,12 +329,12 @@ const PopularEvents = () => {
                     ></i>
                   </span>
                 </div>
-                <div className="col-6 mt-4 mb-4 ar">
+                <div className="col-6 mt-3 mb-3 ar">
                   <span className="white rad">
                     <i className="fa-regular fa-bookmark"></i>
                   </span>
                 </div>
-                <div className="col-6 mt-2 al">
+                <div className="col-6 mt-3 al">
                   <span
                     className="whiteBigi radi row"
                     style={{ display: "block" }}
@@ -345,19 +345,19 @@ const PopularEvents = () => {
                 </div>
               </div>
             </div>
-            <div className="card-body myContainer">
-              <h4>Calabar Pool Party</h4>
-              <h5>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
                 <i
                   style={{ color: "#7165E3" }}
                   className="fa-solid fa-location-dot"
                 ></i>
-                &nbsp;&nbsp;Marina Resort
-              </h5>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
             </div>
           </div>
           <div
-            className="item shadowB card mt-4 mb-4 roborobo"
+            className="item shadowB card roborobo"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -375,13 +375,13 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "160px",
+                height: "140px",
                 width: "100%",
               }}
               className="card-image-top roboroboT"
             >
               <div className="row">
-                <div className="col-6 mt-4 mb-4 al">
+                <div className="col-6 mt-3 mb-3 al">
                   <span className="green rad">
                     <i
                       style={{ color: "white" }}
@@ -389,12 +389,12 @@ const PopularEvents = () => {
                     ></i>
                   </span>
                 </div>
-                <div className="col-6 mt-4 mb-4 ar">
+                <div className="col-6 mt-3 mb-3 ar">
                   <span className="white rad">
                     <i className="fa-regular fa-bookmark"></i>
                   </span>
                 </div>
-                <div className="col-6 mt-2 al">
+                <div className="col-6 mt-3 al">
                   <span
                     className="whiteBigi radi row"
                     style={{ display: "block" }}
@@ -405,15 +405,15 @@ const PopularEvents = () => {
                 </div>
               </div>
             </div>
-            <div className="card-body myContainer">
-              <h4>Calabar Pool Party</h4>
-              <h5>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
                 <i
                   style={{ color: "#7165E3" }}
                   className="fa-solid fa-location-dot"
                 ></i>
-                &nbsp;&nbsp;Marina Resort
-              </h5>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
             </div>
           </div>
         </OwlCarousel>

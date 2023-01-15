@@ -5,7 +5,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f7f7f7c7;
-  height: 150vh;
+  height: 130vh;
   /* background-color: #F7F7F7; */
 }
 @media (max-width: 900px) {
@@ -15,7 +15,7 @@ body {
 }
 @media (max-width: 600px) {
   body{
-    height: 130vh;
+    height: 110vh;
   }
 }
 code {
@@ -50,7 +50,7 @@ code {
 
 .green {
   background-color: #0ead69;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .green.rad {
@@ -91,6 +91,10 @@ code {
   display: block;
   margin-left: 0;
 }
+
+.locationCol{
+  color: #828282;
+}
 .al {
   text-align: left;
 }
@@ -103,15 +107,18 @@ code {
 .ar span {
   margin-right: 20px;
 }
+.title1 h6{
+  font-weight: 700;
+}
 .first {
   padding-top: 0;
   margin-left: 5px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 800;
 }
 
 .second {
-  font-size: 16;
+  font-size: 15px;
   color: #828282;
 }
 
@@ -133,7 +140,21 @@ code {
 .center {
   text-align: center;
 }
+.ba{
+  color: white;
+}
 
+.ba:hover{
+  color:  #7165E3;
+}
+
+.ba i{
+  color: white;
+}
+
+.ba i:hover{
+  color:  #7165E3;
+}
 
 /* Help to target active category */
 /* .ca a.active {
