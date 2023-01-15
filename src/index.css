@@ -159,6 +159,9 @@ code {
   color:  #7165E3;
 }
 
+.p{
+  line-height: normal;
+}
 /* Help to target active category */
 /* .ca a.active {
   color: white;

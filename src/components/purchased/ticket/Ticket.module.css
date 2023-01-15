@@ -4,8 +4,8 @@
 }
 
 .options{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .optionsIcon{
@@ -26,7 +26,7 @@
 
 .info{
     background-color: white;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
 }
 
 .info h3{
