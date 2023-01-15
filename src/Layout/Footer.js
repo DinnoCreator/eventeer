@@ -12,7 +12,7 @@ const Footer = () => {
           isActive
             ? {
                 color: "#7165E3",
-                fontSize: "20px"
+                fontSize: "18px"
               }
             : { color: "#828282" }
         }
@@ -27,7 +27,7 @@ const Footer = () => {
           isActive
             ? {
                 color: "#7165E3",
-                fontSize: "20px"
+                fontSize: "18px"
               }
             : { color: "#828282" }}
          className="nav-link" to="/tickets">
@@ -41,7 +41,7 @@ const Footer = () => {
           isActive
             ? {
                 color: "#7165E3",
-                fontSize: "20px"
+                fontSize: "18px"
               }
             : { color: "#828282" }} 
             className="nav-link" to="/saved">
@@ -55,7 +55,7 @@ const Footer = () => {
           isActive
             ? {
                 color: "#7165E3",
-                fontSize: "20px"
+                fontSize: "18px"
               }
             : { color: "#828282" }}
              className="nav-link" to="/profile">
