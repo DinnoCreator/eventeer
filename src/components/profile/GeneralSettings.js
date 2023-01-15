@@ -21,7 +21,7 @@ const GeneralSettings = () => {
       <div className="container">
         <div className={`container grid-container ${classes.head}`}>
           <div onClick={handleBack} className={`${classes.backIcon}`}>
-            <i class="fa-solid fa-chevron-left"></i>
+            <i className="fa-solid fa-chevron-left"></i>
           </div>
           <div className={`grid-item ${classes.header}`}>
             <h2>Settings</h2>
@@ -40,10 +40,10 @@ const GeneralSettings = () => {
         <div className={`container`}>
           <div className="container hstack">
             <p>
-              <i class="fa-solid fa-circle-user"></i> &nbsp;&nbsp;Profile
+              <i className="fa-solid fa-circle-user"></i> &nbsp;&nbsp;Profile
             </p>
             <div className="ms-auto">
-              <i class="fa-solid fa-chevron-right"></i>
+              <i className="fa-solid fa-chevron-right"></i>
             </div>
           </div>
         </div>
@@ -79,11 +79,11 @@ const GeneralSettings = () => {
         <div className={`container`}>
           <div className="container hstack">
             <p>
-              <i class="fa-solid fa-bell"></i> &nbsp;&nbsp;Notifications
+              <i className="fa-solid fa-bell"></i> &nbsp;&nbsp;Notifications
             </p>
             <div className="ms-auto">
               <p className={classes.count}>0</p>
-              <i class="fa-solid fa-chevron-right"></i>
+              <i className="fa-solid fa-chevron-right"></i>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@ const GeneralSettings = () => {
         <div className={`container`}>
           <div className="container hstack">
             <p>
-              <i class="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;Logout
+              <i className="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;Logout
             </p>
           </div>
         </div>

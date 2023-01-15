@@ -16,10 +16,10 @@ const PhoneSettings = () => {
             <div className={`container`}>
               <div className="container hstack">
                 <p>
-                <i class="fa-solid fa-phone"></i> &nbsp;&nbsp;Phone number
+                <i className="fa-solid fa-phone"></i> &nbsp;&nbsp;Phone number
                 </p>
                 <div className="ms-auto">
-                  <i class="fa-solid fa-chevron-up"></i>
+                  <i className="fa-solid fa-chevron-up"></i>
                 </div>
               </div>
             </div>
@@ -28,7 +28,7 @@ const PhoneSettings = () => {
             <div className={`container ${classes.emailc}`}>
               <div className="form-floating">
                 <input
-                  class="form-control roboroboS shadowB"
+                  className="form-control roboroboS shadowB"
                   type="text"
                   aria-label="default input example"
                 />
@@ -42,7 +42,7 @@ const PhoneSettings = () => {
               <div className={`${classes.form}`}>
                 <div className={`form-floating ${classes.formPush}`}>
                   <input
-                    class="form-control roboroboS shadowB"
+                    className="form-control roboroboS shadowB"
                     type="text"
                     aria-label="default input example"
                   />
@@ -65,10 +65,10 @@ const PhoneSettings = () => {
             <div className={`container`}>
               <div className="container hstack">
                 <p>
-                <i class="fa-solid fa-phone"></i> &nbsp;&nbsp;Phone number
+                <i className="fa-solid fa-phone"></i> &nbsp;&nbsp;Phone number
                 </p>
                 <div className="ms-auto">
-                  <i class="fa-solid fa-chevron-down"></i>
+                  <i className="fa-solid fa-chevron-down"></i>
                 </div>
               </div>
             </div>

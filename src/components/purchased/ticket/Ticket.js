@@ -19,7 +19,7 @@ const Ticket = () => {
           <h3>#04512365741</h3>
         </div>
         <div className={`${classes.optionsIcon} ms-auto`} onClick={handleBack}>
-          <i class="fa-solid fa-share-nodes"></i>
+          <i className="fa-solid fa-share-nodes"></i>
         </div>
       </div>
       <div className="container">
@@ -66,7 +66,7 @@ const Ticket = () => {
                     target="_blank"
                     href={`https://www.google.com/maps/search/${location}`}
                   >
-                    <i class="fa-solid fa-diamond-turn-right"></i>
+                    <i className="fa-solid fa-diamond-turn-right"></i>
                   </a>
                 </p>
               </div>

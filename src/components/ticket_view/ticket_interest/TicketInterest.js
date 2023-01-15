@@ -43,7 +43,7 @@ const TicketInterest = () => {
               target="_blank"
               href={`https://www.google.com/maps/search/${location}`}
             >
-              <i class="fa-solid fa-diamond-turn-right"></i>
+              <i className="fa-solid fa-diamond-turn-right"></i>
             </a>
           </div>
         </div>

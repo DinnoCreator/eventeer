@@ -23,7 +23,7 @@ const TicketsBody = () => {
                 color: "white",
                 backgroundColor: "#55CCF8",
               }}
-              class="fa-solid fa-champagne-glasses"
+              className="fa-solid fa-champagne-glasses"
             ></i>
             <span className={classes.ID}>#04512365741</span>
           </p>
@@ -44,7 +44,7 @@ const TicketsBody = () => {
                 color: "white",
                 backgroundColor: "#55CCF8",
               }}
-              class="fa-solid fa-champagne-glasses"
+              className="fa-solid fa-champagne-glasses"
             ></i>
             <span className={classes.ID}>#04512365741</span>
           </p>
@@ -65,7 +65,7 @@ const TicketsBody = () => {
                 color: "white",
                 backgroundColor: "#55CCF8",
               }}
-              class="fa-solid fa-champagne-glasses"
+              className="fa-solid fa-champagne-glasses"
             ></i>
             <span className={classes.ID}>#04512365741</span>
           </p>
@@ -86,7 +86,7 @@ const TicketsBody = () => {
                 color: "white",
                 backgroundColor: "#55CCF8",
               }}
-              class="fa-solid fa-champagne-glasses"
+              className="fa-solid fa-champagne-glasses"
             ></i>
             <span className={classes.ID}>#04512365741</span>
           </p>

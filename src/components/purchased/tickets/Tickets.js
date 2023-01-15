@@ -16,7 +16,7 @@ const Tickets = () => {
             <div className={`container hstack ${classes.pad}`}>
               <h2>4 open tickets...</h2>
               <h2 className={`ms-auto ${classes.switch}`} onClick={handleSwitch}>
-                <i class="fa-solid fa-clock-rotate-left"></i>
+                <i className="fa-solid fa-clock-rotate-left"></i>
               </h2>
             </div>
             <TicketsBody/>
@@ -30,7 +30,7 @@ const Tickets = () => {
             <div className={`container hstack ${classes.pad}`}>
               <h2>Ticket history...</h2>
               <h2 className={`ms-auto ${classes.switch}`} style={{color: "#7165E3"}} onClick={handleSwitch}>
-                <i class="fa-solid fa-clock-rotate-left"></i>
+                <i className="fa-solid fa-clock-rotate-left"></i>
               </h2>
             </div>
             <TicketHistory/>

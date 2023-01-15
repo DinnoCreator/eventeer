@@ -15,7 +15,7 @@ const ProfileView = () => {
         <div className="container">
             <div className={`container`}>
                 <div className={`${classes.settings}`} onClick={handleSettings}>
-                <i class="fa-solid fa-gear"></i>
+                <i className="fa-solid fa-gear"></i>
                 </div>
             </div>
             <div className={`container grid-container ${classes.dp}`}>
@@ -51,7 +51,7 @@ const ProfileView = () => {
                             color: "white",
                             backgroundColor: "#55CCF8"
                         }}
-                        class="fa-solid fa-champagne-glasses"></i> 
+                        className="fa-solid fa-champagne-glasses"></i> 
                         <span className={classes.ID}>Role: Creator</span>
                     </p>
                 </span>

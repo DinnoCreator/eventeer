@@ -24,7 +24,7 @@ const TicketDescription = () => {
           Event Description
         </h4>
         <h4 style={{ color: "#7165E3", marginTop: "0" }}>
-          <i class="fa-solid fa-caret-down"></i>
+          <i className="fa-solid fa-caret-down"></i>
         </h4>
         </div>
       </div>
@@ -38,7 +38,7 @@ const TicketDescription = () => {
           Event Description
         </h4>
         <h4 style={{ color: "#7165E3", marginTop: "0" }}>
-          <i class="fa-solid fa-caret-up"></i>
+          <i className="fa-solid fa-caret-up"></i>
         </h4>
         </div>
         <div className="container">
