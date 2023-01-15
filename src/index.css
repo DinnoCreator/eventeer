@@ -232,6 +232,13 @@ code {
   animation-duration: 14s;
 }
 
+.animate:hover{
+  cursor: pointer;
+}
+.animate-remove:hover{
+  cursor: pointer;
+}
+
 @keyframes description {
   5%   {font-size: 20px;}
   10%  {font-size: 18px;}

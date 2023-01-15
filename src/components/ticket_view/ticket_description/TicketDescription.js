@@ -8,7 +8,7 @@ const TicketDescription = () => {
     if (!show) {
         setShow(true);
         window.scrollTo({ top: document.body.offsetHeight, left: 0, behavior: "smooth" });
-        return setAnimate("");
+        return setAnimate("animate-remove");
     } else {
         setShow(false);
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
