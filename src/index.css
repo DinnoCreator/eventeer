@@ -128,6 +128,8 @@ code {
 .myContainer {
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  overflow: auto;
 }
 /* Popular events end */
 .myContainer-fluid {
@@ -251,8 +253,19 @@ code {
   90% {font-size: 18px;}
   95%  {font-size: 20px;}
   100% {font-size: 18px;}
-  /* 0%   {font-size: 24px;}
-  25%  {font-size: 18px;}
-  50%  {font-size: 24px;}
-  100% {font-size: 18px;} */
 }
+
+/* @keyframes scroll {
+  from {
+      transform: translate(0,0)
+  }
+
+  to {
+     transform: translate(-300px,0)
+  }
+}
+
+.resultMarquee {
+  animation: scroll 7s linear 0s infinite;
+  position: relative;
+} */
