@@ -1,0 +1,52 @@
+.bod{
+    background-image:url(../../images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 130vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.4rem;
+}
+.bod h1{
+    color: #EAEAEA;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    animation: title 3s linear;
+    position: relative;
+}
+.bod img{
+    width: 50%;
+}
+
+@media (max-width: 990px) {
+    .bod img{
+        width: 90%;
+    }
+}
+@keyframes title {
+    25%   {right: 75%;}
+    50%  {right: 50%;}
+    75%  {right: 25%;}
+    100% {right: 0%;}
+  }
+
+.but span{
+    color: #7165E3;
+    font-weight: bold;
+}
+.but div{
+    margin-top: 4rem;
+    margin-bottom: 1.8rem;
+    position: relative;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    animation: buttoun 3s linear;
+}
+
+@keyframes buttoun {
+    25%   {left: 75%;}
+    50%  {left: 50%;}
+    75%  {left: 25%;}
+    100% {left: 0%;}
+}

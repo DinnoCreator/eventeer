@@ -44,7 +44,7 @@ const PopularEvents = () => {
   };
   return (
     <>
-      <div className="container roborobo">
+      <div className="container">
         <h1 style={{ fontWeight: "bold", marginBottom: "20px", fontSize: "20px" }}>
           Popular events
         </h1>
@@ -57,7 +57,7 @@ const PopularEvents = () => {
           dots={false}
         >
           <div
-            className="item shadowB card roborobo"
+            className="item shadowC card roborobo mb-3"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -117,7 +117,7 @@ const PopularEvents = () => {
             </div>
           </div>
           <div
-            className="item shadowB card roborobo"
+            className="item shadowC card roborobo mb-3"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -177,7 +177,7 @@ const PopularEvents = () => {
             </div>
           </div>
           <div
-            className="item shadowB card roborobo"
+            className="item shadowC card roborobo mb-3"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -237,7 +237,7 @@ const PopularEvents = () => {
             </div>
           </div>
           <div
-            className="item shadowB card roborobo"
+            className="item shadowC card roborobo mb-3"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -297,7 +297,7 @@ const PopularEvents = () => {
             </div>
           </div>
           <div
-            className="item shadowB card roborobo"
+            className="item shadowC card roborobo mb-3"
             onClick={() => {
               return navigate("/display", {
                 state: {
@@ -357,7 +357,7 @@ const PopularEvents = () => {
             </div>
           </div>
           <div
-            className="item shadowB card roborobo"
+            className="item shadowC card roborobo mb-3"
             onClick={() => {
               return navigate("/display", {
                 state: {
