@@ -106,7 +106,7 @@ const PopularEvents = () => {
               </div>
             </div>
             <div className="card-body myContainer title1">
-              <h6 className="resultMarquee">Calabar Pool Partysrts12345</h6>
+              <h6 className="resultMarquee">Calabar Pool Party</h6>
               <h6>
                 <i
                   style={{ color: "#7165E3" }}
