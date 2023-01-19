@@ -11,8 +11,8 @@ import HomeCom from "./components/home/HomeCom";
 function App() {
   return (
     <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/home" element={<HomeCom />} />
+        <Route path="/" element={<HomeCom/>} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/display" element={<TicketDisplay />} />
         <Route path="/ticket" element={<PurchasedTicket />} />
         <Route path="/tickets" element={<OpenedTickets />} />

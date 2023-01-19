@@ -7,20 +7,30 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1.4rem;
+    animation: bod 4s linear;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
+
+@keyframes bod {
+    from   {opacity: 0;}
+    to {opacity: 1;}
+  }
+
 .bod h1{
-    color: #EAEAEA;
+    color: #e9e8f0;
     margin-top: 4rem;
-    margin-bottom: 4rem;
-    animation: title 3s linear;
+    margin-bottom: 2rem;
+    animation: title 2s linear;
     position: relative;
 }
-.bod img{
+.bod .img{
     width: 50%;
+    border-radius: 50%;
 }
 
 @media (max-width: 990px) {
-    .bod img{
+    .bod .img{
         width: 90%;
     }
 }
@@ -35,13 +45,23 @@
     color: #7165E3;
     font-weight: bold;
 }
-.but div{
-    margin-top: 4rem;
+.but .start{
+    margin-top: 2rem;
     margin-bottom: 1.8rem;
     position: relative;
     padding-left: 3rem;
     padding-right: 3rem;
-    animation: buttoun 3s linear;
+    animation: buttoun 2s linear;
+}
+
+.start:hover{
+    cursor: pointer;
+}
+
+.about{
+    color: #d9d7e4;
+    font-size: 20px;
+    margin-top: 2rem;
 }
 
 @keyframes buttoun {
@@ -50,3 +70,82 @@
     75%  {left: 25%;}
     100% {left: 0%;}
 }
+
+.cool{
+    display: inline-block;
+    animation: cooler 1s linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    color: #7165E3;
+    font-size: 32px;
+}
+
+@keyframes cooler {
+    from{
+        transform: translateY(+320px);
+        opacity: 0;
+    }
+
+    to{
+        transform: translateY(+270px);
+        opacity: 1;
+    }
+}
+.second{
+    animation-delay: 30ms;
+}
+.third{
+    animation-delay: 60ms;
+}
+.fourth{
+    animation-delay: 90ms;
+}
+.fifth{
+    animation-delay: 120ms;
+}
+.sixth{
+    animation-delay: 150ms;
+}
+.seventh{
+    animation-delay: 180ms;
+}
+.eight{
+    animation-delay: 210ms;
+}
+.ninth{
+    animation-delay: 240ms;
+}
+.tenth{
+    animation-delay: 270ms;
+}
+
+.compName h1{
+    animation: comp 14s linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+@keyframes comp {
+    5%   {font-size: 28px;}
+    10%  {font-size: 32px;}
+    15%  {font-size: 28px;}
+    20% {font-size: 32px;}
+    25%   {font-size: 28px;}
+    30%  {font-size: 32px;}
+    35%  {font-size: 28px;}
+    40% {font-size: 32px;}
+    45%  {font-size: 28px;}
+    50% {font-size: 32px;}
+    55%   {font-size: 28px;}
+    60%  {font-size: 32px;}
+    65%  {font-size: 28px;}
+    70% {font-size: 32px;}
+    75%   {font-size: 28px;}
+    80%  {font-size: 32px;}
+    85%  {font-size: 28px;}
+    90% {font-size: 32px;}
+    95%  {font-size: 28px;}
+    100% {font-size: 32px;}
+  }
