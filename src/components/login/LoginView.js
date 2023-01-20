@@ -31,7 +31,7 @@ const LoginView = () => {
                 id="exampleInputPassword1"
                 autoComplete="off"
               />
-              <button className={`btn ${classes.login}`} type="submit">
+              <button className={`btn ${classes.login}`} type="button">
               <i className="fa-regular fa-eye-slash"></i>
               </button>
               </span>

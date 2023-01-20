@@ -46,7 +46,7 @@ const SignUpView = () => {
                   id="exampleInputPassword1"
                   aria-describedby="emailHelp"
                 />
-                <button className={`btn ${classes.login}`} type="submit">
+                <button className={`btn ${classes.login}`} type="button">
                   <i className="fa-regular fa-eye-slash"></i>
                 </button>
               </span>
