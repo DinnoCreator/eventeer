@@ -16,7 +16,7 @@ const Footer = () => {
               }
             : { color: "#828282" }
         }
-          className="nav-link" to="/">
+          className="nav-link" to="/dashboard">
           <i className="fa-solid fa-magnifying-glass"></i><br/>
             <span>Explore</span>
           </NavLink>

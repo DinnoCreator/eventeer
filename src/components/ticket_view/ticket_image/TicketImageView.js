@@ -6,7 +6,7 @@ const TicketImageView = () => {
   const location = useLocation();
 
   const handleBack = () => {
-    return navigate("/");
+    return navigate("/dashboard");
   }
     return(
         <div className={classes.img} 
