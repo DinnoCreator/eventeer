@@ -52,7 +52,7 @@ const SignUpView = () => {
               </span>
               <div id="emailHelp" className="form-text">min. 8 characters</div>
             </div>
-            <div className={`d-grid gap-2 btn ${classes.login}`}>Signup</div>
+            <div className={`d-grid gap-2 shadowB btn ${classes.login}`}>Signup</div>
 
             <hr />
           </form>

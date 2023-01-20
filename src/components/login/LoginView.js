@@ -37,13 +37,13 @@ const LoginView = () => {
               </span>
               <div id="emailHelp" className="form-text">min. 8 characters</div>
             </div>
-            <div className={`d-grid gap-2 btn ${classes.login}`}>
+            <div className={`d-grid gap-2 btn shadowB ${classes.login}`}>
               Login
             </div>
 
             <hr/>
             <h4 className="center mb-3">or</h4>
-            <div className={`d-grid gap-2 btn ${classes.signup}`}>
+            <div className={`d-grid gap-2 shadowB btn ${classes.signup}`}>
               Signup
             </div>
           </form>
