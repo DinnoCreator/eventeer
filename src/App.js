@@ -7,11 +7,15 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import ProfileEdit from "./pages/settings/ProfileEdit";
 import HomeCom from "./components/home/HomeCom";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
     <Routes>
         <Route path="/" element={<HomeCom/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<SignUp/>} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/display" element={<TicketDisplay />} />
         <Route path="/ticket" element={<PurchasedTicket />} />

@@ -181,9 +181,15 @@ body {
 .b{
   border: none;
 }
-
+.b:hover i{
+  color: #7165E3;
+}
 .bGreen{
   background-color: #7165E3;
+}
+
+.real{
+  color: white;
 }
 
 
