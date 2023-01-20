@@ -16,6 +16,7 @@ const LoginView = () => {
                 type="email"
                 className="form-control"
                 id="exampleInputEmail1"
+                autoComplete="off"
                 aria-describedby="emailHelp"
               />
             </div>
@@ -28,12 +29,14 @@ const LoginView = () => {
                 type="password"
                 className="form-control me-2"
                 id="exampleInputPassword1"
+                autoComplete="off"
               />
               <button className={`btn ${classes.login}`} type="submit">
               <i className="fa-regular fa-eye-slash"></i>
               </button>
               </span>
-            </div><br/>
+              <div id="emailHelp" className="form-text">min. 8 characters</div>
+            </div>
             <div className={`d-grid gap-2 btn ${classes.login}`}>
               Login
             </div>

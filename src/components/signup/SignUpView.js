@@ -15,6 +15,7 @@ const SignUpView = () => {
               <input
                 type="email"
                 className="form-control"
+                autoComplete="off"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
@@ -23,13 +24,15 @@ const SignUpView = () => {
               <label htmlFor="labfname" className="form-label">
                 First name
               </label>
-              <input type="text" className="form-control" id="labfname" />
+              <input type="text" className="form-control"
+                autoComplete="off" id="labfname" />
             </div>
             <div className="mb-3">
               <label htmlFor="lablname" className="form-label">
                 Last name
               </label>
-              <input type="text" className="form-control" id="lablname" />
+              <input type="text" className="form-control"
+                autoComplete="off" id="lablname" />
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
@@ -39,14 +42,16 @@ const SignUpView = () => {
                 <input
                   type="password"
                   className="form-control me-2"
+                  autoComplete="off"
                   id="exampleInputPassword1"
+                  aria-describedby="emailHelp"
                 />
                 <button className={`btn ${classes.login}`} type="submit">
                   <i className="fa-regular fa-eye-slash"></i>
                 </button>
               </span>
+              <div id="emailHelp" className="form-text">min. 8 characters</div>
             </div>
-            <br />
             <div className={`d-grid gap-2 btn ${classes.login}`}>Signup</div>
 
             <hr />
