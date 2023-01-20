@@ -7,15 +7,15 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1.4rem;
-    /* animation: bod 2s linear;
+    animation: bod 6s ease-in-out;
     animation-fill-mode: forwards;
-    opacity: 0; */
+    opacity: 0;
 }
 
-/* @keyframes bod {
+@keyframes bod {
     from   {opacity: 0;}
     to {opacity: 1;}
-  } */
+  }
 
 .bod h1{
     color: #e9e8f0;
@@ -56,6 +56,13 @@
 
 .start:hover{
     cursor: pointer;
+}
+
+.start span{
+    animation: getter 14s linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
 }
 
 .about{
@@ -148,4 +155,27 @@
     90% {font-size: 32px;}
     95%  {font-size: 28px;}
     100% {font-size: 32px;}
+  }
+
+@keyframes getter {
+    5%   {font-size: 21px;}
+    10%  {font-size: 23px;}
+    15%  {font-size: 21px;}
+    20% {font-size: 23px;}
+    25%   {font-size: 21px;}
+    30%  {font-size: 23px;}
+    35%  {font-size: 21px;}
+    40% {font-size: 23px;}
+    45%  {font-size: 21px;}
+    50% {font-size: 23px;}
+    55%   {font-size: 21px;}
+    60%  {font-size: 23px;}
+    65%  {font-size: 21px;}
+    70% {font-size: 23px;}
+    75%   {font-size: 21px;}
+    80%  {font-size: 23px;}
+    85%  {font-size: 21px;}
+    90% {font-size: 23px;}
+    95%  {font-size: 21px;}
+    100% {font-size: 23px;}
   }
