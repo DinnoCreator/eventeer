@@ -6,10 +6,27 @@
     font-weight: 700;
     color: #3B3B3B;
 }
-
+@media (max-height: 710px) {
+    .owl {
+        margin-top: 0;
+        padding-top: 0;
+    }
+  }
 .icon i{
     color: #7165E3;
     display: inline-block;
 }
 
 
+.h1{
+    padding-top: 20px;
+    font-size: 20px;
+}
+@media (max-height: 710px) {
+    .h1{
+        padding-top: 30px;
+        font-size: 18px;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+  }

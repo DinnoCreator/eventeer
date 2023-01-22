@@ -16,7 +16,6 @@ const TicketImageView = () => {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            height: '260px',
             width: '100%',
           }}>
             <div className={`container`}>

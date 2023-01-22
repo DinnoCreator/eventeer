@@ -8,7 +8,7 @@ const WelcomeBoard = () => {
           <h5>Welcome back</h5>
           <h1>Edidiong</h1>
         </div>
-        <div className="container bot">
+        <div className="container">
         <div className="container shadowB roboroboS edit">
         <form className="d-flex" role="search">
         <input className={`form-control ${classes.foc} me-2 b`} type="search" placeholder="Search event..." aria-label="Search" />

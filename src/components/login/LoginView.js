@@ -1,6 +1,27 @@
 import classes from "../login/LoginView.module.css";
+import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 const LoginView = () => {
+  //password visibility state
+  const [show, setshow] = useState(false);
+  const [eye, setEye] = useState("fa-eye-slash")
+  const pass = useRef();
+
+  const navigate = useNavigate();
+
+  const handleSignUp = () => {
+    navigate("/signup")
+  }
+
+  //password visibility handler
+  const showPassword = () => {
+    setshow(!show);
+    show ? setEye("fa-eye-slash") : setEye("fa-eye");
+    pass.current.type = show ? "password" : "text";
+  };
+
   return (
     <>
       <div className={` mt-5 ${classes.bod}`}>
@@ -30,9 +51,10 @@ const LoginView = () => {
                 className="form-control me-2"
                 id="exampleInputPassword1"
                 autoComplete="off"
+                ref={pass}
               />
-              <button className={`btn ${classes.login}`} type="button">
-              <i className="fa-regular fa-eye-slash"></i>
+              <button className={`btn ${classes.eye}`} onClick={showPassword} type="button">
+              <i className={`fa-regular ${eye}`}></i>
               </button>
               </span>
               <div id="emailHelp" className="form-text">min. 8 characters</div>
@@ -40,10 +62,12 @@ const LoginView = () => {
             <div className={`d-grid gap-2 btn shadowB ${classes.login}`}>
               Login
             </div>
+            
+            <Link className={`${classes.forgot}`} to="/reset">Forgotten password?</Link>
 
             <hr/>
             <h4 className="center mb-3">or</h4>
-            <div className={`d-grid gap-2 shadowB btn ${classes.signup}`}>
+            <div className={`d-grid gap-2 shadowB btn ${classes.signup}`} onClick={handleSignUp}>
               Signup
             </div>
           </form>

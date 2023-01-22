@@ -2,6 +2,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useNavigate } from "react-router-dom";
+import classes from "../popular/PopularEvents.module.css";
 
 const PopularEvents = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const PopularEvents = () => {
   return (
     <>
       <div className="container">
-        <h1 style={{ fontWeight: "bold", marginBottom: "20px", fontSize: "20px" }}>
+        <h1 className={`${classes.h1}`} style={{ fontWeight: "bold"}}>
           Popular events
         </h1>
         <OwlCarousel
@@ -75,10 +76,9 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "140px",
                 width: "100%",
               }}
-              className="card-image-top roboroboT"
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
             >
               <div className="row">
                 <div className="col-6 mt-3 mb-3 al">
@@ -106,7 +106,7 @@ const PopularEvents = () => {
               </div>
             </div>
             <div className="card-body myContainer title1">
-              <h6 className="resultMarquee">Calabar Pool Party</h6>
+              <h6>Calabar Pool Party</h6>
               <h6>
                 <i
                   style={{ color: "#7165E3" }}
@@ -135,10 +135,9 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "140px",
                 width: "100%",
               }}
-              className="card-image-top roboroboT"
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
             >
               <div className="row">
                 <div className="col-6 mt-3 mb-3 al">
@@ -195,10 +194,9 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "140px",
                 width: "100%",
               }}
-              className="card-image-top roboroboT"
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
             >
               <div className="row">
                 <div className="col-6 mt-3 mb-3 al">
@@ -255,10 +253,9 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "140px",
                 width: "100%",
               }}
-              className="card-image-top roboroboT"
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
             >
               <div className="row">
                 <div className="col-6 mt-3 mb-3 al">
@@ -315,10 +312,9 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "140px",
                 width: "100%",
               }}
-              className="card-image-top roboroboT"
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
             >
               <div className="row">
                 <div className="col-6 mt-3 mb-3 al">
@@ -375,10 +371,9 @@ const PopularEvents = () => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "140px",
                 width: "100%",
               }}
-              className="card-image-top roboroboT"
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
             >
               <div className="row">
                 <div className="col-6 mt-3 mb-3 al">

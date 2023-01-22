@@ -44,6 +44,14 @@ body {
   border-bottom-left-radius: 12px;
 }
 
+.regimeHeight{
+  height: 140px;
+}
+@media (max-height: 710px) {
+  .regimeHeight{
+    height: 110px;
+  }
+}
 .green {
   background-color: #0ead69;
   font-size: 14px;

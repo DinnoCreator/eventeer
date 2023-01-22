@@ -26,9 +26,9 @@ const Categories = () => {
       return (
         <>
          <div className='container roborobo'>
-          <h1 style={{fontWeight: "bold", marginBottom: "0", paddingTop: "20px", fontSize: "20px"}}>Categories</h1>
+          <h1 className={`${classes.h1}`} style={{fontWeight: "bold"}}>Categories</h1>
          <OwlCarousel 
-         className='owl-theme' 
+         className={`owl-theme ${classes.owl}`} 
          loop 
          margin={10} 
          item="6"

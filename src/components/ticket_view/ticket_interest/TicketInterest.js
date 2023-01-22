@@ -8,10 +8,10 @@ const TicketInterest = () => {
         <div className={`container ${classes.mag}`}>
           <div className={`d-grid ${classes.but}`}>
             <button
-              className={`btn btn-lg  shadowB ${classes.buy} roborobo`}
+              className={`btn  shadowB ${classes.buy} roborobo`}
               type="button"
             >
-              <i className="fa-regular fa-square-check"></i> Buy - N2,000.00
+               Pricing &nbsp; <i className="fa-solid fa-caret-down"></i>
             </button>
           </div>
         </div>

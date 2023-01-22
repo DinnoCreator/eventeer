@@ -8,7 +8,21 @@
     flex-direction: column;
     margin-bottom: 1.4rem;
 }
-
+@media (max-height: 710px) {
+    .img{
+      height: 170px;
+    }
+    .welcome{
+        margin-top: 3rem;
+        margin-bottom: 0;
+    }
+    .welcome h1{
+        font-size: 26px;
+    }
+    .welcome h5{
+        font-size: 18px;
+    }
+  }
 .welcome{
     margin-top: 4rem;
     margin-bottom: 1.8rem;

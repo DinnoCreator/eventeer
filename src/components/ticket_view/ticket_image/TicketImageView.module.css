@@ -1,7 +1,10 @@
 .img{
     display: flex;
     flex-direction: column;
+    height: 260px;
 }
+
+
 .img h1{
     font-size: 23px;
     font-weight: 700;
@@ -51,7 +54,7 @@
 }
 
 .options{
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .optionsIcon{
@@ -64,3 +67,12 @@
 .optionsIcon:hover{
     cursor: pointer;
 }
+
+@media (max-height: 710px) {
+    .img{
+        height: 220px;
+    }
+    .imgInfoHolder h1{
+        font-size: 20px;
+    }
+  }

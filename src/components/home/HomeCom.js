@@ -18,7 +18,7 @@ const HomeCom = () => {
   }, [getStarted]);
   
   const handleDirection = () => {
-    return navigate("/dashboard");
+    return navigate("/login");
   }
 
   return (

@@ -1,0 +1,17 @@
+.img{
+    height: 130px;
+}
+
+.h1{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+@media (max-height: 710px) {
+    .h1{
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .img{
+        height: 110px;
+    }
+  }

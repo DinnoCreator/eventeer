@@ -9,6 +9,10 @@
     font-weight: 700;
     padding-bottom: 2rem;
 }
+.imgInfo h3{
+    font-size: 23px;
+}
+
 
 
 .buy{
@@ -75,3 +79,20 @@ span p{
     font-size: 50px;
     color: #7165E3;
 }
+
+@media (max-height: 710px) {
+    .imgInfo h3{
+        font-size: 20px;
+    }
+    .icon i{
+        font-size: x-large;
+    }
+    .date p{
+        line-height: 0;
+        font-size: medium;
+    }
+    .mag{
+        margin-top: 1.4rem;
+        margin-bottom: 1.4rem;
+    }
+  }
