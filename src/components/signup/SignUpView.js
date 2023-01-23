@@ -12,9 +12,6 @@ const SignUpView = () => {
   // error messages and status
   const [loginError, setLoginError] = useState("");
   const [dip, setDip] = useState("none");
-  const [success, setSuccess] = useState("none");
-  const [signup, setSignup] = useState("block");
-
 
   // handle loading on submit
   const [loading, setLoading] = useState(false);
@@ -38,7 +35,7 @@ const SignUpView = () => {
     try {
       setLoading(true);
       //api call for sending the user data to the backend
-      await fetch("http://localhost:5000/signuptest", {
+      await fetch("http://localhost:5000/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -48,44 +45,32 @@ const SignUpView = () => {
           pWord,
         }),
       }).then((res) => {
-        if (res.status !== 200) {
+        if (res.status === 401) {
           setDip("block");
           setLoading(false);
           return setLoginError(
             "Email in use by another user..."
           );
-        } else {
+        } else if(res.status === 411) {
+          setDip("block");
           setLoading(false);
-          setSuccess("block");
-          setSignup("none")
-          setTimeout(() => {
-            navigate("/login")
-          }, 3000);
+            return setLoginError("Something went wrong...");
+        }else if (res.status === 200){
+          setLoading(false);
+          return res.json();
         }
+      })
+      .then(function (data) {
+        return navigate("/emailverification", { state: data.email });
       });
     } catch (error) {
-      
+      console.error(error);
     }
   }
 
   return (
     <>
-    {/* successful message */}
-      <div className={`center`} style={{display: success}}>
-        <div className={`${classes.first} ${classes.cool} ${classes.compName}`}><h1>S</h1></div>
-        <div className={`${classes.second} ${classes.cool} ${classes.compName}`}><h1>u</h1></div>
-        <div className={`${classes.third} ${classes.cool} ${classes.compName}`}><h1>c</h1></div>
-        <div className={`${classes.fourth} ${classes.cool} ${classes.compName}`}><h1>c</h1></div>
-        <div className={`${classes.fifth} ${classes.cool} ${classes.compName}`}><h1>e</h1></div>
-        <div className={`${classes.sixth} ${classes.cool} ${classes.compName}`}><h1>s</h1></div>
-        <div className={`${classes.seventh} ${classes.cool} ${classes.compName}`}><h1>s</h1></div>
-        <div className={`${classes.eight} ${classes.cool} ${classes.compName}`}><h1>f</h1></div>
-        <div className={`${classes.ninth} ${classes.cool} ${classes.compName}`}><h1>u</h1></div>
-        <div className={`${classes.tenth} ${classes.cool} ${classes.compName}`}><h1>l...</h1></div>
-      </div>
-
-    {/* sign up handler */}
-      <div className={` mt-5 ${classes.bod}`} style={{display: signup}}>
+      <div className={` mt-5 ${classes.bod}`}>
         <h1>Reventlify</h1>
         <h3>Never miss the fun...</h3>
         <div className="container">
@@ -163,7 +148,8 @@ const SignUpView = () => {
             <button className={`shadowB btn ${classes.login}`} type="submit">
               {loading ? (
                 <>
-                  Proccessing...
+                  <div
+                  style={{ display: "inline-block" }} className="load"></div>
                 </>
               ) : (
                 <>Signup</>

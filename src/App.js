@@ -9,6 +9,7 @@ import ProfileEdit from "./pages/settings/ProfileEdit";
 import HomeCom from "./components/home/HomeCom";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import EmailVerification from "./pages/EmailVerification";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<HomeCom/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<SignUp/>} />
+        <Route path="/emailverification" element={<EmailVerification/>} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/display" element={<TicketDisplay />} />
         <Route path="/ticket" element={<PurchasedTicket />} />

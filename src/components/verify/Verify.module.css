@@ -1,0 +1,108 @@
+.bod h1{
+    color: #7165E3;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+@media (min-width: 700px) {
+    .bod h1{
+        margin-top: 2rem;
+    }
+}
+
+.bod h3{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.login{
+    background-color: #7165E3;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.login:hover{
+    background-color: #7165E3;
+    color: white;
+}
+
+.cool{
+    display: inline-block;
+    animation: cooler 1s linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    color: #7165E3;
+    font-size: 32px;
+}
+
+@keyframes cooler {
+    from{
+        transform: translateY(+320px);
+        opacity: 0;
+    }
+
+    to{
+        transform: translateY(+270px);
+        opacity: 1;
+    }
+}
+
+.second{
+    animation-delay: 30ms;
+}
+.third{
+    animation-delay: 60ms;
+}
+.fourth{
+    animation-delay: 90ms;
+}
+.fifth{
+    animation-delay: 120ms;
+}
+.sixth{
+    animation-delay: 150ms;
+}
+.seventh{
+    animation-delay: 180ms;
+}
+.eight{
+    animation-delay: 210ms;
+}
+.ninth{
+    animation-delay: 240ms;
+}
+.tenth{
+    animation-delay: 270ms;
+}
+
+.compName h1{
+    animation: comp 14s linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+@keyframes comp {
+    5%   {font-size: 28px;}
+    10%  {font-size: 32px;}
+    15%  {font-size: 28px;}
+    20% {font-size: 32px;}
+    25%   {font-size: 28px;}
+    30%  {font-size: 32px;}
+    35%  {font-size: 28px;}
+    40% {font-size: 32px;}
+    45%  {font-size: 28px;}
+    50% {font-size: 32px;}
+    55%   {font-size: 28px;}
+    60%  {font-size: 32px;}
+    65%  {font-size: 28px;}
+    70% {font-size: 32px;}
+    75%   {font-size: 28px;}
+    80%  {font-size: 32px;}
+    85%  {font-size: 28px;}
+    90% {font-size: 32px;}
+    95%  {font-size: 28px;}
+    100% {font-size: 32px;}
+  }
