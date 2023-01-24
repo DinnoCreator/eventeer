@@ -1,6 +1,7 @@
 import classes from "../signup/SignUpView.module.css";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../link/API";
 
 const SignUpView = () => {
   // form data
@@ -35,7 +36,7 @@ const SignUpView = () => {
     try {
       setLoading(true);
       //api call for sending the user data to the backend
-      await fetch("http://localhost:5000/verify", {
+      await fetch(`${api}/verify`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

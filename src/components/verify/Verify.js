@@ -1,6 +1,7 @@
 import classes from "../verify/Verify.module.css";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { api } from "../../link/API";
 
 const Verify = () => {
   const location = useLocation();
@@ -27,7 +28,7 @@ const Verify = () => {
     try {
       setLoading(true);
       //api call for sending the user data to the backend
-      await fetch("http://localhost:5000/signup", {
+      await fetch(`${api}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -4,6 +4,7 @@ import WelcomeBoard from "../components/welcome/WelcomeBoard";
 import Footer from "../Layout/Footer";
 import { useEffect, useState, useCallback  } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../link/API";
 
 const Dashboard = () => {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
@@ -12,7 +13,7 @@ const Dashboard = () => {
 
   const getUser = useCallback(async () => {
     try {
-      await fetch("http://localhost:5000/user", {
+      await fetch(`${api}/user`, {
         method: "GET",
         headers: { authorization: sessionStorage.getItem("token") },
       })
