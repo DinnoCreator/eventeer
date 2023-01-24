@@ -90,11 +90,6 @@ const Verify = () => {
               <span>{loginError}</span>
             </div>
           )}
-          <div className="container" style={{ color: "green" }}>
-            <span>
-              
-            </span>
-          </div>
           <form className="container"  onSubmit={onSubmitForm}>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
