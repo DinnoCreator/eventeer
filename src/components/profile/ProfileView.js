@@ -26,7 +26,7 @@ const ProfileView = () => {
                 src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large"
                 />
                 <h3>Edidiong Obodom</h3>
-                <h4> <i className="fa-solid fa-location-dot"></i> Calabar, CRS.</h4>
+                <h6> <i className="fa-solid fa-location-dot"></i> Calabar, CRS.</h6>
                 <div>
                     <div className={` ${classes.btn}`}>Create Regime</div>
                 </div>

@@ -15,6 +15,11 @@
     margin-top: 1.5rem;
 }
 
+@media (max-height: 600px) {
+    .head{
+        margin-top: 1rem;
+    }
+}
 .setTitle{
     margin-top: 2rem;
     color: #AFB8C7;

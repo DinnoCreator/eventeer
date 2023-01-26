@@ -10,6 +10,16 @@
         margin-top: 2rem;
     }
 }
+@media (max-height: 675px) {
+    .bod h1{
+        margin-top: 0;
+    }
+    .bod h3{
+        text-align: center;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+    }
+}
 
 .bod h3{
     text-align: center;

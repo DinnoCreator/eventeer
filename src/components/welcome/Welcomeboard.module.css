@@ -22,6 +22,30 @@
     .welcome h5{
         font-size: 18px;
     }
+    .foc{
+        position: relative;
+        bottom:  10px;
+    }
+  }
+@media (max-height: 610px) {
+    .img{
+      height: 150px;
+      margin-bottom: 1rem;
+    }
+    .welcome{
+        margin-top: 3rem;
+        margin-bottom: 0;
+    }
+    .welcome h1{
+        font-size: 24px;
+    }
+    .welcome h5{
+        font-size: 16px;
+    }
+    .foc{
+        position: relative;
+        bottom:  20px;
+    }
   }
 .welcome{
     margin-top: 4rem;

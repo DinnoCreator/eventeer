@@ -4,10 +4,9 @@
 .settings{
     margin-top: 1rem;
     text-align: right;
-    font-size: 40px;
+    font-size: 30px;
     color: #7165E3;
 }
-
 .settings:hover{
     cursor: pointer;
 }
@@ -15,6 +14,7 @@
 .dp{
     margin-top: 1rem;
 }
+
 .dp img{
     height: 170px;
     width: 170px;
@@ -25,8 +25,8 @@
     margin-top: 1rem;
     font-weight: 700;
 }
-.dp h4{
-    margin-bottom: 1.5rem;
+.dp h6{
+    margin-bottom: 1rem;
     color: #828282;
 
 }
@@ -99,12 +99,6 @@
     border-bottom-right-radius: 10px;
     padding: 6px;
 }
-@media (max-width: 700px) {
-    .ticketStripInfo{
-        margin-right: 1rem;
-    }
-    
-}
 
 .ticketStripInfo p{
     font-size: 18px;
@@ -115,4 +109,27 @@
 .ID{
     margin-left: 0.8rem;
     color: #828282;
+}
+@media (max-width: 700px) {
+    .ticketStripInfo{
+        margin-right: 1rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .dp{
+        margin-top: 0.5rem;
+    }
+    .dp img{
+        height: 150px;
+        width: 150px;
+        border-radius: 100%;
+    }
+    .active{
+        margin-top: 1rem;
+        margin-bottom: 0.1rem;
+    }
+    .ticketStrip{
+        margin-top: 1rem;
+    }
 }

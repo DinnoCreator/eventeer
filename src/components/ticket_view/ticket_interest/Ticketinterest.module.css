@@ -96,3 +96,8 @@ span p{
         margin-bottom: 1.4rem;
     }
   }
+@media (max-height: 610px) {
+    .pad{
+        margin-top: 1.5rem;
+    }
+  }

@@ -6,10 +6,20 @@
     font-weight: 700;
     color: #3B3B3B;
 }
+
+.owl {
+    margin-top: 0;
+    padding-top: 0;
+    position: relative;
+    bottom: 7px;
+}
+
 @media (max-height: 710px) {
     .owl {
         margin-top: 0;
         padding-top: 0;
+        position: relative;
+        bottom: 10px;
     }
   }
 .icon i{
@@ -30,3 +40,12 @@
         padding-bottom: 0;
     }
   }
+
+  /* @media (max-height: 610px) {
+    .cat{
+        margin-top: 0;
+    }
+    .owl{
+        margin-top: 0;
+    }
+  } */
