@@ -99,6 +99,24 @@
         opacity: 1;
     }
 }
+
+@media (max-height: 600px) {
+    @keyframes cooler {
+        from{
+            transform: translateY(+270px);
+            opacity: 0;
+        }
+    
+        to{
+            transform: translateY(+220px);
+            opacity: 1;
+        }
+    }
+
+    .bod h1{
+        margin-top: 2.5rem;
+    }
+}
 .second{
     animation-delay: 30ms;
 }

@@ -322,6 +322,20 @@ body {
       opacity: 1;
   }
 }
+
+@media (max-height: 600px) {
+  @keyframes cooler {
+      from{
+          transform: translateY(+270px);
+          opacity: 0;
+      }
+  
+      to{
+          transform: translateY(+220px);
+          opacity: 1;
+      }
+  }
+}
 .second{
   animation-delay: 30ms;
 }
