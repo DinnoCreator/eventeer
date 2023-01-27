@@ -1,0 +1,72 @@
+.bal{
+    margin-top: 5rem;
+}
+
+.bal h2{
+    color: green;
+}
+.bodrad{
+    border-radius: 50%;
+}
+
+.strip{
+    height: 6rem;
+    margin-top: 2rem;
+    background-color: white;
+}
+
+.details{
+    padding-top: 1rem;
+}
+
+.details h6{
+    color: #828282;
+}
+
+.details i {
+    font-size: 30px;
+    color: green;
+}
+
+.details img{
+    width: 30px;
+    margin-bottom: 0.5rem;
+}
+
+.number{
+    margin-top: 0.5rem;
+}
+
+.fake{
+    background-color: #BDBDBD;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    bottom: 0.3rem;
+}
+
+.activity{
+    margin-top: 2rem;
+    background-color: white;
+    height: 30rem;
+    overflow: scroll;
+}
+.activity h3{
+    padding-top: 1rem;
+}
+.activity h5{
+    font-size: 16px;
+    margin-top: 1rem;
+    color: green;
+}
+.activity h6{
+    font-size: 14px;
+    color: #828282;
+}
