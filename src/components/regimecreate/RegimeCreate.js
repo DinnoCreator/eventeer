@@ -41,7 +41,7 @@ const RegimeCreation = () => {
               className="flex flex-col w-full h-32"
               style={{ display: !display ? "block" : "none" }}
               src={imager}
-              alt="regime pic"
+              alt="Please upload a jpg,png,svg, or jpeg pic."
             />
             <label
               style={{ display: !display ? "none" : "block" }}
