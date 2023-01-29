@@ -88,7 +88,7 @@ const RegimeCreation = () => {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control shadowB"
                 autoComplete="off"
                 id="regimeName"
                 aria-describedby="regimeNameHelp"
