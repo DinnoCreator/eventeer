@@ -1,4 +1,4 @@
-import SignUpView from "../components/signup/SignUpView";
+import SignUpView from "../../components/signup/SignUpView";
 import { useEffect } from "react";
 
 const SignUp = () => {

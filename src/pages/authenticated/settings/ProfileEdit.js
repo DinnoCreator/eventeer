@@ -1,4 +1,4 @@
-import ProfileSettings from "../../components/profile/general/ProfileSettings";
+import ProfileSettings from "../../../components/profile/general/ProfileSettings";
 import { useEffect } from "react";
 
 const ProfileEdit = () => {

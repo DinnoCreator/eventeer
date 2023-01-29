@@ -1,6 +1,6 @@
-import TicketImageView from "../components/ticket_view/ticket_image/TicketImageView";
-import TicketInterest from "../components/ticket_view/ticket_interest/TicketInterest";
-import TicketDescription from "../components/ticket_view/ticket_description/TicketDescription";
+import TicketImageView from "../../components/ticket_view/ticket_image/TicketImageView";
+import TicketInterest from "../../components/ticket_view/ticket_interest/TicketInterest";
+import TicketDescription from "../../components/ticket_view/ticket_description/TicketDescription";
 import { useEffect } from "react";
 
 const TicketDisplay = () => {

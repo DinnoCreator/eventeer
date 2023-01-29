@@ -1,4 +1,4 @@
-import Ticket from "../components/purchased/ticket/Ticket";
+import Ticket from "../../components/purchased/ticket/Ticket";
 import { useEffect } from "react";
 
 const PurchasedTicket = () => {

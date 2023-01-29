@@ -1,4 +1,4 @@
-import LoginView from "../components/login/LoginView";
+import LoginView from "../../components/login/LoginView";
 import { useEffect } from "react";
 
 const Login = () => {

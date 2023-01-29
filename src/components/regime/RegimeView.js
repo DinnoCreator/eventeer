@@ -31,7 +31,7 @@ const RegimeView = () => {
           <Container fluid>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Brand href="#">
-              <span style={{ marginRight: "0.5rem" }}> Creator</span>
+              <span className={`${classes.creator}`}> Creator <i className="fa-solid fa-chevron-right"></i></span>
               <img
                 alt="tr"
                 src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large"
@@ -92,8 +92,8 @@ const RegimeView = () => {
         <h4>Calabar pool party</h4>
       </div>
 
-      <div className="container hstack fixed-bottom">
-        <div className="ms-auto">
+      <div className="hstack fixed-bottom">
+        <div className={`ms-auto btn ${classes.clickable}`}>
           <FormGroup>
             <FormControlLabel
               control={<Switch />}
@@ -148,6 +148,18 @@ const RegimeView = () => {
       <div className={`container ${classes.activity}`}>
         <div className="container">
         <h3>Activity</h3>
+        </div>
+        <div>
+        <h5>Ticket #123452637451 was purchased</h5>
+        <h6>1 hour ago</h6>
+        </div>
+        <div>
+        <h5>Ticket #123452637451 was purchased</h5>
+        <h6>1 hour ago</h6>
+        </div>
+        <div>
+        <h5>Ticket #123452637451 was purchased</h5>
+        <h6>1 hour ago</h6>
         </div>
         <div>
         <h5>Ticket #123452637451 was purchased</h5>

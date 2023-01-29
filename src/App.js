@@ -1,16 +1,17 @@
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import TicketDisplay from "./pages/TicketDisplay";
-import PurchasedTicket from "./pages/PurchasedTicket";
-import OpenedTickets from "./pages/OpenedTickets";
-import Profile from "./pages/Profile";
-import Settings from "./pages/Settings";
-import ProfileEdit from "./pages/settings/ProfileEdit";
+import Dashboard from "./pages/authenticated/Dashboard"
+import TicketDisplay from "./pages/authenticated/TicketDisplay";
+import PurchasedTicket from "./pages/authenticated/PurchasedTicket";
+import OpenedTickets from "./pages/authenticated/OpenedTickets";
+import Profile from "./pages/authenticated/Profile";
+import Settings from "./pages/authenticated/Settings";
+import ProfileEdit from "./pages/authenticated/settings/ProfileEdit";
 import HomeCom from "./components/home/HomeCom";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import EmailVerification from "./pages/EmailVerification";
-import RegimeDashboard from "./pages/RegimeDashboard";
+import Login from "./pages/unauthenticated/Login";
+import SignUp from "./pages/unauthenticated/SignUp";
+import EmailVerification from "./pages/unauthenticated/EmailVerification";
+import RegimeDashboard from "./pages/authenticated/RegimeDashboard";
+import Imager from "./pages/ImageUpload";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/settings/profile" element={<ProfileEdit />} />
+        <Route path="/image" element={<Imager />} />
     </Routes>
   );
 }

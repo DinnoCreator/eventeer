@@ -1,4 +1,4 @@
-import GeneralSettings from "../components/profile/GeneralSettings";
+import GeneralSettings from "../../components/profile/GeneralSettings";
 import { useEffect } from "react";
 
 const Settings = () => {

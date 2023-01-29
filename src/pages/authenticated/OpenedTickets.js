@@ -1,5 +1,5 @@
-import Tickets from "../components/purchased/tickets/Tickets";
-import Footer from "../Layout/Footer";
+import Tickets from "../../components/purchased/tickets/Tickets";
+import Footer from "../../Layout/Footer";
 import { useEffect } from "react";
 
 const OpenedTickets = () => {

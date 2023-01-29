@@ -1,4 +1,4 @@
-import RegimeView from "../components/regime/RegimeView";
+import RegimeView from "../../components/regime/RegimeView";
 
 const RegimeDashboard = () => {
     return (

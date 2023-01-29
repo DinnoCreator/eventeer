@@ -1,72 +1,87 @@
-.bal{
-    margin-top: 5rem;
+.creator {
+  margin-right: 1rem;
+  color: goldenrod;
 }
 
-.bal h2{
-    color: green;
+.clickable {
+  background-color: #828282;
+  color: white;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
-.bodrad{
-    border-radius: 50%;
+.clickable:hover {
+  background-color: #828282;
+  color: white;
 }
-
-.strip{
-    height: 6rem;
-    margin-top: 2rem;
-    background-color: white;
-}
-
-.details{
-    padding-top: 1rem;
+.bal {
+  margin-top: 6rem;
 }
 
-.details h6{
-    color: #828282;
+.bal h2 {
+  color: green;
+}
+.bodrad {
+  border-radius: 50%;
+}
+
+.strip {
+  height: 6rem;
+  margin-top: 2rem;
+  background-color: white;
+}
+
+.details {
+  padding-top: 1rem;
+}
+
+.details h6 {
+  color: #828282;
 }
 
 .details i {
-    font-size: 30px;
-    color: green;
+  font-size: 30px;
+  color: green;
 }
 
-.details img{
-    width: 30px;
-    margin-bottom: 0.5rem;
+.details img {
+  width: 30px;
+  margin-bottom: 0.5rem;
 }
 
-.number{
-    margin-top: 0.5rem;
+.number {
+  margin-top: 0.5rem;
 }
 
-.fake{
-    background-color: #BDBDBD;
-    display: inline-block;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    margin-bottom: 0.5rem;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 0;
-    position: relative;
-    bottom: 0.3rem;
+.fake {
+  background-color: #bdbdbd;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+  position: relative;
+  bottom: 0.3rem;
 }
 
-.activity{
-    margin-top: 2rem;
-    background-color: white;
-    height: 30rem;
-    overflow: scroll;
+.activity {
+  margin-top: 2rem;
+  background-color: white;
+  height: 30rem;
+  overflow: scroll;
 }
-.activity h3{
-    padding-top: 1rem;
+.activity h3 {
+  padding-top: 1rem;
 }
-.activity h5{
-    font-size: 16px;
-    margin-top: 1rem;
-    color: green;
+.activity h5 {
+  font-size: 16px;
+  margin-top: 1rem;
+  color: green;
 }
-.activity h6{
-    font-size: 14px;
-    color: #828282;
+.activity h6 {
+  font-size: 14px;
+  color: #828282;
 }

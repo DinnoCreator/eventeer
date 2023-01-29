@@ -1,4 +1,4 @@
-import ProfileView from "../components/profile/ProfileView";
+import ProfileView from "../../components/profile/ProfileView";
 import { useEffect } from "react";
 
 const Profile = () => {

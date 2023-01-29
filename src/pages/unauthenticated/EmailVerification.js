@@ -1,4 +1,4 @@
-import Verify from "../components/verify/Verify";
+import Verify from "../../components/verify/Verify";
 
 const EmailVerification = () => {
     
