@@ -12,6 +12,7 @@ import SignUp from "./pages/unauthenticated/SignUp";
 import EmailVerification from "./pages/unauthenticated/EmailVerification";
 import RegimeDashboard from "./pages/authenticated/RegimeDashboard";
 import Imager from "./pages/ImageUpload";
+import RegimeCreate from "./pages/authenticated/RegimeCreation";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/emailverification" element={<EmailVerification/>} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="regime/:regimeid/:id" element={<RegimeDashboard />} />
+        <Route path="/regime/:regimeid/:id" element={<RegimeDashboard />} />
+        <Route path="/regimecreate" element={<RegimeCreate />} />
         <Route path="/display" element={<TicketDisplay />} />
         <Route path="/ticket" element={<PurchasedTicket />} />
         <Route path="/tickets" element={<OpenedTickets />} />

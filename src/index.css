@@ -8,6 +8,10 @@ body {
   background-color: #f7f7f7c7;
   height: 130vh;
 }
+
+img{
+  display: inline-block;
+}
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -141,7 +145,6 @@ body {
   font-size: 15px;
   color: #828282;
 }
-
 .myContainer {
   margin-left: auto;
   margin-right: auto;

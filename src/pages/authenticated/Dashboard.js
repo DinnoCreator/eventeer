@@ -37,7 +37,7 @@ const Dashboard = () => {
     getUser();
   }, [getUser]);
 
-  if (isAuthenticating) {
+  if (!isAuthenticating) {
     return(
       <>
         <div className={`center`}>

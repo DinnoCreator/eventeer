@@ -8,7 +8,7 @@ import Switch from "@mui/material/Switch";
 import { useState } from "react";
 import classes from "../regime/RegimeView.module.css";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 const RegimeView = () => {
   const [affiliate, setAffiliate] = useState("disabled");
@@ -18,8 +18,8 @@ const RegimeView = () => {
       : setAffiliate("enabled");
   };
 
-  const { regimeid } = useParams();
-  const { id } = useParams();
+  // const { regimeid } = useParams();
+  // const { id } = useParams();
 
   return (
     <>
@@ -74,8 +74,8 @@ const RegimeView = () => {
 
       <div className={`container center ${classes.bal}`}>
         <h2>Bal: N25,000,000.00 </h2>
-        <div>Regime ID: {regimeid}</div>
-        <div>Affiliate ID: {id}</div>
+        {/* <div>Regime ID: {regimeid}</div>
+        <div>Affiliate ID: {id}</div> */}
         <h4>Calabar pool party</h4>
       </div>
 
