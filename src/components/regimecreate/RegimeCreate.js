@@ -99,6 +99,13 @@ const RegimeCreation = () => {
             </div>
 
             <hr />
+
+            
+            <div className="d-grid gap-2 ">
+            <button className={`shadowB btn ${classes.login}`} type="submit">
+              Name check
+            </button>
+            </div>
           </form>
         </div>
       </div>
