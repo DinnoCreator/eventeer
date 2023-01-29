@@ -21,7 +21,7 @@ function App() {
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/emailverification" element={<EmailVerification/>} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/regime" element={<RegimeDashboard />} />
+        <Route path="regime/:regimeid/:id" element={<RegimeDashboard />} />
         <Route path="/display" element={<TicketDisplay />} />
         <Route path="/ticket" element={<PurchasedTicket />} />
         <Route path="/tickets" element={<OpenedTickets />} />

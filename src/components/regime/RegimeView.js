@@ -1,15 +1,14 @@
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import { useState } from "react";
 import classes from "../regime/RegimeView.module.css";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const RegimeView = () => {
   const [affiliate, setAffiliate] = useState("disabled");
@@ -18,6 +17,10 @@ const RegimeView = () => {
       ? setAffiliate("disabled")
       : setAffiliate("enabled");
   };
+
+  const { regimeid } = useParams();
+  const { id } = useParams();
+
   return (
     <>
       {[false].map((expand) => (
@@ -30,7 +33,7 @@ const RegimeView = () => {
         >
           <Container fluid>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-            <Navbar.Brand href="#">
+            <Navbar.Brand href="/regime">
               <span className={`${classes.creator}`}> Creator <i className="fa-solid fa-chevron-right"></i></span>
               <img
                 alt="tr"
@@ -52,35 +55,17 @@ const RegimeView = () => {
                     width="50px"
                     className={`${classes.bodrad}`}
                   />
+                  <span className={`${classes.creator1}`}> <i className="fa-solid fa-chevron-left"></i> Creator</span>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">Link</Nav.Link>
-                  <NavDropdown
-                    title="Dropdown"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                  <Link className={`${classes.link}`} to="/tickets">Regime info</Link>
+                  <Link className={`${classes.link}`} to="/profile">Admins</Link>
+                  <Link className={`${classes.link}`} to="/profile">Scan clients</Link>
+                  <Link className={`${classes.link}`} to="/profile">Withdrawal</Link>
+                  <hr></hr>
                 </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
@@ -89,6 +74,8 @@ const RegimeView = () => {
 
       <div className={`container center ${classes.bal}`}>
         <h2>Bal: N25,000,000.00 </h2>
+        <div>Regime ID: {regimeid}</div>
+        <div>Affiliate ID: {id}</div>
         <h4>Calabar pool party</h4>
       </div>
 
