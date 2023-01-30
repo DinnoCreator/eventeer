@@ -37,12 +37,24 @@ const RegimeCreation = () => {
             Upload Regime Image(jpg,png,svg,jpeg)
           </label>
           <div className="flex items-center justify-center w-full">
-            <img
+            {/* <img
               className="flex flex-col w-full h-64"
               style={{ display: !display ? "block" : "none" }}
               src={imager}
               alt="Please upload a jpg,png,svg, or jpeg pic."
-            />
+            /> */}
+            <div
+              style={{
+                backgroundImage: `url(${imager})`,
+                // backgroundImage: `url(${externalImage})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                width: "100%",
+                display: !display ? "block" : "none" 
+              }}
+              className={`h-64`}
+            ></div>
             <label
               style={{ display: !display ? "none" : "block" }}
               className="flex flex-col w-full h-32 border-4 border-dashed hover:bg-gray-100 hover:border-gray-300"

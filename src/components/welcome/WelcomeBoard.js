@@ -6,8 +6,8 @@ const WelcomeBoard = (props) => {
       <div className={` ${classes.img}`}>
         <div className={`container ${classes.welcome}`}>
           <h5>Welcome back</h5>
-          {/* <h1>{props.firstname}</h1> */}
-          <h1>Edidiong</h1>
+          <h1>{props.firstname}</h1>
+          {/* <h1>Edidiong</h1> */}
         </div>
         <div className="container">
         <div className={`container ${classes.foc} shadowB roboroboS edit`}>
