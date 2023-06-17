@@ -12,7 +12,7 @@ const ProfileView = () => {
     }
     return (
       <>
-        <div className="container">
+        <div className="smartContainer">
             <div className={`container`}>
                 <div className={`${classes.settings}`} onClick={handleSettings}>
                 <i className="fa-solid fa-gear"></i>
