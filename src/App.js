@@ -13,6 +13,7 @@ import EmailVerification from "./pages/unauthenticated/EmailVerification";
 import RegimeDashboard from "./pages/authenticated/RegimeDashboard";
 import Imager from "./pages/ImageUpload";
 import RegimeCreate from "./pages/authenticated/RegimeCreation";
+import Test from "./pages/unauthenticated/test";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/settings/profile" element={<ProfileEdit />} />
         <Route path="/image" element={<Imager />} />
+        <Route path="/test" element={<Test />} />
     </Routes>
   );
 }
