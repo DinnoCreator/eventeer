@@ -8,11 +8,15 @@ import { api } from "../../link/API";
 
 const Dashboard = () => {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
+  const [isSearching, setIsSearching] = useState(false);
   const [city, setCity] = useState("calabar");
   const [state, setState] = useState("cross river");
   const [name, setName] = useState("");
   let navigate = useNavigate();
 
+  const searchHandler = (booleanValue) => {
+    setIsSearching(booleanValue);
+  };
   const getUser = useCallback(async () => {
     try {
       await fetch(`${api}/user/regimesonline`, {
@@ -87,10 +91,16 @@ const Dashboard = () => {
   } else if (!isAuthenticating) {
     return (
       <>
-        <WelcomeBoard firstname={name} />
-        <Categories />
-        <PopularEvents />
-        <Footer />
+        <WelcomeBoard searchHandler={searchHandler} />
+        {isSearching ? (
+          ""
+        ) : (
+          <>
+            <Categories />
+            <PopularEvents />
+            <Footer />
+          </>
+        )}
       </>
     );
   }

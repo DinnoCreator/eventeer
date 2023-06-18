@@ -1,10 +1,11 @@
-import classes from "../welcome/Welcomeboard.module.css";
-import classes2 from "../purchased/tickets/Tickets.module.css"
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
+import classes from "../../components/welcome/WelcomeBoard";
+// import classes2 from "../../components/purchased/tickets/TicketHistory.module.css";
+import classes2 from "../../components/purchased/tickets/Tickets.module.css";
 import { api } from "../../link/API";
 import { BeatLoader } from "react-spinners";
 
-const WelcomeBoard = ({searchHandler}) => {
+const SearchTest = () => {
   const [searchClick, setSearchClick] = useState(false);
   const [searchCharacters, setSearch] = useState();
   const [items, setItem] = useState([]);
@@ -12,12 +13,12 @@ const WelcomeBoard = ({searchHandler}) => {
   const [loading, setLoading] = useState(false);
   const [searchData, setSearchDtata] = useState("");
   const [dip, setDip] = useState("none");
+
   const clicker = (e) => {
     e.preventDefault();
     setSearch("");
     setItem([]);
     searchClick ? setSearchClick(false) : setSearchClick(true);
-    searchClick ? searchHandler(false) : searchHandler(true);
   };
   const display = () => {
     if (items.length === 0 && !loading) {
@@ -118,33 +119,24 @@ const WelcomeBoard = ({searchHandler}) => {
     );
   } else if (!searchClick) {
     return (
-      <>
-        <div className={` ${classes.img}`}>
-          <div className={`container ${classes.welcome}`}>
-            <h5>Welcome back</h5>
-            {/* <h1>{props.firstname}</h1> */}
-            <h1>Edidiong</h1>
-          </div>
-          <div className="container">
-            <div className={`container ${classes.foc} shadowB roboroboS edit`}>
-              <form className={`d-flex `} role="search">
-                <input
-                  className={`form-control me-2 b`}
-                  type="search"
-                  placeholder="Search event..."
-                  aria-label="Search"
-                  onFocus={clicker}
-                />
-                <button className="btn b bGreen ba" type="button">
-                  <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
-              </form>
-            </div>
-          </div>
+      <div className="container mt-5">
+        <div className={`container ${classes.foc} shadowB roboroboS edit`}>
+          <form className={`d-flex `} role="search">
+            <input
+              className={`form-control me-2 b`}
+              type="search"
+              placeholder="Search event..."
+              aria-label="Search"
+              onFocus={clicker}
+            />
+            <button className="btn b bGreen ba" type="button">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
         </div>
-      </>
+      </div>
     );
   }
 };
 
-export default WelcomeBoard;
+export default SearchTest;

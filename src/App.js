@@ -14,6 +14,7 @@ import RegimeDashboard from "./pages/authenticated/RegimeDashboard";
 import Imager from "./pages/ImageUpload";
 import RegimeCreate from "./pages/authenticated/RegimeCreation";
 import Test from "./pages/unauthenticated/test";
+import SearchTest from "./pages/unauthenticated/testSearch";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/settings/profile" element={<ProfileEdit />} />
         <Route path="/image" element={<Imager />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/test/search" element={<SearchTest />} />
     </Routes>
   );
 }

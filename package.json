@@ -13,7 +13,7 @@
     "framer-motion": "^10.12.16",
     "moment": "^2.29.4",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.7.0",
+    "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^6.5.0",

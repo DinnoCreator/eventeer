@@ -17,6 +17,13 @@ body {
 .compHover:hover{
   color: #7165E3;
 }
+.shrink{
+  height: 100px;
+  width: 130px;
+}
+.padT{
+  padding-top: 5px;
+}
 img{
   display: inline-block;
 }

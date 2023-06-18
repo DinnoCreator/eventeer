@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 const Test = () => {
   const [acc, setAcc] = useState("");
