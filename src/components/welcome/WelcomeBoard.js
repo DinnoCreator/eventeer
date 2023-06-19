@@ -85,8 +85,9 @@ const WelcomeBoard = ({searchHandler}) => {
 
   if (searchClick) {
     return (
-      <div className="container mt-2">
-        <div className={`container ${classes.foc} shadowB roboroboS edit`}>
+      <div className="container mt-5">
+        <br/>
+        <div className={`container ${classes.foc} roborobo shadowB edit`}>
           <i className="fa-solid fa-xmark" onClick={clicker}></i>
           <form className={`d-flex `} onSubmit={onSubmitForm} role="search">
             <input
