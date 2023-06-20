@@ -113,7 +113,7 @@ const WelcomeBoard = ({ searchHandler }) => {
                     }}
                     class="fa-solid fa-champagne-glasses"
                   ></i>
-                  <span className={classes2.ID}>{item.client_id}</span>
+                  <span className={classes2.ID}>{item.client_id.toUpperCase()}</span>
                 </p>
               </div>
             </div>
@@ -147,7 +147,7 @@ const WelcomeBoard = ({ searchHandler }) => {
                     }}
                     class="fa-solid fa-champagne-glasses"
                   ></i>
-                  <span className={classes2.ID}>{item.regime_id}</span>
+                  <span className={classes2.ID}>{item.regime_id.toUpperCase()}</span>
                 </p>
               </div>
             </div>
