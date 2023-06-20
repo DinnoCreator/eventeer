@@ -8,6 +8,18 @@ body {
   background-color: #f7f7f7c7;
   height: 130vh;
 }
+.mr-1 {
+  margin-right: 0.5rem;
+}
+.mr-2 {
+  margin-right: 1rem;
+}
+.mr-3 {
+  margin-right: 1.5rem;
+}
+.mr-4 {
+  margin-right: 2.5rem;
+}
 .stuff:hover{
   cursor: pointer;
 }
@@ -16,10 +28,6 @@ body {
 }
 .compHover:hover{
   color: #7165E3;
-}
-.shrink{
-  height: 100px;
-  width: 130px;
 }
 .padT{
   padding-top: 5px;
@@ -205,21 +213,19 @@ img{
 .p{
   line-height: normal;
 }
-/* Help to target active category */
-/* .ca a.active {
-  color: white;
-}
 
-.ca:has(.active){
-  color: white;
-  background-color: #7165E3;
+.btnct {
+  display: inline-block;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 5px 15px;
+  border: 1px solid #7165E3;
 }
-.ca a.active i {
-  color: #ABA4F2;
-} */
-
-/* Help to target active category end*/
-/* #7165E3 */
+.btnct:hover{
+  cursor: pointer;
+}
 .edit{
   background-color: white;
   padding-top: 6px;
@@ -239,8 +245,45 @@ img{
 .real{
   color: white;
 }
+.reventlify{
+  color: #7165E3;
+}
+.reventlifyBg{
+  background-color: #7165E3;
+}
+.results{
+  margin-top: 12.5rem;
+}
 
-
+.stripFlexGeneral{
+  display: flex;
+  flex-direction: row;
+}
+.stripFlexGeneralChild1{
+  /* flex-grow: 1; */
+  display: flex;
+  width: 140px;
+}
+.shrink{
+  height: 100px;
+  width: 140px;
+}
+.stripFlexGeneralChild{
+  flex-grow: 1;
+  display: flex;
+  /* justify-content: right; */
+}
+.stripFlex {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: right; */
+}
+.stripFlexChild{
+  flex-grow: 1;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
 /* map */
 /* .mapouter{
   position:relative;

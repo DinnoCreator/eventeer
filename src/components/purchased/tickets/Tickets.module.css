@@ -1,56 +1,48 @@
-.pad{
-    padding-top: 2rem;
+.pad {
+  padding-top: 2rem;
 }
 
-.switch:hover{
-    cursor: pointer;
+.switch:hover {
+  cursor: pointer;
 }
-.ticketStrip{
-    margin-top: 2rem;
-    background-color: white;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.ticketStrip:hover{
-    box-shadow: none;
-}
-.ticketStrip img{
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-    display: inline-block;
+.ticketStrip {
+  margin-top: 2rem;
+  background-color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.ticketStripInfo{
-    display: inline-block;
-    margin-right: 2rem;
+.ticketStrip:hover {
+  box-shadow: none;
+}
+.ticketStrip img {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  display: inline-block;
 }
 
 .ticketStripInfo i {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding: 6px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 6px;
 }
-@media (max-width: 700px) {
-    .ticketStripInfo{
-        margin-right: 1rem;
-    }
-    
+.ticketStripInfo {
+  margin-right: 1rem;
 }
 
-.ticketStripInfo p{
-    font-size: 18px;
-    line-height: 1;
-    font-weight: 700;
+.ticketStripInfo p {
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 700;
 }
 
-.ID{
-    margin-left: 0.8rem;
-    color: #828282;
+.ID {
+  margin-left: 0.5rem;
+  color: #828282;
 }

@@ -3,6 +3,7 @@ import classes from "../regimecreate/RegimeCreate.module.css";
 import { api } from "../../link/API";
 import { useNavigate } from "react-router-dom";
 import State from "../formComponents/State";
+import { BeatLoader } from "react-spinners";
 
 const RegimeCreation = () => {
   const navigate = useNavigate();
@@ -13,14 +14,14 @@ const RegimeCreation = () => {
 
   // form data
   const [imager, setImager] = useState("");
-  const [regimeName, setRegimeName] = useState();
+  const [regimeName, setRegimeName] = useState("");
   const [regimeCity, setRegimeCity] = useState("");
   const [regime4digit, setRegime4digit] = useState("");
   const [data, setData] = useState("CROSS-RIVER");
 
   //password visibility state
   const [show, setshow] = useState(false);
-  const [eye, setEye] = useState("fa-eye-slash")
+  const [eye, setEye] = useState("fa-eye-slash");
   const pass = useRef();
 
   //password visibility handler
@@ -38,34 +39,33 @@ const RegimeCreation = () => {
   const [loading, setLoading] = useState(false);
 
   const sendData = (data) => {
-    setData(data)
-  }
+    setData(data);
+  };
 
   // handle name check
   const nameCheck = async (e) => {
     e.preventDefault();
     setLoading(true);
+    // const regimeName = regimeName;
     try {
-      await fetch(`${api}/regimenamecheck`, {
+      await fetch(`${api}/user/regimecheck`, {
         method: "POST",
-        headers: { authorization: sessionStorage.getItem("token") },
+        headers: {
+          "Content-Type": "application/json",
+          authorization: sessionStorage.getItem("token"),
+        },
         body: JSON.stringify({
           regimeName,
         }),
-      }).then((res) => {
+      }).then(async (res) => {
+        const data = await res.json();
         if (res.status === 200) {
           setLoading(false);
           return setNameChecker(true);
-        } else if (res.status === 402) {
+        } else if (res.status !== 200) {
           setLoading(false);
-          setLoginError("Name already exists...");
+          setLoginError(data);
           return setDip("block");
-        } else if (res.status === 411) {
-          setLoading(false);
-          setLoginError("Something went wrong...");
-          return setDip("block");
-        } else {
-          return navigate("/login");
         }
       });
     } catch (error) {
@@ -99,7 +99,7 @@ const RegimeCreation = () => {
     if (!nameChecker) {
       return (
         <>
-          <div className={`mt-3 ${classes.bod}`}>
+          <div className={`mt-3 ${classes.bod} smartContainer`}>
             <div className="container">
               {loginError && ( // then if changed flag is false show error message.
                 <div
@@ -133,14 +133,13 @@ const RegimeCreation = () => {
                     className={`shadowB btn ${classes.login}`}
                     type="submit"
                   >
-                  {loading ? (
-                    <>
-                      <div
-                      style={{ display: "inline-block" }} className="load"></div>
-                    </>
-                  ) : (
-                    <>Signup</>
-                  )}
+                    {loading ? (
+                      <>
+                        <BeatLoader color="#fff" loading={true} size={"12"} />
+                      </>
+                    ) : (
+                      <>Check Name Availability</>
+                    )}
                   </button>
                 </div>
               </form>
@@ -151,16 +150,19 @@ const RegimeCreation = () => {
     } else {
       return (
         <>
-          <div className={` mt-5 ${classes.bod}`}>
-        <h1>{data}</h1>
-        <div className="container">
-        {loginError && ( // then if changed flag is false show error message.
-            <div className="container" style={{ color: "red", display: { dip } }}>
-              <span>{loginError}</span>
-            </div>
-          )}
-          <form className="container">
-          <div className="mb-3">
+          <div className={` mt-5 ${classes.bod} smartContainer`}>
+            <h1>{data}</h1>
+            <div className="container">
+              {loginError && ( // then if changed flag is false show error message.
+                <div
+                  className="container"
+                  style={{ color: "red", display: { dip } }}
+                >
+                  <span>{loginError}</span>
+                </div>
+              )}
+              <form className="container">
+                <div className="mb-3">
                   <label htmlFor="regimeName" className="form-label">
                     Enter Regime Name
                   </label>
@@ -175,7 +177,7 @@ const RegimeCreation = () => {
                     readOnly
                   />
                 </div>
-          <div className="mb-4">
+                <div className="mb-4">
                   <label htmlFor="regimeCity" className="form-label">
                     Enter Regime City
                   </label>
@@ -190,47 +192,57 @@ const RegimeCreation = () => {
                     required
                   />
                 </div>
-            <State sendData={sendData} />
-            <div className="mb-3 mt-3">
-              <label htmlFor="exampleInputPassword1" className="form-label">
-                Withdrawal 4Digit pin
-              </label>
-              <span className={`d-flex ${classes.white}`}>
-                <input
-                  type="password"
-                  className="form-control me-2"
-                  autoComplete="off"
-                  id="exampleInputPassword1"
-                  aria-describedby="emailHelp"
-                  minLength="4"
-                  maxLength="4"
-                  pattern="[0-9]+"
-                  ref={pass}
-                  value={regime4digit}
-                  required
-                  onChange={(e) => setRegime4digit(e.target.value)}
-                />
-                <button className={`btn ${classes.eye}`} onClick={showPassword} type="button">
-                  <i className={`fa-regular ${eye}`}></i>
-                </button>
-              </span>
-            </div>
-            <div className="d-grid gap-2 ">
-            <button className={`shadowB btn ${classes.login}`} type="submit">
-              {loading ? (
-                <>
-                  <div
-                  style={{ display: "inline-block" }} className="load"></div>
-                </>
-              ) : (
-                <>Signup</>
-              )}</button>
-            </div>
+                <State sendData={sendData} />
+                <div className="mb-3 mt-3">
+                  <label htmlFor="exampleInputPassword1" className="form-label">
+                    Withdrawal 4Digit pin
+                  </label>
+                  <span className={`d-flex ${classes.white}`}>
+                    <input
+                      type="password"
+                      className="form-control me-2"
+                      autoComplete="off"
+                      id="exampleInputPassword1"
+                      aria-describedby="emailHelp"
+                      minLength="4"
+                      maxLength="4"
+                      pattern="[0-9]+"
+                      ref={pass}
+                      value={regime4digit}
+                      required
+                      onChange={(e) => setRegime4digit(e.target.value)}
+                    />
+                    <button
+                      className={`btn ${classes.eye}`}
+                      onClick={showPassword}
+                      type="button"
+                    >
+                      <i className={`fa-regular ${eye}`}></i>
+                    </button>
+                  </span>
+                </div>
+                <div className="d-grid gap-2 ">
+                  <button
+                    className={`shadowB btn ${classes.login}`}
+                    type="submit"
+                  >
+                    {loading ? (
+                      <>
+                        <div
+                          style={{ display: "inline-block" }}
+                          className="load"
+                        ></div>
+                      </>
+                    ) : (
+                      <>Signup</>
+                    )}
+                  </button>
+                </div>
 
-            <hr />
-          </form>
-        </div>
-      </div>
+                <hr />
+              </form>
+            </div>
+          </div>
         </>
       );
     }
