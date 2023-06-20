@@ -198,6 +198,7 @@ const WelcomeBoard = ({ searchHandler }) => {
                 placeholder={`Search for ${searchType}...`}
                 aria-label="Search"
                 autoFocus
+                required
                 value={searchCharacters}
                 onChange={(e) => setSearch(e.target.value)}
               />
