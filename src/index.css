@@ -281,7 +281,7 @@ img{
 .stripFlexChild{
   flex-grow: 1;
   display: flex;
-  justify-content: right;
+  justify-content: left;
   align-items: center;
 }
 /* map */
