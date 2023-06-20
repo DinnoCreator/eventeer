@@ -16,6 +16,7 @@ const RegimeCreation = () => {
   const [imager, setImager] = useState("");
   const [regimeName, setRegimeName] = useState("");
   const [regimeCity, setRegimeCity] = useState("");
+  const [regimeAddress, setRegimeAddress] = useState("");
   const [regime4digit, setRegime4digit] = useState("");
   const [data, setData] = useState("CROSS-RIVER");
 
@@ -209,6 +210,21 @@ const RegimeCreation = () => {
                   />
                 </div>
                 <div className="mb-4">
+                  <label htmlFor="regimeAddress" className="form-label">
+                    Enter Regime Address
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control shadowB"
+                    autoComplete="off"
+                    id="regimeAddress"
+                    aria-describedby="regimeAddressHelp"
+                    value={regimeAddress}
+                    onChange={(e) => setRegimeAddress(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-4">
                   <label htmlFor="regimeCity" className="form-label">
                     Enter Regime City
                   </label>
@@ -265,7 +281,7 @@ const RegimeCreation = () => {
                         ></div>
                       </>
                     ) : (
-                      <>Signup</>
+                      <>Next</>
                     )}
                   </button>
                 </div>

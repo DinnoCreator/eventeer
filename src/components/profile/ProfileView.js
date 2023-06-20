@@ -28,7 +28,7 @@ const ProfileView = () => {
                 <h3>Edidiong Obodom</h3>
                 <h6> <i className="fa-solid fa-location-dot"></i> Calabar, CRS.</h6>
                 <div>
-                    <div className={` ${classes.btn}`}>Create Regime</div>
+                    <div className={` ${classes.btn}`} onClick={() => navigate("/regimecreate")}>Create Regime</div>
                 </div>
                 <div>
                     <div className={` ${classes.btn} ${classes.btn1}`}>Join Regime</div>
