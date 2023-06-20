@@ -60,6 +60,38 @@ const RegimeCreation = () => {
       }).then(async (res) => {
         const data = await res.json();
         if (res.status === 200) {
+          setLoginError("");
+          setLoading(false);
+          return setNameChecker(true);
+        } else if (res.status !== 200) {
+          setLoading(false);
+          setLoginError(data);
+          return setDip("block");
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  // handle name check
+  const createRegimeApi = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    // const regimeName = regimeName;
+    try {
+      await fetch(`${api}/user/regimecheck`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: sessionStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          regimeName,
+        }),
+      }).then(async (res) => {
+        const data = await res.json();
+        if (res.status === 200) {
+          setLoginError("");
           setLoading(false);
           return setNameChecker(true);
         } else if (res.status !== 200) {
@@ -150,8 +182,7 @@ const RegimeCreation = () => {
     } else {
       return (
         <>
-          <div className={` mt-5 ${classes.bod} smartContainer`}>
-            <h1>{data}</h1>
+          <div className={`${classes.bod} smartContainer`}>
             <div className="container">
               {loginError && ( // then if changed flag is false show error message.
                 <div
