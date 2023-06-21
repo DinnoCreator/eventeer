@@ -136,8 +136,6 @@ const RegimeCreation = () => {
     }
   };
 
-  console.log(regimePricing);
-
   // converts image to base64
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {

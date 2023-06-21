@@ -11,8 +11,6 @@ const PricingInput = ({ pricingHandler }) => {
     },
   ]);
 
-  const [no, setNo] = useState(2);
-
   const formAdd = () => {
     setRegimePricingC((current) => [
       ...current,
@@ -28,7 +26,6 @@ const PricingInput = ({ pricingHandler }) => {
 
   const valueAdder = () => {
     return regimePricingC.map((value, index) => {
-      console.log(`index: ${index}`);
       if (!value.saved) {
         return (
           <form
@@ -113,11 +110,15 @@ const PricingInput = ({ pricingHandler }) => {
                   }}
                 />
               </div>
-              <button className="btnct reventlifyBg white mr-1" type="submit">
+              <button
+                className="btnct reventlifyBg white mr-1 shadowB"
+                type="submit"
+              >
                 Save
               </button>
               <div
-                className="btnct reventlifyBg white"
+                className="btnct reventlifyBg white shadowB"
+                style={{ backgroundColor: "red", border: "1px solid red" }}
                 onClick={() => {
                   setRegimePricingC(
                     regimePricingC.filter((v, ind) => ind !== index)
@@ -198,16 +199,15 @@ const PricingInput = ({ pricingHandler }) => {
       }
     });
   };
-  console.log(no);
   return (
     <>
       <div className="container">
         <div
-          className="btnct reventlifyBg white"
+          className="btnct reventlifyBg white mb-3 shadowB"
           type="button"
           onClick={formAdd}
         >
-          add
+          Add pricing
         </div>
         {valueAdder()}
       </div>
