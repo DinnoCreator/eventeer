@@ -223,6 +223,15 @@ img{
   padding: 5px 15px;
   border: 1px solid #7165E3;
 }
+.btncti {
+  display: inline-block;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px 10px;
+  border: 1px solid #7165E3;
+}
 .btnct:hover{
   cursor: pointer;
 }

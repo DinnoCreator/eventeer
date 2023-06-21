@@ -10,7 +10,7 @@ const State = (props) => {
                     Enter Regime State
                   </label>
               <select
-                class="form-control shadowB"
+                className="form-control shadowB"
                 id="regimeCity"
                 aria-label="regimeCityHelp"
                 onChange={(e) => handlesAll(e.target.value)}

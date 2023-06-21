@@ -5,6 +5,20 @@ import { useNavigate } from "react-router-dom";
 import State from "../formComponents/State";
 import { BeatLoader } from "react-spinners";
 import PricingInput from "../formComponents/pricingInput";
+import Switch from '@mui/material/Switch';
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Box from '@mui/material/Box';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+
+const steps = [
+  'Check regime name availability',
+  'Enter regime details',
+  'Create pricings for your regime',
+  'Set date and time',
+];
 
 const RegimeCreation = () => {
   const navigate = useNavigate();
@@ -14,6 +28,7 @@ const RegimeCreation = () => {
   const [nameChecker, setNameChecker] = useState(false);
   const [firstWave, setFirstWave] = useState(false);
   const [secondWave, setSecondWave] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   // form data
   const [regimeMediaBase64, setregimeMediaBase64] = useState("");
@@ -26,7 +41,7 @@ const RegimeCreation = () => {
   const [regimeCountry, setRegimeCountry] = useState("Nigeria");
   const [regimeWithdrawalPin, setRegimeWithdrawalPin] = useState("");
   const [regimeType, setRegimeType] = useState("concert");
-  const [regimeAffiliate, setRegimeAffiliate] = useState("");
+  const [regimeAffiliate, setRegimeAffiliate] = useState("disabled");
   const [regimeStartDate, setRegimeStartDate] = useState("");
   const [regimeStartTime, setRegimeStartTime] = useState("");
   const [regimeEndDate, setRegimeEndDate] = useState("");
@@ -54,6 +69,11 @@ const RegimeCreation = () => {
 
   const sendData = (data) => {
     setData(data);
+  };
+  const handleAffiliate = () => {
+    regimeAffiliate === "enabled"
+      ? setRegimeAffiliate("disabled")
+      : setRegimeAffiliate("enabled");
   };
 
 
@@ -165,6 +185,15 @@ const RegimeCreation = () => {
     if (!nameChecker && !firstWave && !secondWave) {
       return (
         <>
+          <Box sx={{ width: '100%' }}>
+            <Stepper activeStep={0} alternativeLabel>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </Box>
           <div className={`mt-3 ${classes.bod} smartContainer`}>
             <div className="container">
               {loginError && ( // then if changed flag is false show error message.
@@ -175,7 +204,7 @@ const RegimeCreation = () => {
                   <span>{loginError}</span>
                 </div>
               )}
-              <form className="container" onSubmit={nameCheck}>
+              <form onSubmit={nameCheck}>
                 <div className="mb-3">
                   <label htmlFor="regimeName" className="form-label">
                     Enter Regime Name
@@ -216,6 +245,16 @@ const RegimeCreation = () => {
     } else if (nameChecker && !firstWave && !secondWave) {
       return (
         <>
+
+          <Box sx={{ width: '100%' }}>
+            <Stepper activeStep={1} alternativeLabel>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </Box>
           <div className={`${classes.bod} smartContainer`}>
             <div className="container">
               {loginError && ( // then if changed flag is false show error message.
@@ -226,10 +265,23 @@ const RegimeCreation = () => {
                   <span>{loginError}</span>
                 </div>
               )}
-              <form className="container" onSubmit={(e) => {
+              <form onSubmit={(e) => {
                 e.preventDefault();
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                 setFirstWave(true);
               }}>
+
+                <FormGroup>
+                  <FormControlLabel
+                    control={<Switch />}
+                    label={
+                      regimeAffiliate === "enabled"
+                        ? "Affiliate enabled"
+                        : "Affiliate disabled"
+                    }
+                    onChange={handleAffiliate}
+                  />
+                </FormGroup>
                 <div className="mb-3">
                   <label htmlFor="regimeName" className="form-label">
                     Enter Regime Name
@@ -245,29 +297,29 @@ const RegimeCreation = () => {
                     readOnly
                   />
                 </div>
-            <div className={`mb-3`}>
-                <label htmlFor="regimeType" className="form-label">
+                <div className={`mb-3`}>
+                  <label htmlFor="regimeType" className="form-label">
                     Enter Regime Type
                   </label>
-              <select
-                class="form-control shadowB"
-                id="regimeType"
-                aria-label="regimeTypeHelp"
-                onChange={(e) => setRegimeType(e.target.value)}
-              >
-              <option selected>concert</option>
-              <option>conference</option>
-              <option>theatre</option>
-              <option>pageantry</option>
-              <option>service</option>
-              <option>education</option>
-              <option>carnival</option>
-              <option>festival</option>
-              <option>party</option>
-              <option>sport</option>
-              <option>talentshow</option>
-              </select>
-              </div>
+                  <select
+                    className="form-control shadowB"
+                    id="regimeType"
+                    aria-label="regimeTypeHelp"
+                    onChange={(e) => setRegimeType(e.target.value)}
+                  >
+                    <option selected>concert</option>
+                    <option>conference</option>
+                    <option>theatre</option>
+                    <option>pageantry</option>
+                    <option>service</option>
+                    <option>education</option>
+                    <option>carnival</option>
+                    <option>festival</option>
+                    <option>party</option>
+                    <option>sport</option>
+                    <option>talentshow</option>
+                  </select>
+                </div>
                 <div className="mb-4">
                   <label htmlFor="regimeAddress" className="form-label">
                     Enter Regime Address
@@ -368,6 +420,15 @@ const RegimeCreation = () => {
     } else if (nameChecker && firstWave && !secondWave) {
       return (
         <>
+          <Box sx={{ width: '100%' }}>
+            <Stepper activeStep={2} alternativeLabel>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </Box>
           <div className={`mt-3 ${classes.bod} smartContainer`}>
             <div className="container">
               {loginError && ( // then if changed flag is false show error message.
@@ -378,7 +439,7 @@ const RegimeCreation = () => {
                   <span>{loginError}</span>
                 </div>
               )}
-              <PricingInput pricingHandler={pricingHandler} />
+              <PricingInput pricingHandler={pricingHandler} affiliateValue={regimeAffiliate} />
               <div
                 style={{ display: "flex", justifyContent: "end" }}>
                 <button
@@ -466,8 +527,9 @@ const RegimeCreation = () => {
           </div>
         </div>
       </div>
-
-      {formBody()}
+      <div className="mt-4">
+        {formBody()}
+      </div>
     </>
   );
 };
