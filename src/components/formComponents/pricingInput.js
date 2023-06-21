@@ -29,6 +29,7 @@ const PricingInput = ({ pricingHandler }) => {
       if (!value.saved) {
         return (
           <form
+            className="mb-3"
             key={index}
             onSubmit={(e) => {
               e.preventDefault();
@@ -45,6 +46,7 @@ const PricingInput = ({ pricingHandler }) => {
               value.saved = true;
             }}
           >
+            <h1 className="left" style={{ marginTop: 0 }}>{index + 1}</h1>
             <div id={`${index}`}>
               <div className="mb-3">
                 <label htmlFor="pricingName" className="form-label">
@@ -125,89 +127,92 @@ const PricingInput = ({ pricingHandler }) => {
                   );
                 }}
               >
-                delete
+                Delete
               </div>
             </div>
           </form>
         );
       } else {
         return (
-          <div id={`${index}`} key={index}>
-            <div className="mb-3">
-              <label htmlFor="pricingName" className="form-label">
-                Pricing Name
-              </label>
-              <input
-                type="text"
-                className="form-control shadowB"
-                autoComplete="off"
-                id="pricingName"
-                aria-describedby="pricingNameHelp"
-                value={regimePricingC[index].pricingName}
-                required
-                readOnly
-              />
+          <>
+            <div id={`${index}`} key={index}>
+            <h1 className="left" style={{ marginTop: 0 }}>{index + 1}. {regimePricingC[index].pricingName}</h1>
+              <div className="mb-3">
+                <label htmlFor="pricingName" className="form-label">
+                  Pricing Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control shadowB"
+                  autoComplete="off"
+                  id="pricingName"
+                  aria-describedby="pricingNameHelp"
+                  value={regimePricingC[index].pricingName}
+                  required
+                  readOnly
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="pricingAmount" className="form-label">
+                  Pricing Amount
+                </label>
+                <input
+                  type="number"
+                  className="form-control shadowB"
+                  autoComplete="off"
+                  id="pricingAmount"
+                  aria-describedby="pricingAmountHelp"
+                  value={regimePricingC[index].pricingAmount}
+                  required
+                  readOnly
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="pricingTotalSeats" className="form-label">
+                  Pricing Total Seats
+                </label>
+                <input
+                  type="number"
+                  className="form-control shadowB"
+                  autoComplete="off"
+                  id="pricingTotalSeats"
+                  aria-describedby="pricingTotalSeatsHelp"
+                  value={regimePricingC[index].pricingTotalSeats}
+                  required
+                  readOnly
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="pricingAffiliateAmount" className="form-label">
+                  Pricing Affiliate Amount
+                </label>
+                <input
+                  type="number"
+                  className="form-control shadowB"
+                  autoComplete="off"
+                  id="pricingAffiliateAmount"
+                  aria-describedby="pricingAffiliateAmountSeatsHelp"
+                  value={regimePricingC[index].pricingAffiliateAmount}
+                  required
+                  readOnly
+                />
+              </div>
+              <div className="btnct reventlify">Saved</div>
             </div>
-            <div className="mb-3">
-              <label htmlFor="pricingAmount" className="form-label">
-                Pricing Amount
-              </label>
-              <input
-                type="number"
-                className="form-control shadowB"
-                autoComplete="off"
-                id="pricingAmount"
-                aria-describedby="pricingAmountHelp"
-                value={regimePricingC[index].pricingAmount}
-                required
-                readOnly
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="pricingTotalSeats" className="form-label">
-                Pricing Total Seats
-              </label>
-              <input
-                type="number"
-                className="form-control shadowB"
-                autoComplete="off"
-                id="pricingTotalSeats"
-                aria-describedby="pricingTotalSeatsHelp"
-                value={regimePricingC[index].pricingTotalSeats}
-                required
-                readOnly
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="pricingAffiliateAmount" className="form-label">
-                Pricing Affiliate Amount
-              </label>
-              <input
-                type="number"
-                className="form-control shadowB"
-                autoComplete="off"
-                id="pricingAffiliateAmount"
-                aria-describedby="pricingAffiliateAmountSeatsHelp"
-                value={regimePricingC[index].pricingAffiliateAmount}
-                required
-                readOnly
-              />
-            </div>
-            <div className="btnct reventlify">Saved</div>
-          </div>
+          </>
         );
       }
     });
   };
   return (
     <>
-      <div className="container">
+      <div>
         <div
           className="btnct reventlifyBg white mb-3 shadowB"
           type="button"
           onClick={formAdd}
         >
-          Add pricing
+          Add Pricing
         </div>
         {valueAdder()}
       </div>

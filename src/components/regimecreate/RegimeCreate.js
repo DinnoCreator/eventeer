@@ -12,6 +12,8 @@ const RegimeCreation = () => {
   // state hooks
   const [display, setDisplay] = useState(true);
   const [nameChecker, setNameChecker] = useState(false);
+  const [firstWave, setFirstWave] = useState(false);
+  const [secondWave, setSecondWave] = useState(false);
 
   // form data
   const [regimeMediaBase64, setregimeMediaBase64] = useState("");
@@ -23,7 +25,7 @@ const RegimeCreation = () => {
   const [regimeState, setRegimeState] = useState("");
   const [regimeCountry, setRegimeCountry] = useState("Nigeria");
   const [regimeWithdrawalPin, setRegimeWithdrawalPin] = useState("");
-  const [regimeType, setRegimeType] = useState("");
+  const [regimeType, setRegimeType] = useState("concert");
   const [regimeAffiliate, setRegimeAffiliate] = useState("");
   const [regimeStartDate, setRegimeStartDate] = useState("");
   const [regimeStartTime, setRegimeStartTime] = useState("");
@@ -54,7 +56,7 @@ const RegimeCreation = () => {
     setData(data);
   };
 
-  
+
   const pricingHandler = (value) => {
     setRegimePricing(value);
   };
@@ -94,6 +96,7 @@ const RegimeCreation = () => {
   const createRegimeApi = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setRegimeState(data);
     // const regimeName = regimeName;
     try {
       await fetch(`${api}/user/regimecheck`, {
@@ -159,7 +162,7 @@ const RegimeCreation = () => {
 
   // Handles the form body display
   const formBody = () => {
-    if (!nameChecker) {
+    if (!nameChecker && !firstWave && !secondWave) {
       return (
         <>
           <div className={`mt-3 ${classes.bod} smartContainer`}>
@@ -172,8 +175,7 @@ const RegimeCreation = () => {
                   <span>{loginError}</span>
                 </div>
               )}
-              <PricingInput pricingHandler={pricingHandler}/>
-              {/* <form className="container" onSubmit={nameCheck}>
+              <form className="container" onSubmit={nameCheck}>
                 <div className="mb-3">
                   <label htmlFor="regimeName" className="form-label">
                     Enter Regime Name
@@ -206,12 +208,12 @@ const RegimeCreation = () => {
                     )}
                   </button>
                 </div>
-              </form> */}
+              </form>
             </div>
           </div>
         </>
       );
-    } else {
+    } else if (nameChecker && !firstWave && !secondWave) {
       return (
         <>
           <div className={`${classes.bod} smartContainer`}>
@@ -224,7 +226,10 @@ const RegimeCreation = () => {
                   <span>{loginError}</span>
                 </div>
               )}
-              <form className="container">
+              <form className="container" onSubmit={(e) => {
+                e.preventDefault();
+                setFirstWave(true);
+              }}>
                 <div className="mb-3">
                   <label htmlFor="regimeName" className="form-label">
                     Enter Regime Name
@@ -240,6 +245,29 @@ const RegimeCreation = () => {
                     readOnly
                   />
                 </div>
+            <div className={`mb-3`}>
+                <label htmlFor="regimeType" className="form-label">
+                    Enter Regime Type
+                  </label>
+              <select
+                class="form-control shadowB"
+                id="regimeType"
+                aria-label="regimeTypeHelp"
+                onChange={(e) => setRegimeType(e.target.value)}
+              >
+              <option selected>concert</option>
+              <option>conference</option>
+              <option>theatre</option>
+              <option>pageantry</option>
+              <option>service</option>
+              <option>education</option>
+              <option>carnival</option>
+              <option>festival</option>
+              <option>party</option>
+              <option>sport</option>
+              <option>talentshow</option>
+              </select>
+              </div>
                 <div className="mb-4">
                   <label htmlFor="regimeAddress" className="form-label">
                     Enter Regime Address
@@ -299,6 +327,20 @@ const RegimeCreation = () => {
                     </button>
                   </span>
                 </div>
+                <div className="mb-4">
+                  <label htmlFor="regimeDescription" className="form-label">
+                    Enter Regime Description
+                  </label>
+                  <textarea
+                    className="form-control shadowB"
+                    autoComplete="off"
+                    id="regimeDescription"
+                    aria-describedby="regimeDescriptionHelp"
+                    value={regimeDescription}
+                    onChange={(e) => setRegimeDescription(e.target.value)}
+                    required
+                  />
+                </div>
                 <div className="d-grid gap-2 ">
                   <button
                     className={`shadowB btn ${classes.login}`}
@@ -321,6 +363,40 @@ const RegimeCreation = () => {
               </form>
             </div>
           </div>
+        </>
+      );
+    } else if (nameChecker && firstWave && !secondWave) {
+      return (
+        <>
+          <div className={`mt-3 ${classes.bod} smartContainer`}>
+            <div className="container">
+              {loginError && ( // then if changed flag is false show error message.
+                <div
+                  className="mb-3"
+                  style={{ color: "red", display: { dip } }}
+                >
+                  <span>{loginError}</span>
+                </div>
+              )}
+              <PricingInput pricingHandler={pricingHandler} />
+              <div
+                style={{ display: "flex", justifyContent: "end" }}>
+                <button
+                  className="btnct reventlifyBg white mr-1 shadowB mt-3"
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    if (regimePricing.length === 0) {
+                      setLoginError("Please create at least one event pricing and set the pricing amount to 0 if you want the tickets to be free")
+                    }
+                  }}
+                  style={{ backgroundColor: "green", border: "1px solid green" }}
+                >
+                  Next <i className="fa-solid fa-angles-right"></i>
+                </button>
+              </div>
+            </div></div>
         </>
       );
     }
