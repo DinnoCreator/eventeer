@@ -3,7 +3,7 @@ import classes2 from "../purchased/tickets/Tickets.module.css";
 import { useState } from "react";
 import { api } from "../../link/API";
 import { BeatLoader } from "react-spinners";
-import { textShrink } from "../../utilities/textShrink";
+import { textShrink } from "../../utilities/textUtil";
 
 const WelcomeBoard = ({ searchHandler }) => {
   const [searchClick, setSearchClick] = useState(false);

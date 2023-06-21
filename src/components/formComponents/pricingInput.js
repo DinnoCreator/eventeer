@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
+import { neat } from "../../utilities/textUtil";
 
 const PricingInput = ({ pricingHandler, affiliateValue }) => {
   const [regimePricingC, setRegimePricingC] = useState([
@@ -151,7 +152,7 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
         return (
           <>
             <div id={`${index}`} key={index}>
-              <h1 className="left" style={{ marginTop: 0, textAlign: `left` }}>{index + 1}. {regimePricingC[index].pricingName}</h1>
+              <h1 className="left" style={{ marginTop: 0, textAlign: `left` }}>{index + 1}. {neat(regimePricingC[index].pricingName)}</h1>
               <div className="mb-3">
                 <label htmlFor="pricingName" className="form-label">
                   Pricing Name

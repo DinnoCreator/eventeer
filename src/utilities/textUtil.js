@@ -49,3 +49,13 @@ export function textShrink(textgot) {
     return textgot;
   }
 }
+
+export function neat(textgot) {
+  let firstChar = textgot.slice(0, 1);
+  firstChar = firstChar.toUpperCase();
+  let restChar = textgot.slice(1, textgot.length);
+  restChar = restChar.toLowerCase();
+  const newName = firstChar + restChar;
+
+  return newName;
+}
