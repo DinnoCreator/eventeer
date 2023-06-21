@@ -4,6 +4,7 @@ import { api } from "../../link/API";
 import { useNavigate } from "react-router-dom";
 import State from "../formComponents/State";
 import { BeatLoader } from "react-spinners";
+import PricingInput from "../formComponents/pricingInput";
 
 const RegimeCreation = () => {
   const navigate = useNavigate();
@@ -13,11 +14,21 @@ const RegimeCreation = () => {
   const [nameChecker, setNameChecker] = useState(false);
 
   // form data
-  const [imager, setImager] = useState("");
+  const [regimeMediaBase64, setregimeMediaBase64] = useState("");
   const [regimeName, setRegimeName] = useState("");
   const [regimeCity, setRegimeCity] = useState("");
+  const [regimeDescription, setRegimeDescription] = useState("");
+  const [regimePricing, setRegimePricing] = useState([]);
   const [regimeAddress, setRegimeAddress] = useState("");
-  const [regime4digit, setRegime4digit] = useState("");
+  const [regimeState, setRegimeState] = useState("");
+  const [regimeCountry, setRegimeCountry] = useState("Nigeria");
+  const [regimeWithdrawalPin, setRegimeWithdrawalPin] = useState("");
+  const [regimeType, setRegimeType] = useState("");
+  const [regimeAffiliate, setRegimeAffiliate] = useState("");
+  const [regimeStartDate, setRegimeStartDate] = useState("");
+  const [regimeStartTime, setRegimeStartTime] = useState("");
+  const [regimeEndDate, setRegimeEndDate] = useState("");
+  const [regimeEndTime, setRregimeEndTime] = useState("");
   const [data, setData] = useState("CROSS-RIVER");
 
   //password visibility state
@@ -41,6 +52,11 @@ const RegimeCreation = () => {
 
   const sendData = (data) => {
     setData(data);
+  };
+
+  
+  const pricingHandler = (value) => {
+    setRegimePricing(value);
   };
 
   // handle name check
@@ -88,6 +104,20 @@ const RegimeCreation = () => {
         },
         body: JSON.stringify({
           regimeName,
+          regimeType,
+          regimeDescription,
+          regimeAddress,
+          regimePricing,
+          regimeCity,
+          regimeState,
+          regimeCountry,
+          regimeWithdrawalPin,
+          regimeMediaBase64,
+          regimeAffiliate,
+          regimeStartDate,
+          regimeStartTime,
+          regimeEndDate,
+          regimeEndTime,
         }),
       }).then(async (res) => {
         const data = await res.json();
@@ -106,6 +136,8 @@ const RegimeCreation = () => {
     }
   };
 
+  console.log(regimePricing);
+
   // converts image to base64
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -123,7 +155,7 @@ const RegimeCreation = () => {
   // handle image to be displayed to the client for clearity
   const handleDisplay = async (file) => {
     const base64 = await convertToBase64(file);
-    setImager(base64);
+    setregimeMediaBase64(base64);
     return setDisplay(false);
   };
 
@@ -142,7 +174,8 @@ const RegimeCreation = () => {
                   <span>{loginError}</span>
                 </div>
               )}
-              <form className="container" onSubmit={nameCheck}>
+              <PricingInput pricingHandler={pricingHandler}/>
+              {/* <form className="container" onSubmit={nameCheck}>
                 <div className="mb-3">
                   <label htmlFor="regimeName" className="form-label">
                     Enter Regime Name
@@ -175,7 +208,7 @@ const RegimeCreation = () => {
                     )}
                   </button>
                 </div>
-              </form>
+              </form> */}
             </div>
           </div>
         </>
@@ -255,9 +288,9 @@ const RegimeCreation = () => {
                       maxLength="4"
                       pattern="[0-9]+"
                       ref={pass}
-                      value={regime4digit}
+                      value={regimeWithdrawalPin}
                       required
-                      onChange={(e) => setRegime4digit(e.target.value)}
+                      onChange={(e) => setRegimeWithdrawalPin(e.target.value)}
                     />
                     <button
                       className={`btn ${classes.eye}`}
@@ -309,12 +342,12 @@ const RegimeCreation = () => {
               {/* <img
               className="flex flex-col w-full h-64"
               style={{ display: !display ? "block" : "none" }}
-              src={imager}
+              src={regimeMediaBase64}
               alt="Please upload a jpg,png,svg, or jpeg pic."
             /> */}
               <div
                 style={{
-                  backgroundImage: `url(${imager})`,
+                  backgroundImage: `url(${regimeMediaBase64})`,
                   // backgroundImage: `url(${externalImage})`,
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",

@@ -284,6 +284,9 @@ img{
   justify-content: left;
   align-items: center;
 }
+.white{
+  color: white;
+}
 /* map */
 /* .mapouter{
   position:relative;
