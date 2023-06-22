@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
+import TimeAndDate from "../formComponents/timeAndDate";
 
 const steps = [
   'Check regime name availability',
@@ -28,7 +29,7 @@ const RegimeCreation = () => {
   const [nameChecker, setNameChecker] = useState(false);
   const [firstWave, setFirstWave] = useState(false);
   const [secondWave, setSecondWave] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   // form data
   const [regimeMediaBase64, setregimeMediaBase64] = useState("");
@@ -80,6 +81,18 @@ const RegimeCreation = () => {
   const pricingHandler = (value) => {
     setRegimePricing(value);
   };
+  const startDateHandler = (value) => {
+    setRegimeStartDate(value);
+  };
+  const startTimeHandler = (value) => {
+    setRegimeStartTime(value);
+  };
+  const endDateHandler = (value) => {
+    setRegimeEndDate(value);
+  };
+  const endTimeHandler = (value) => {
+    setRregimeEndTime(value);
+  };
 
   // handle name check
   const nameCheck = async (e) => {
@@ -115,45 +128,63 @@ const RegimeCreation = () => {
   // handle name check
   const createRegimeApi = async (e) => {
     e.preventDefault();
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setLoading(true);
     setRegimeState(data);
     // const regimeName = regimeName;
     try {
-      await fetch(`${api}/user/regimecheck`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: sessionStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          regimeName,
-          regimeType,
-          regimeDescription,
-          regimeAddress,
-          regimePricing,
-          regimeCity,
-          regimeState,
-          regimeCountry,
-          regimeWithdrawalPin,
-          regimeMediaBase64,
-          regimeAffiliate,
-          regimeStartDate,
-          regimeStartTime,
-          regimeEndDate,
-          regimeEndTime,
-        }),
-      }).then(async (res) => {
-        const data = await res.json();
-        if (res.status === 200) {
-          setLoginError("");
-          setLoading(false);
-          return setNameChecker(true);
-        } else if (res.status !== 200) {
-          setLoading(false);
-          setLoginError(data);
-          return setDip("block");
-        }
-      });
+      if (regimeMediaBase64.length === 0) {
+        setLoading(false);
+        return setLoginError("Please upload an image for your regime");
+      } else if (
+        regimeName.length === 0 ||
+        regimeAddress.length === 0 ||
+        regimePricing.length === 0 ||
+        regimeWithdrawalPin.length === 0 ||
+        regimeStartDate.length === 0 ||
+        regimeStartTime.length === 0 ||
+        regimeEndDate.length === 0 ||
+        regimeEndTime.length === 0
+      ) {
+        setLoading(false);
+        return setLoginError("Some inputs are missing.");
+      } else {
+        await fetch(`${api}/user/regimecreate`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: sessionStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            regimeName,
+            regimeType,
+            regimeDescription,
+            regimeAddress,
+            regimePricing,
+            regimeCity,
+            regimeState,
+            regimeCountry,
+            regimeWithdrawalPin,
+            regimeMediaBase64,
+            regimeAffiliate,
+            regimeStartDate,
+            regimeStartTime,
+            regimeEndDate,
+            regimeEndTime,
+          }),
+        }).then(async (res) => {
+          const data = await res.json();
+          if (res.status === 200) {
+            setLoginError("");
+            setLoading(false);
+            return setSuccess(true);
+          } else if (res.status !== 200) {
+            setLoading(false);
+            setLoginError(data);
+            return setDip("block");
+          }
+        });
+      }
     } catch (error) {
       console.error(error);
     }
@@ -182,7 +213,7 @@ const RegimeCreation = () => {
 
   // Handles the form body display
   const formBody = () => {
-    if (!nameChecker && !firstWave && !secondWave) {
+    if (!nameChecker && !firstWave && !secondWave && !success) {
       return (
         <>
           <Box sx={{ width: '100%' }}>
@@ -198,7 +229,7 @@ const RegimeCreation = () => {
             <div className="container">
               {loginError && ( // then if changed flag is false show error message.
                 <div
-                  className="container"
+                  className="container mb-3"
                   style={{ color: "red", display: { dip } }}
                 >
                   <span>{loginError}</span>
@@ -242,7 +273,7 @@ const RegimeCreation = () => {
           </div>
         </>
       );
-    } else if (nameChecker && !firstWave && !secondWave) {
+    } else if (nameChecker && !firstWave && !secondWave && !success) {
       return (
         <>
 
@@ -417,7 +448,7 @@ const RegimeCreation = () => {
           </div>
         </>
       );
-    } else if (nameChecker && firstWave && !secondWave) {
+    } else if (nameChecker && firstWave && !secondWave && !success) {
       return (
         <>
           <Box sx={{ width: '100%' }}>
@@ -449,7 +480,9 @@ const RegimeCreation = () => {
                     e.preventDefault();
                     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                     if (regimePricing.length === 0) {
-                      setLoginError("Please create at least one event pricing and set the pricing amount to 0 if you want the tickets to be free")
+                      return setLoginError("Please create at least one event pricing and set the pricing amount to 0 if you want the tickets to be free")
+                    } else {
+                      return setSecondWave(true);
                     }
                   }}
                   style={{ backgroundColor: "green", border: "1px solid green" }}
@@ -460,78 +493,142 @@ const RegimeCreation = () => {
             </div></div>
         </>
       );
+    } else if (nameChecker && firstWave && secondWave && !success) {
+      return (
+        <>
+          <Box sx={{ width: '100%' }}>
+            <Stepper activeStep={3} alternativeLabel>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </Box>
+          <div className={`mt-3 ${classes.bod} smartContainer`}>
+            <div className="container">
+              {loginError && ( // then if changed flag is false show error message.
+                <div
+                  className="container mb-3"
+                  style={{ color: "red", display: { dip } }}
+                >
+                  <span>{loginError}</span>
+                </div>
+              )}
+              <TimeAndDate
+                startDateHandler={startDateHandler}
+                startTimeHandler={startTimeHandler}
+                endDateHandler={endDateHandler}
+                endTimeHandler={endTimeHandler}
+              />
+              <div className="d-grid gap-2 mt-3">
+                <button
+                  className={`shadowB btn ${classes.login}`}
+                  type="button"
+                  onClick={createRegimeApi}
+                >
+                  {loading ? (
+                    <>
+                      <div
+                        style={{ display: "inline-block" }}
+                        className="load"
+                      ></div>
+                    </>
+                  ) : (
+                    <>Create Regime</>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      )
     }
   };
 
-  return (
-    <>
-      <h2 className={`center mt-5 ${classes.h2}`}>Create a Regime</h2>
+  if (!success) {
+    return (
+      <>
+        <h2 className={`center mt-5 ${classes.h2}`}>Create a Regime</h2>
 
-      <div className="flex justify-center mt-3">
-        <div className="rounded-lg shadow-xl bg-gray-50 lg:w-1/2">
-          <div className="m-4">
-            <label className="inline-block mb-2 text-gray-500">
-              Upload Regime Image(jpg,png,svg,jpeg)
-            </label>
-            <div className="flex items-center justify-center w-full">
-              {/* <img
+        <div className="flex justify-center mt-3">
+          <div className="rounded-lg shadow-xl bg-gray-50 lg:w-1/2">
+            <div className="m-4">
+              <label className="inline-block mb-2 text-gray-500">
+                Upload Regime Image(jpg,png,svg,jpeg)
+              </label>
+              <div className="flex items-center justify-center w-full">
+                {/* <img
               className="flex flex-col w-full h-64"
               style={{ display: !display ? "block" : "none" }}
               src={regimeMediaBase64}
               alt="Please upload a jpg,png,svg, or jpeg pic."
             /> */}
-              <div
-                style={{
-                  backgroundImage: `url(${regimeMediaBase64})`,
-                  // backgroundImage: `url(${externalImage})`,
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  width: "100%",
-                  display: !display ? "block" : "none",
-                }}
-                className={`h-64`}
-              ></div>
-              <label
-                style={{ display: !display ? "none" : "block" }}
-                className="flex flex-col w-full h-32 border-4 border-dashed hover:bg-gray-100 hover:border-gray-300"
-              >
-                <div className="flex flex-col items-center justify-center pt-7">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-12 h-12 text-gray-400 group-hover:text-gray-600"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p className="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
-                    Select a photo
-                  </p>
-                </div>
-                <input
-                  onChange={(e) => {
-                    const file = e.target.files[0];
-                    handleDisplay(file);
+                <div
+                  style={{
+                    backgroundImage: `url(${regimeMediaBase64})`,
+                    // backgroundImage: `url(${externalImage})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    width: "100%",
+                    display: !display ? "block" : "none",
                   }}
-                  type="file"
-                  accept=".jpeg, .png, .jpg, .svg"
-                  className="opacity-0"
-                />
-              </label>
+                  className={`h-64`}
+                ></div>
+                <label
+                  style={{ display: !display ? "none" : "block" }}
+                  className="flex flex-col w-full h-32 border-4 border-dashed hover:bg-gray-100 hover:border-gray-300"
+                >
+                  <div className="flex flex-col items-center justify-center pt-7">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-12 h-12 text-gray-400 group-hover:text-gray-600"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p className="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
+                      Select a photo
+                    </p>
+                  </div>
+                  <input
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      handleDisplay(file);
+                    }}
+                    type="file"
+                    accept=".jpeg, .png, .jpg, .svg"
+                    className="opacity-0"
+                  />
+                </label>
+              </div>
             </div>
           </div>
         </div>
+        <div className="mt-4">
+          {formBody()}
+        </div>
+      </>
+    );
+  } else if (success) {
+    setTimeout(() => {
+      navigate("/profile");
+    }, 4000)
+    return (
+      <div className="box">
+        <div className="success alert">
+          <div className="alert-body">Regime Created!</div>
+        </div>
       </div>
-      <div className="mt-4">
-        {formBody()}
-      </div>
-    </>
-  );
+    );
+  }
+
 };
 
 export default RegimeCreation;

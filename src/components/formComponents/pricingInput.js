@@ -79,7 +79,7 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
               </div>
               <div className="mb-3">
                 <label htmlFor="pricingAmount" className="form-label">
-                  Pricing Amount
+                  Pricing Amount in Naira
                 </label>
                 <input
                   type="number"
@@ -103,6 +103,7 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                   autoComplete="off"
                   id="pricingTotalSeats"
                   aria-describedby="pricingTotalSeatsHelp"
+                  min="1"
                   required
                   onChange={(e) => {
                     value.pricingTotalSeats = e.target.value;
@@ -113,13 +114,14 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
 
                 <div className="mb-3">
                   <label htmlFor="pricingAffiliateAmount" className="form-label">
-                    Pricing Affiliate Amount
+                    Pricing Affiliate Amount in Naira
                   </label>
                   <input
                     type="number"
                     className="form-control shadowB"
                     autoComplete="off"
                     id="pricingAffiliateAmount"
+                    min="50"
                     aria-describedby="pricingAffiliateAmountSeatsHelp"
                     required
                     onChange={(e) => {
@@ -170,7 +172,7 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
               </div>
               <div className="mb-3">
                 <label htmlFor="pricingAmount" className="form-label">
-                  Pricing Amount
+                  Pricing Amount in Naira
                 </label>
                 <input
                   type="number"
@@ -191,6 +193,7 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                   type="number"
                   className="form-control shadowB"
                   autoComplete="off"
+                  min="1"
                   id="pricingTotalSeats"
                   aria-describedby="pricingTotalSeatsHelp"
                   value={regimePricingC[index].pricingTotalSeats}
@@ -202,13 +205,14 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
 
                 <div className="mb-3">
                   <label htmlFor="pricingAffiliateAmount" className="form-label">
-                    Pricing Affiliate Amount
+                    Pricing Affiliate Amount in Naira
                   </label>
                   <input
                     type="number"
                     className="form-control shadowB"
                     autoComplete="off"
                     id="pricingAffiliateAmount"
+                    min="50"
                     aria-describedby="pricingAffiliateAmountSeatsHelp"
                     value={regimePricingC[index].pricingAffiliateAmount}
                     required
