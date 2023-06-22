@@ -56,6 +56,7 @@ const RegimeCreation = () => {
   const [show, setshow] = useState(false);
   const [eye, setEye] = useState("fa-eye-slash");
   const pass = useRef();
+  const hiddenFileInput = useRef();
 
   //password visibility handler
   const showPassword = () => {
@@ -213,6 +214,11 @@ const RegimeCreation = () => {
     const base64 = await convertToBase64(file);
     setregimeMediaBase64(base64);
     return setDisplay(false);
+  };
+
+  // when the Button component is clicked
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
   };
 
   // Handles the form body display
@@ -547,7 +553,7 @@ const RegimeCreation = () => {
     }
   };
 
-  if (success) {
+  if (!success) {
     return (
       <>
         <h2 className={`center mt-5 ${classes.h2}`}>Create a Regime</h2>
@@ -566,6 +572,7 @@ const RegimeCreation = () => {
               alt="Please upload a jpg,png,svg, or jpeg pic."
             /> */}
                 <div
+                  onClick={handleClick}
                   style={{
                     backgroundImage: `url(${regimeMediaBase64})`,
                     // backgroundImage: `url(${externalImage})`,
@@ -603,6 +610,7 @@ const RegimeCreation = () => {
                       const file = e.target.files[0];
                       handleDisplay(file);
                     }}
+                    ref={hiddenFileInput}
                     type="file"
                     accept=".jpeg, .png, .jpg, .svg"
                     className="opacity-0"
@@ -617,7 +625,7 @@ const RegimeCreation = () => {
         </div>
       </>
     );
-  } else if (!success) {
+  } else if (success) {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setTimeout(() => {
       navigate("/profile");
