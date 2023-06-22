@@ -24,9 +24,9 @@ const steps = [
 const RegimeCreation = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, [])
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  // }, [])
   // state hooks
   const [display, setDisplay] = useState(true);
   const [nameChecker, setNameChecker] = useState(false);
@@ -547,7 +547,7 @@ const RegimeCreation = () => {
     }
   };
 
-  if (!success) {
+  if (success) {
     return (
       <>
         <h2 className={`center mt-5 ${classes.h2}`}>Create a Regime</h2>
@@ -617,7 +617,8 @@ const RegimeCreation = () => {
         </div>
       </>
     );
-  } else if (success) {
+  } else if (!success) {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setTimeout(() => {
       navigate("/profile");
     }, 4000)
