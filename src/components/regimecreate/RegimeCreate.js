@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import classes from "../regimecreate/RegimeCreate.module.css";
 import { api } from "../../link/API";
 import { useNavigate } from "react-router-dom";
@@ -24,6 +24,9 @@ const steps = [
 const RegimeCreation = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [])
   // state hooks
   const [display, setDisplay] = useState(true);
   const [nameChecker, setNameChecker] = useState(false);
@@ -177,6 +180,7 @@ const RegimeCreation = () => {
           if (res.status === 200) {
             setLoginError("");
             setLoading(false);
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             return setSuccess(true);
           } else if (res.status !== 200) {
             setLoading(false);
@@ -529,10 +533,7 @@ const RegimeCreation = () => {
                 >
                   {loading ? (
                     <>
-                      <div
-                        style={{ display: "inline-block" }}
-                        className="load"
-                      ></div>
+                      <BeatLoader color="#fff" loading={true} size={"12"} />
                     </>
                   ) : (
                     <>Create Regime</>
