@@ -5,6 +5,7 @@ import Footer from "../../Layout/Footer";
 import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../link/API";
+import MoreEvents from "../../components/moreevents/moreEvents";
 
 const Dashboard = () => {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
@@ -98,6 +99,8 @@ const Dashboard = () => {
           <>
             <Categories />
             <PopularEvents />
+            <MoreEvents />
+            <div style={{height: "200px"}}></div>
             <Footer />
           </>
         )}

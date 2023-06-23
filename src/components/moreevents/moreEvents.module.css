@@ -1,0 +1,42 @@
+.cat {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    border: thin;
+    font-size: 16px;
+    font-weight: 700;
+    color: #3B3B3B;
+}
+
+.owl {
+    margin-top: 0;
+    padding-top: 0;
+    position: relative;
+    bottom: 7px;
+}
+
+@media (max-height: 710px) {
+    .owl {
+        margin-top: 0;
+        padding-top: 0;
+        position: relative;
+        bottom: 10px;
+    }
+  }
+.icon i{
+    color: #7165E3;
+    display: inline-block;
+}
+
+
+.h1{
+    padding-top: 20px;
+    font-size: 20px;
+}
+@media (max-height: 710px) {
+    .h1{
+        padding-top: 30px;
+        font-size: 18px;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+  }

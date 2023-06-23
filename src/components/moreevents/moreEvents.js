@@ -1,8 +1,10 @@
+import classes from "../moreevents/moreEvents.module.css"
 import { useState, useCallback, useEffect } from "react";
 
-const SearchTest = () => {
+const MoreEvents = () => {
   return (
     <>
+    <h1 className={`${classes.h1} container`} style={{fontWeight: "bold"}}>All events</h1>
       <div className="moreGrid">
         <div className="moreGridChild shadowB stuff">
           <div className="">
@@ -81,4 +83,4 @@ const SearchTest = () => {
   )
 };
 
-export default SearchTest;
+export default MoreEvents;
