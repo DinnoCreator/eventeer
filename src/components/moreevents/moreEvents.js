@@ -1,140 +1,141 @@
 import classes from "../moreevents/moreEvents.module.css"
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
+import moment from 'moment';
+import { api } from "../../link/API";
+import clsx from "clsx";
+import useLazyLoader from "../../useLazyLoading";
+import MoreSkeleton from "./moreSkeleton";
+import { neat } from "../../utilities/textUtil";
+
+
 
 const MoreEvents = () => {
-    return (
-        <>
-            <h1 className={`${classes.h1} container`} style={{ fontWeight: "bold" }}>All events</h1>
-            <div className="moreGrid">
-                <div className="moreGridChild shadowB stuff">
-                    <div className="">
-                        <img
-                            className="moreImage"
-                            src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F506388499%2F1206077796573%2F1%2Foriginal.20230502-081816?w=512&amp;auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;rect=0%2C504%2C6016%2C3008&amp;s=e6016d6be9fee31955165b1b5dec81f0"
-                            alt="Africa Real Estate Certificate Masterclass"
-                            loading="lazy"
-                            height="250px"
-                        // width="350px"
-                        />
-                    </div>
-                    <div className="eventDetails container">
-                        <div className="titleOfEvent">Africa Real Estate Certificate Masterclass</div>
-                        <div className="dateOfEvent">
-                            <i
-                                style={{ color: "#7165E3" }}
-                                className="fa-regular fa-clock"
-                            ></i> &nbsp;
-                            Fri, Jul 6, 2:00 PM
-                        </div>
-                        <div className="addOfEvent">
-                            <i
-                                style={{ color: "#7165E3" }}
-                                className="fa-solid fa-location-dot"
-                            ></i> &nbsp;
-                            Federal palace hotel and casino •
-                        </div>
-                        <div className="priceOfEvent">
-                            <i
-                                style={{ color: "#7165E3" }}
-                                className="fa-solid fa-money-bill-1-wave"
-                            ></i> &nbsp;
-                            Starts at N4,000
-                        </div>
-                        <div className="creatorOfEvent">Premium entertainment</div>
-                    </div>
-                </div>
-                <div className="moreGridChild shadowB stuff">
-                    <div className="">
-                        <img
-                            className="moreImage"
-                            src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F476228579%2F167679916212%2F1%2Foriginal.20230323-165852?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C106%2C1620%2C810&s=92a0801ec66976bd022f5c13fabf8ccb"
-                            alt="Africa Real Estate Certificate Masterclass"
-                            loading="lazy"
-                            height="250px"
-                        // width="350px"
-                        />
-                    </div>
-                    <div className="eventDetails container">
-                        <div className="titleOfEvent">2023 African Missions Conference: "Show Me Your Glory" | Lagos, Nigeria</div>
-                        <div className="dateOfEvent">
-                            <i
-                                style={{ color: "#7165E3" }}
-                                className="fa-regular fa-clock"
-                            ></i> &nbsp;
-                            Fri, Jul 6, 2:00 PM
-                        </div>
-                        <div className="addOfEvent">
-                            <i
-                                style={{ color: "#7165E3" }}
-                                className="fa-solid fa-location-dot"
-                            ></i> &nbsp;
-                            Federal palace hotel and casino •
-                        </div>
-                        <div className="priceOfEvent">
-                            <i
-                                style={{ color: "#7165E3" }}
-                                className="fa-solid fa-money-bill-1-wave"
-                            ></i> &nbsp;
-                            Free
-                        </div>
-                        <div className="creatorOfEvent">Jagabon</div>
-                    </div>
-                </div>
-                <div className="moreGridChild shadowB stuff">
-                    <div className="">
-                        <img
-                            className="moreImage"
-                            src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F425365629%2F29860910359%2F1%2Foriginal.20230116-105436?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=537529bf703963e6910910b2384f7f50"
-                            alt="Africa Real Estate Certificate Masterclass"
-                            loading="lazy"
-                            height="250px"
-                        // width="350px"
-                        />
-                    </div>
-                    <div className="eventDetails container">
-                        <div className="titleOfEvent">Women Who Launch</div>
-                        <div className="dateOfEvent">
-                            <i
-                                style={{ color: "#7165E3" }}
-                                className="fa-regular fa-clock"
-                            ></i> &nbsp;
-                            Fri, Jul 6, 2:00 PM
-                        </div>
-                        <div className="addOfEvent">
-                            <i
-                                style={{ color: "#7165E3" }}
-                                className="fa-solid fa-location-dot"
-                            ></i> &nbsp;
-                            Federal palace hotel and casino •
-                        </div>
-                        <div className="priceOfEvent">
-                            <i
-                                style={{ color: "#7165E3" }}
-                                className="fa-solid fa-money-bill-1-wave"
-                            ></i> &nbsp;
-                            Starts at N2,000
-                        </div>
-                        <div className="creatorOfEvent">Spice city</div>
-                    </div>
-                </div>
-                <div className="moreGridChild shadowB stuff">
-                    <div className="">
-                        <div
-                            className="skeleton moreImage"
-                        ></div>
-                    </div>
-                    <div className="eventDetails container">
-                        <div className="text skeleton titleOfEvent"></div>
-                        <div className="text skeleton titleOfEvent sub"></div>
-                        <div className="text skeleton dateOfEvent"></div>
-                        <div className="text skeleton addOfEvent"></div>
-                        <div className="text skeleton priceOfEvent"></div>
-                        <div className="text end skeleton creatorOfEvent"></div>
-                    </div>
-                </div>
+    const [events, setEvents] = useState("");
+    const [fetching, setFetching] = useState(true);
+    const [divVis, setDivVis] = useState(true);
+    const triggerRef = useRef(null);
+
+    const fetcher = useCallback(async () => {
+        try {
+            await fetch(`${api}/user/regimesoffline`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
+            }).then(async (res) => {
+                const datai = await res.json();
+                if (res.status === 200) {
+                    console.log(datai);
+                    setEvents(datai)
+                    return setFetching(false);
+                } else {
+                    return console.error(datai);
+                }
+            })
+        } catch (error) {
+            return console.error(error);
+        }
+    }, []);
+
+    useEffect(() => {
+        fetcher()
+    }, [fetcher]);
+
+    const num_per_page = 3;
+    // const total_pages = 3;
+    const actual_pages = Number(events.length) / num_per_page;
+    const modulo_pages = Number(events.length) % num_per_page;
+    const total_pages = () => {
+        if (modulo_pages === 0) {
+            return actual_pages
+        } else {
+            return actual_pages + 1
+        }
+    }
+    const onGrabData = (currentPage) => {
+        return new Promise((resolve, reject) => {
+            if (currentPage > total_pages()) {
+                setDivVis(false)
+                reject('End of events')
+            }
+            
+            const dataSliced = events.slice(
+                ((currentPage - 1) % total_pages()) * num_per_page,
+                num_per_page * (currentPage % total_pages())
+                // ((currentPage - 1) % total_pages) * num_per_page,
+                // num_per_page * (currentPage % total_pages)
+            );
+            resolve(dataSliced);
+        })
+    }
+
+    const { data } = useLazyLoader({ triggerRef, onGrabData });
+
+
+    if (fetching) {
+        return (
+
+            <div className='moreGrid'>
+                <MoreSkeleton />
             </div>
-        </>
-    )
+        );
+    } else {
+        return (
+            <>
+                <h1 className={`${classes.h1} container`} style={{ fontWeight: "bold" }}>All events</h1>
+                <div className="moreGrid">
+                    {
+                        data.map((event) => {
+                            return (
+
+                                <div className="moreGridChild shadowB stuff" key={event.regime_id}>
+                                    <div className="" div>
+                                        <img
+                                            className="moreImage"
+                                            src={event.regime_media}
+                                            alt={event.regime_name}
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <div className="eventDetails container">
+                                        <div className="titleOfEvent">{neat(event.regime_name)}</div>
+                                        <div className="dateOfEvent">
+                                            <i
+                                                style={{ color: "#7165E3" }}
+                                                className="fa-regular fa-clock"
+                                            ></i> &nbsp;
+                                            {
+                                                `
+                                            ${moment(event.regime_start_date).format('ddd, MMM DD')}, 
+                                            ${moment(event.regime_start_time, 'HH:mm:ss').format('h:mm A')}
+                                            `
+                                            }
+                                        </div>
+                                        <div className="addOfEvent">
+                                            <i
+                                                style={{ color: "#7165E3" }}
+                                                className="fa-solid fa-location-dot"
+                                            ></i> &nbsp;
+                                            Federal palace hotel and casino •
+                                        </div>
+                                        <div className="priceOfEvent">
+                                            <i
+                                                style={{ color: "#7165E3" }}
+                                                className="fa-solid fa-money-bill-1-wave"
+                                            ></i> &nbsp;
+                                            {Number(event.min_ticket_price) === 0 ? `Free` : `Starts at N${Number(event.min_ticket_price).toLocaleString()}`}
+                                        </div>
+                                        <div className="creatorOfEvent">{neat(event.client_name)}</div>
+                                    </div>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+                <div ref={triggerRef} className='moreGrid' style={ divVis? {display: 'grid'} : {display: 'none'}}>
+                    <MoreSkeleton />
+                </div>
+            </>
+        )
+    }
 };
 
 export default MoreEvents;
