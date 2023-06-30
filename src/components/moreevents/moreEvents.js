@@ -85,7 +85,8 @@ const MoreEvents = () => {
         return (
             <>
                 <h1 className={`${classes.h1} container`} style={{ fontWeight: "bold" }}>All events</h1>
-                <div className="moreGrid" style={!firstLoad ? { display: 'grid' } : { display: 'none' }}>
+                <div className="moreGrid">
+                //<div className="moreGrid" style={!firstLoad ? { display: 'grid' } : { display: 'none' }}>
                     {
                         data.map((event) => {
                             return (
