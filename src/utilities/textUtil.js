@@ -59,3 +59,18 @@ export function neat(textgot) {
 
   return newName;
 }
+
+export function eventAddressTrimmer(textgot) {
+  if (textgot.length < 43) {
+    return neat(textgot);
+  } else if (textgot.slice(42, 43) === " ") {
+    let short = textgot.slice(0, 41);
+    let completeShort = short + "...";
+
+    return neat(completeShort);
+  } else {
+    let short = textgot.slice(0, 41);
+    let completeShort = short + "...";
+    return neat(completeShort);
+  }
+}

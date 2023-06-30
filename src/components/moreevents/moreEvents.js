@@ -5,7 +5,7 @@ import { api } from "../../link/API";
 import clsx from "clsx";
 import useLazyLoader from "../../useLazyLoading";
 import MoreSkeleton from "./moreSkeleton";
-import { neat } from "../../utilities/textUtil";
+import { eventAddressTrimmer, neat } from "../../utilities/textUtil";
 
 
 
@@ -13,6 +13,7 @@ const MoreEvents = () => {
     const [events, setEvents] = useState("");
     const [fetching, setFetching] = useState(true);
     const [divVis, setDivVis] = useState(true);
+    const [firstLoad, onFirstLoad] = useState(true);
     const triggerRef = useRef(null);
 
     const fetcher = useCallback(async () => {
@@ -52,11 +53,12 @@ const MoreEvents = () => {
     }
     const onGrabData = (currentPage) => {
         return new Promise((resolve, reject) => {
-            if (currentPage > total_pages()) {
-                setDivVis(false)
-                reject('End of events')
-            }
-            
+            onFirstLoad(false);
+            // if (currentPage > total_pages()) {
+            //     setDivVis(false)
+            //     reject('End of events');
+            // }
+
             const dataSliced = events.slice(
                 ((currentPage - 1) % total_pages()) * num_per_page,
                 num_per_page * (currentPage % total_pages())
@@ -72,20 +74,21 @@ const MoreEvents = () => {
 
     if (fetching) {
         return (
-
-            <div className='moreGrid'>
-                <MoreSkeleton />
-            </div>
+            <>
+                <h1 className={`${classes.h1} container`} style={{ fontWeight: "bold" }}>All events</h1>
+                <div className='moreGrid'>
+                    <MoreSkeleton />
+                </div>
+            </>
         );
     } else {
         return (
             <>
                 <h1 className={`${classes.h1} container`} style={{ fontWeight: "bold" }}>All events</h1>
-                <div className="moreGrid">
+                <div className="moreGrid" style={!firstLoad ? { display: 'grid' } : { display: 'none' }}>
                     {
                         data.map((event) => {
                             return (
-
                                 <div className="moreGridChild shadowB stuff" key={event.regime_id}>
                                     <div className="" div>
                                         <img
@@ -114,7 +117,7 @@ const MoreEvents = () => {
                                                 style={{ color: "#7165E3" }}
                                                 className="fa-solid fa-location-dot"
                                             ></i> &nbsp;
-                                            Federal palace hotel and casino •
+                                            {eventAddressTrimmer(`${event.regime_address} • ${event.regime_city}, ${event.regime_state}`)}
                                         </div>
                                         <div className="priceOfEvent">
                                             <i
@@ -130,9 +133,15 @@ const MoreEvents = () => {
                         })
                     }
                 </div>
-                <div ref={triggerRef} className='moreGrid' style={ divVis? {display: 'grid'} : {display: 'none'}}>
-                    <MoreSkeleton />
-                </div>
+
+                {
+                    events.length === data.length ? ("") : (
+                        <div ref={triggerRef} className='moreGrid'>
+                        {/* <div ref={triggerRef} className='moreGrid' style={divVis ? { display: 'grid' } : { display: 'none' }}> */}
+                            <MoreSkeleton />
+                        </div>
+                    )
+                }
             </>
         )
     }

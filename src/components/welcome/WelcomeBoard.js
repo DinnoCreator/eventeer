@@ -3,9 +3,9 @@ import classes2 from "../purchased/tickets/Tickets.module.css";
 import { useState } from "react";
 import { api } from "../../link/API";
 import { BeatLoader } from "react-spinners";
-import { textShrink } from "../../utilities/textUtil";
+import { neat, textShrink } from "../../utilities/textUtil";
 
-const WelcomeBoard = ({ searchHandler }) => {
+const WelcomeBoard = ({ searchHandler, name }) => {
   const [searchClick, setSearchClick] = useState(false);
   const [searchCharacters, setSearch] = useState();
   const [searchType, setSearchType] = useState("events");
@@ -248,9 +248,15 @@ const WelcomeBoard = ({ searchHandler }) => {
       <>
         <div className={` ${classes.img}`}>
           <div className={`container ${classes.welcome}`}>
-            <h5>Welcome back</h5>
-            {/* <h1>{props.firstname}</h1> */}
-            <h1>Edidiong</h1>
+            {name === 'emptysring' ?
+              <>
+                <h5>The fun never stops</h5>
+                <h1>Reventlify</h1>
+              </> :
+              <>
+                <h5>Welcome back</h5>
+                <h1>{neat(name)}</h1>
+              </>}
           </div>
           <div className="container">
             <div className={`container ${classes.foc} shadowB roboroboS edit`}>
