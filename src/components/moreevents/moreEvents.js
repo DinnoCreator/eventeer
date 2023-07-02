@@ -7,7 +7,158 @@ import useLazyLoader from "../../useLazyLoading";
 import MoreSkeleton from "./moreSkeleton";
 import { eventAddressTrimmer, neat } from "../../utilities/textUtil";
 
-
+const testData = [
+    {
+        "client_name": "dinno",
+        "regime_id": "cf6721476481",
+        "regime_name": "women who launch",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1688043370/regime_media/smvfj4sknajac4knnftp.jpg",
+        "regime_type": "conference",
+        "regime_address": "etta agbor",
+        "regime_city": "calabar",
+        "regime_state": "",
+        "regime_start_date": "2023-08-31T23:00:00.000Z",
+        "regime_start_time": "16:00:00",
+        "c_date": "2023-06-28T23:00:00.000Z",
+        "c_time": "13:56:09",
+        "min_ticket_price": "2000.00"
+    },
+    {
+        "client_name": "dinno",
+        "regime_id": "cf8467051744",
+        "regime_name": "2023 african missions conference: \"show me your glory\" | lagos, nigeria",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1688043188/regime_media/krhkai6r1cawgfah1qac.jpg",
+        "regime_type": "conference",
+        "regime_address": "22 road b close festac town",
+        "regime_city": "amuwo odofin",
+        "regime_state": "",
+        "regime_start_date": "2023-07-31T23:00:00.000Z",
+        "regime_start_time": "14:00:00",
+        "c_date": "2023-06-28T23:00:00.000Z",
+        "c_time": "13:53:08",
+        "min_ticket_price": "0.00"
+    },
+    {
+        "client_name": "dinno",
+        "regime_id": "ed9212301143",
+        "regime_name": "africa real estate certificate masterclass",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1687983970/regime_media/iihinurfh7wqkaguyxmt.jpg",
+        "regime_type": "education",
+        "regime_address": "etta agbor",
+        "regime_city": "calabar",
+        "regime_state": "cross-river",
+        "regime_start_date": "2023-07-21T23:00:00.000Z",
+        "regime_start_time": "15:00:00",
+        "c_date": "2023-06-27T23:00:00.000Z",
+        "c_time": "21:26:10",
+        "min_ticket_price": "4000.00"
+    },
+    {
+        "client_name": "dinno",
+        "regime_id": "ct4480361719",
+        "regime_name": "code fest",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1687436731/regime_media/ai4hfjrc0meyqavjahes.jpg",
+        "regime_type": "concert",
+        "regime_address": "22 road b close block 5 flat 5 festac town",
+        "regime_city": "festac town",
+        "regime_state": "lagos",
+        "regime_start_date": "2023-11-14T23:00:00.000Z",
+        "regime_start_time": "14:00:00",
+        "c_date": "2023-06-21T23:00:00.000Z",
+        "c_time": "13:25:31",
+        "min_ticket_price": "2000.00"
+    },
+    {
+        "client_name": "escanor",
+        "regime_id": "TH5760409570",
+        "regime_name": "lily",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1685881154/regime_media/gtcfgu8qga4rttazodom.png",
+        "regime_type": "theatre",
+        "regime_address": "ekpo okon",
+        "regime_city": "calabar",
+        "regime_state": "cross river",
+        "regime_start_date": "2023-11-24T23:00:00.000Z",
+        "regime_start_time": "12:30:00",
+        "c_date": "2023-06-03T23:00:00.000Z",
+        "c_time": "13:19:13",
+        "min_ticket_price": "40000.00"
+    },
+    {
+        "client_name": "escanor",
+        "regime_id": "CF2411413028",
+        "regime_name": "what is a woman conference",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1685880764/regime_media/x2lx9uchq860xc7roj7v.jpg",
+        "regime_type": "conference",
+        "regime_address": "satelite town",
+        "regime_city": "calabar",
+        "regime_state": "cross river",
+        "regime_start_date": "2023-11-24T23:00:00.000Z",
+        "regime_start_time": "12:30:00",
+        "c_date": "2023-06-03T23:00:00.000Z",
+        "c_time": "13:12:43",
+        "min_ticket_price": "40000.00"
+    },
+    {
+        "client_name": "escanor",
+        "regime_id": "CT0460321177",
+        "regime_name": "wizkid concert",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1685880443/regime_media/zgg38a09otaidngemdxl.jpg",
+        "regime_type": "concert",
+        "regime_address": "atimbo",
+        "regime_city": "calabar",
+        "regime_state": "cross river",
+        "regime_start_date": "2023-11-24T23:00:00.000Z",
+        "regime_start_time": "12:30:00",
+        "c_date": "2023-06-03T23:00:00.000Z",
+        "c_time": "13:07:23",
+        "min_ticket_price": "40000.00"
+    },
+    {
+        "client_name": "gojo",
+        "regime_id": "ED9464770891",
+        "regime_name": "edify it web development bootcamp",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1685674854/regime_media/knewesvzpcbfmajvdwxu.png",
+        "regime_type": "education",
+        "regime_address": "calabar municipality",
+        "regime_city": "calabar",
+        "regime_state": "cross river",
+        "regime_start_date": "2023-11-24T23:00:00.000Z",
+        "regime_start_time": "12:30:00",
+        "c_date": "2023-06-01T23:00:00.000Z",
+        "c_time": "04:00:54",
+        "min_ticket_price": "40000.00"
+    },
+    {
+        "client_name": "gojo",
+        "regime_id": "ED94gr64770891",
+        "regime_name": "who dey",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1685674854/regime_media/knewesvzpcbfmajvdwxu.png",
+        "regime_type": "education",
+        "regime_address": "calabar municipality",
+        "regime_city": "calabar",
+        "regime_state": "cross river",
+        "regime_start_date": "2023-11-24T23:00:00.000Z",
+        "regime_start_time": "12:30:00",
+        "c_date": "2023-06-01T23:00:00.000Z",
+        "c_time": "04:00:54",
+        "min_ticket_price": "40000.00"
+    },
+    {
+        "client_name": "gojo",
+        "regime_id": "ED94gr64770891",
+        "regime_name": "wey dem dey",
+        "regime_media": "https://res.cloudinary.com/dke5khtt3/image/upload/v1685674854/regime_media/knewesvzpcbfmajvdwxu.png",
+        "regime_type": "education",
+        "regime_address": "calabar municipality",
+        "regime_city": "calabar",
+        "regime_state": "cross river",
+        "regime_start_date": "2023-11-24T23:00:00.000Z",
+        "regime_start_time": "12:30:00",
+        "c_date": "2023-06-01T23:00:00.000Z",
+        "c_time": "04:00:54",
+        "min_ticket_price": "40000.00"
+    }
+];
 
 const MoreEvents = () => {
     const [events, setEvents] = useState("");
@@ -43,13 +194,16 @@ const MoreEvents = () => {
     const num_per_page = 3;
     // const total_pages = 3;
     const actual_pages = Number(events.length) / num_per_page;
+    // const flooredPages = Math.floor(actual_pages) + 1;
     const modulo_pages = Number(events.length) % num_per_page;
     const total_pages = () => {
-        if (modulo_pages === 0) {
-            return actual_pages
-        } else {
-            return actual_pages + 1
-        }
+        // if (modulo_pages === 0) {
+        //     console.log(actual_pages);
+        //     return actual_pages;
+        // } else {
+            console.log(actual_pages + 1);
+            return actual_pages + 1;
+        // }
     }
     const onGrabData = (currentPage) => {
         return new Promise((resolve, reject) => {
