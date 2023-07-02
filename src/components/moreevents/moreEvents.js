@@ -197,13 +197,7 @@ const MoreEvents = () => {
     // const flooredPages = Math.floor(actual_pages) + 1;
     const modulo_pages = Number(events.length) % num_per_page;
     const total_pages = () => {
-        // if (modulo_pages === 0) {
-        //     console.log(actual_pages);
-        //     return actual_pages;
-        // } else {
-            console.log(actual_pages + 1);
             return actual_pages + 1;
-        // }
     }
     const onGrabData = (currentPage) => {
         return new Promise((resolve, reject) => {
