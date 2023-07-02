@@ -41,7 +41,7 @@ const RegimeCreation = () => {
   const [regimeDescription, setRegimeDescription] = useState("");
   const [regimePricing, setRegimePricing] = useState([]);
   const [regimeAddress, setRegimeAddress] = useState("");
-  const [regimeState, setRegimeState] = useState("");
+  const [regimeState, setRegimeState] = useState("CROSS-RIVER");
   const [regimeCountry, setRegimeCountry] = useState("Nigeria");
   const [regimeWithdrawalPin, setRegimeWithdrawalPin] = useState("");
   const [regimeType, setRegimeType] = useState("concert");
@@ -50,7 +50,7 @@ const RegimeCreation = () => {
   const [regimeStartTime, setRegimeStartTime] = useState("");
   const [regimeEndDate, setRegimeEndDate] = useState("");
   const [regimeEndTime, setRregimeEndTime] = useState("");
-  const [data, setData] = useState("CROSS-RIVER");
+  // const [data, setData] = useState("CROSS-RIVER");
 
   //password visibility state
   const [show, setshow] = useState(false);
@@ -73,7 +73,7 @@ const RegimeCreation = () => {
   const [loading, setLoading] = useState(false);
 
   const sendData = (data) => {
-    setData(data);
+    setRegimeState(data);
   };
   const handleAffiliate = () => {
     regimeAffiliate === "enabled"
@@ -134,7 +134,6 @@ const RegimeCreation = () => {
     e.preventDefault();
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setLoading(true);
-    setRegimeState(data);
     // const regimeName = regimeName;
     try {
       if (regimeMediaBase64.length === 0) {
@@ -556,7 +555,8 @@ const RegimeCreation = () => {
   if (!success) {
     return (
       <>
-        <h2 className={`center mt-5 ${classes.h2}`}>Create a Regime</h2>
+        <h2 className={`center mt-5 ${classes.h2}`}>{regimeState}</h2>
+        {/* <h2 className={`center mt-5 ${classes.h2}`}>Create a Regime</h2> */}
 
         <div className="flex justify-center mt-3">
           <div className="rounded-lg shadow-xl bg-gray-50 lg:w-1/2">

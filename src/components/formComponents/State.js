@@ -13,7 +13,10 @@ const State = (props) => {
                 className="form-control shadowB"
                 id="regimeCity"
                 aria-label="regimeCityHelp"
-                onChange={(e) => handlesAll(e.target.value)}
+                onChange={(e) => {
+                  console.log(e.target.value)
+                  handlesAll(e.target.value);
+                }}
               >
                 <option>ABUJA FCT</option>
                 <option>ABIA</option>
