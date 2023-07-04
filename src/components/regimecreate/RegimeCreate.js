@@ -122,7 +122,7 @@ const RegimeCreation = () => {
         } else if (res.status !== 200) {
           setLoading(false);
           setLoginError(data);
-          return setDip("block");
+          return navigate("/login");
         }
       });
     } catch (error) {
