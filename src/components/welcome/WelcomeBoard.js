@@ -4,12 +4,14 @@ import { useState } from "react";
 import { api } from "../../link/API";
 import { BeatLoader } from "react-spinners";
 import { neat, textShrink } from "../../utilities/textUtil";
+import { useNavigate } from "react-router-dom";
 
 const WelcomeBoard = ({ searchHandler, name }) => {
   const [searchClick, setSearchClick] = useState(false);
   const [searchCharacters, setSearch] = useState();
   const [searchType, setSearchType] = useState("events");
   const [items, setItem] = useState([]);
+  let navigate = useNavigate();
   // handle loading on submit
   const [loading, setLoading] = useState(false);
   const [searchData, setSearchDtata] = useState("");
@@ -248,10 +250,10 @@ const WelcomeBoard = ({ searchHandler, name }) => {
       <>
         <div className={` ${classes.img}`}>
           <div className={`container ${classes.welcome}`}>
-            {name === 'emptysring' ?
+            {name === 'you are offline' ?
               <>
-                <h5>The fun never stops</h5>
-                <h1>Reventlify</h1>
+                <h5 onClick={() => { navigate('/login')}}>Login</h5>
+                <h1>{neat(name)}</h1>
               </> :
               <>
                 <h5>Welcome back</h5>
