@@ -252,7 +252,7 @@ const WelcomeBoard = ({ searchHandler, name }) => {
           <div className={`container ${classes.welcome}`}>
             {name === 'you are offline' ?
               <>
-                <h5 onClick={() => { navigate('/login')}}>Login</h5>
+                <h5 className="stuff" onClick={() => { navigate('/login')}}>Login</h5>
                 <h1>{neat(name)}</h1>
               </> :
               <>
