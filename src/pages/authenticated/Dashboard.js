@@ -10,6 +10,7 @@ import MoreEvents from "../../components/moreevents/moreEvents";
 const Dashboard = () => {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
+  const [cathegories, setCathegories] = useState();
   const [city, setCity] = useState("calabar");
   const [state, setState] = useState("cross river");
   const [name, setName] = useState("emptysring");
@@ -18,6 +19,9 @@ const Dashboard = () => {
 
   const searchHandler = (booleanValue) => {
     setIsSearching(booleanValue);
+  };
+  const cathegoriesHandler = (value) => {
+    setCathegories(value);
   };
   const getUser = useCallback(async () => {
     try {
@@ -46,35 +50,7 @@ const Dashboard = () => {
       console.error(err.message);
     }
   }, [navigate]);
-  // const getRegimesOnline = useCallback(async () => {
-  //   try {
-  //     await fetch(`${api}/user/regimesonline`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         authorization: sessionStorage.getItem("token"),
-  //       },
-  //       body: JSON.stringify({
-  //         city,
-  //         state,
-  //       }),
-  //     })
-  //       .then(async (res) => {
-  //         if (res.status !== 200 && res.status !== 201 && res.status !== 202) {
-  //           setIsAuthenticating(false);
-  //           return navigate("/login");
-  //         } else {
-  //           return await res.json();
-  //         }
-  //       })
-  //       .then((data) => {
-  //         console.log(data);
-  //         return setIsAuthenticating(false);
-  //       });
-  //   } catch (err) {
-  //     console.error(err.message);
-  //   }
-  // }, [navigate]);
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     getUser();
@@ -125,8 +101,8 @@ const Dashboard = () => {
           ""
         ) : (
           <>
-            <Categories />
-            <PopularEvents />
+            <Categories cathegories={cathegories} cathegoriesHandler={cathegoriesHandler} />
+            <PopularEvents cathegories={cathegories} />
             <MoreEvents />
             <div style={{height: "200px"}}></div>
             <Footer />
