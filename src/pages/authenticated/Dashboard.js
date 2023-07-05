@@ -34,8 +34,8 @@ const Dashboard = () => {
       })
         .then(async (res) => {
           if (res.status !== 200 && res.status !== 201 && res.status !== 202) {
-            setIsAuthenticating(false);
-            return navigate("/login");
+            setName("you are offline");
+            return setIsAuthenticating(false);
           } else {
             return await res.json();
           }

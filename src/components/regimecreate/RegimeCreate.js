@@ -122,7 +122,7 @@ const RegimeCreation = () => {
         } else if (res.status !== 200) {
           setLoading(false);
           setLoginError(data);
-          return setDip("block");
+          return navigate("/login");
         }
       });
     } catch (error) {
@@ -555,8 +555,7 @@ const RegimeCreation = () => {
   if (!success) {
     return (
       <>
-        <h2 className={`center mt-5 ${classes.h2}`}>{regimeState}</h2>
-        {/* <h2 className={`center mt-5 ${classes.h2}`}>Create a Regime</h2> */}
+        <h2 className={`center mt-5 ${classes.h2}`}>Create a Regime</h2>
 
         <div className="flex justify-center mt-3">
           <div className="rounded-lg shadow-xl bg-gray-50 lg:w-1/2">
