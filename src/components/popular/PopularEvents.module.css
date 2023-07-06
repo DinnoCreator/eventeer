@@ -1,17 +1,46 @@
-.img{
+.img {
     height: 150px;
 }
 
-.h1{
+.h1 {
     font-size: 20px;
     margin-bottom: 20px;
 }
+
 @media (max-height: 710px) {
-    .h1{
+    .h1 {
         font-size: 18px;
         margin-bottom: 15px;
     }
-    .img{
+
+    .img {
         height: 110px;
     }
-  }
+}
+
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 80%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 90%);
+    }
+}
+.skeleton.title {
+    height: 20px;
+    width: 170px;
+    display: flex;
+    justify-content: center;
+}
+.skeleton.location {
+    margin-top: 0.8rem;
+    height: 20px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}

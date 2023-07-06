@@ -1,110 +1,110 @@
-export function  cathegoryButtonCT (cathegories) {
+export function  styleCathegoryButtonCT (cathegories) {
     if (cathegories === "concert") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonPT (cathegories) {
+export function  styleCathegoryButtonPT (cathegories) {
     if (cathegories === "party") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonPG (cathegories) {
+export function  styleCathegoryButtonPG (cathegories) {
     if (cathegories === "pageantry") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonCF (cathegories) {
+export function  styleCathegoryButtonCF (cathegories) {
     if (cathegories === "conference") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonED (cathegories) {
+export function  styleCathegoryButtonED (cathegories) {
     if (cathegories === "education") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonTH (cathegories) {
+export function  styleCathegoryButtonTH (cathegories) {
     if (cathegories === "theatre") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonSC (cathegories) {
+export function  styleCathegoryButtonSC (cathegories) {
     if (cathegories === "services") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonCV (cathegories) {
+export function  styleCathegoryButtonCV (cathegories) {
     if (cathegories === "carnival") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonFV (cathegories) {
+export function  styleCathegoryButtonFV (cathegories) {
     if (cathegories === "festival") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonSP (cathegories) {
+export function  styleCathegoryButtonSP (cathegories) {
     if (cathegories === "sport") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };
-export function  cathegoryButtonTS (cathegories) {
+export function  styleCathegoryButtonTS (cathegories) {
     if (cathegories === "talentshow") {
       return {
         backgroundColor: "#7165E3",
         color: "white",
       };
     } else {
-      return;
+      return{};
     }
   };

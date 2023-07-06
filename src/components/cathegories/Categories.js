@@ -2,7 +2,7 @@ import OwlCarousel from 'react-owl-carousel';
 import { useState, useCallback, useEffect } from "react";
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import classes from "../cathegories/Category.module.css"
+import classes from "../cathegories/Category.module.css";
 
 const Categories = ({ cathegories, cathegoriesHandler }) => {
   const [cather, setCather] = useState('concert');
@@ -75,7 +75,6 @@ const Categories = ({ cathegories, cathegoriesHandler }) => {
         <h1 className={`${classes.h1}`} style={{ fontWeight: "bold" }}>Categories</h1>
         <OwlCarousel
           className={`owl-theme ${classes.owl}`}
-          loop
           margin={10}
           item="11"
           responsive={state.responsive}

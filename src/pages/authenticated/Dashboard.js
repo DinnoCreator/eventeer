@@ -3,26 +3,26 @@ import Categories from "../../components/cathegories/Categories";
 import WelcomeBoard from "../../components/welcome/WelcomeBoard";
 import Footer from "../../Layout/Footer";
 import { useEffect, useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { api } from "../../link/API";
 import MoreEvents from "../../components/moreevents/moreEvents";
 
 const Dashboard = () => {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
-  const [cathegories, setCathegories] = useState();
-  const [city, setCity] = useState("calabar");
-  const [state, setState] = useState("cross river");
-  const [name, setName] = useState("emptysring");
-  const [photo, setPhoto] = useState("emptysring");
-  let navigate = useNavigate();
+  // const [cathegories, setCathegories] = useState('concert');
+  // const [city, setCity] = useState("calabar");
+  // const [state, setState] = useState("cross river");
+  const [name, setName] = useState("");
+  // const [photo, setPhoto] = useState("emptysring");
+  // let navigate = useNavigate();
 
   const searchHandler = (booleanValue) => {
     setIsSearching(booleanValue);
   };
-  const cathegoriesHandler = (value) => {
-    setCathegories(value);
-  };
+  // const cathegoriesHandler = (value) => {
+  //   setCathegories(value);
+  // };
   const getUser = useCallback(async () => {
     try {
       await fetch(`${api}/user/whois`, {
@@ -43,13 +43,13 @@ const Dashboard = () => {
         .then((data) => {
           console.log(data);
           setName(data.userName);
-          setPhoto(data.userPhoto)
+          // setPhoto(data.userPhoto)
           return setIsAuthenticating(false);
         });
     } catch (err) {
       console.error(err.message);
     }
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -101,8 +101,8 @@ const Dashboard = () => {
           ""
         ) : (
           <>
-            <Categories cathegories={cathegories} cathegoriesHandler={cathegoriesHandler} />
-            <PopularEvents cathegories={cathegories} />
+            {/* <Categories cathegories={cathegories} cathegoriesHandler={cathegoriesHandler} /> */}
+            <PopularEvents />
             <MoreEvents />
             <div style={{height: "200px"}}></div>
             <Footer />

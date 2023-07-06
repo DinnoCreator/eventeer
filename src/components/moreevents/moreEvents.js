@@ -2,7 +2,6 @@ import classes from "../moreevents/moreEvents.module.css"
 import { useState, useCallback, useEffect, useRef } from "react";
 import moment from 'moment';
 import { api } from "../../link/API";
-import clsx from "clsx";
 import useLazyLoader from "../../useLazyLoading";
 import MoreSkeleton from "./moreSkeleton";
 import { eventAddressTrimmer, neat } from "../../utilities/textUtil";

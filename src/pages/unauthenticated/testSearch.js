@@ -1,84 +1,451 @@
-import { useState, useCallback, useEffect } from "react";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+// import { useState, useCallback, useEffect } from "react";
+import classes from "../../components/popular/PopularEvents.module.css"
+import { useNavigate } from "react-router-dom";
 
 const SearchTest = () => {
+  const navigate = useNavigate();
+
+  // const handledisplay = () => {
+  //     return navigate("/display", state={img: ""});
+  // }
+
+  const img1 =
+    "https://media.istockphoto.com/id/1436949458/photo/multiracial-group-of-happy-friends-using-sparklers-and-having-fun-on-new-years-day-at-home.jpg?s=612x612&w=is&k=20&c=WVvnKvsC5BCUITjUxLJTqySECSDNFExgFLgyRlRrNJM=";
+  const img2 =
+    "https://media.istockphoto.com/id/1412446063/photo/multiracial-smiling-friends-enjoying-on-the-boat.jpg?s=612x612&w=is&k=20&c=SSIv0T1DBO9z60EnM_FhVFVUvkXP4vWj54793--xGLY=";
+  const img3 =
+    "https://media.istockphoto.com/id/1324006497/photo/music-controller-dj-mixer-in-a-nightclub-at-a-party.jpg?s=612x612&w=is&k=20&c=FVP_WApXKx0EBQMjvl30L94tSufh0fHyZ9bRc4Tw9DY=";
+  const img4 =
+    "https://media.istockphoto.com/id/1436949458/photo/multiracial-group-of-happy-friends-using-sparklers-and-having-fun-on-new-years-day-at-home.jpg?s=612x612&w=is&k=20&c=WVvnKvsC5BCUITjUxLJTqySECSDNFExgFLgyRlRrNJM=";
+  const img5 =
+    "https://media.istockphoto.com/id/1389845778/photo/bright-burning-sparklers-against-american-flag-closeup.jpg?s=612x612&w=is&k=20&c=_xz-QjdWP-LzGznvQLFBEtGF4kiym8ABq_Msy7ctjI0=";
+  const img6 =
+    "https://images.unsplash.com/photo-1664575599730-0814817939de?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80";
+
+  const state = {
+    responsive: {
+      0: {
+        items: 1,
+      },
+      360: {
+        items: 1.5,
+      },
+      600: {
+        items: 2,
+      },
+      800: {
+        items: 2.5,
+      },
+      1000: {
+        items: 3,
+      },
+    },
+  };
   return (
     <>
-      <div className="moreGrid">
-        <div className="moreGridChild shadowB stuff">
-          <div className="">
-            <img
-              className="moreImage"
-              src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F506388499%2F1206077796573%2F1%2Foriginal.20230502-081816?w=512&amp;auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;rect=0%2C504%2C6016%2C3008&amp;s=e6016d6be9fee31955165b1b5dec81f0"
-              alt="Africa Real Estate Certificate Masterclass"
-              loading="lazy"
-              height="250px"
-            // width="350px"
-            />
-          </div>
-          <div className="eventDetails container">
-            <div className="titleOfEvent">Africa Real Estate Certificate Masterclass</div>
-            <div className="dateOfEvent">Fri, Jul 6, 2:00 PM</div>
-            <div className="addOfEvent">Federal palace hotel and casino •</div>
-            <div className="priceOfEvent">Starts at N4,000</div>
-            <div className="creatorOfEvent">Premium entertainment</div>
-          </div>
-        </div>
-        <div className="moreGridChild shadowB stuff">
-          <div className="">
-            <img
-              className="moreImage"
-              src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F476228579%2F167679916212%2F1%2Foriginal.20230323-165852?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C106%2C1620%2C810&s=92a0801ec66976bd022f5c13fabf8ccb"
-              alt="Africa Real Estate Certificate Masterclass"
-              loading="lazy"
-              height="250px"
-            // width="350px"
-            />
-          </div>
-          <div className="eventDetails container">
-            <div className="titleOfEvent">2023 African Missions Conference: "Show Me Your Glory" | Lagos, Nigeria</div>
-            <div className="dateOfEvent">Fri, Jul 6, 2:00 PM</div>
-            <div className="addOfEvent">Federal palace hotel and casino •</div>
-            <div className="priceOfEvent">Free</div>
-            <div className="creatorOfEvent">Jagabon</div>
-          </div>
-        </div>
-        <div className="moreGridChild shadowB stuff">
-          <div className="">
-            <img
-              className="moreImage"
-              src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F425365629%2F29860910359%2F1%2Foriginal.20230116-105436?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=537529bf703963e6910910b2384f7f50"
-              alt="Africa Real Estate Certificate Masterclass"
-              loading="lazy"
-              height="250px"
-            // width="350px"
-            />
-          </div>
-          <div className="eventDetails container">
-            <div className="titleOfEvent">Women Who Launch</div>
-            <div className="dateOfEvent">Fri, Jul 6, 2:00 PM</div>
-            <div className="addOfEvent">Federal palace hotel and casino •</div>
-            <div className="priceOfEvent">Starts at N2,000</div>
-            <div className="creatorOfEvent">Spice city</div>
-          </div>
-        </div>
-        <div className="moreGridChild shadowB stuff">
-          <div className="">
+      <div className="container">
+        <h1 className={`${classes.h1}`} style={{ fontWeight: "bold" }}>
+          Popular events
+        </h1>
+        <OwlCarousel
+          className="owl-theme"
+          loop
+          margin={10}
+          autoplay
+          responsive={state.responsive}
+          dots={false}
+        >
+          <div
+            className="item shadowC card roborobo mb-3"
+            onClick={() => {
+              return navigate("/display", {
+                state: {
+                  img: img1,
+                  icon: "fa-solid fa-music",
+                  color: "#0ead69",
+                },
+              });
+            }}
+          >
             <div
-              className="skeleton moreImage"
-            ></div>
+              style={{
+                backgroundImage: `url(${img1})`,
+                // backgroundImage: `url(${externalImage})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                width: "100%",
+              }}
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
+            >
+              <div className="row">
+                <div className="col-6 mt-3 mb-3 al">
+                  <span className="green rad">
+                    <i
+                      style={{ color: "white" }}
+                      className="fa-solid fa-music"
+                    ></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 mb-3 ar">
+                  <span className="white rad">
+                    <i className="fa-regular fa-bookmark"></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3  al">
+                  <span
+                    className="whiteBigi radi row"
+                    style={{ display: "block" }}
+                  >
+                    <span className="first">24</span>
+                    <span className="second">Mar</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
+                <i
+                  style={{ color: "#7165E3" }}
+                  className="fa-solid fa-location-dot"
+                ></i>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
+            </div>
           </div>
-          <div className="eventDetails container">
-            <div className="text skeleton titleOfEvent"></div>
-            <div className="text skeleton titleOfEvent sub"></div>
-            <div className="text skeleton dateOfEvent"></div>
-            <div className="text skeleton addOfEvent"></div>
-            <div className="text skeleton priceOfEvent"></div>
-            <div className="text end skeleton creatorOfEvent"></div>
+          <div
+            className="item shadowC card roborobo mb-3"
+            onClick={() => {
+              return navigate("/display", {
+                state: {
+                  img: img2,
+                  icon: "fa-solid fa-champagne-glasses",
+                  color: "#55CCF8",
+                },
+              });
+            }}
+          >
+            <div
+              style={{
+                backgroundImage: `url(${img2})`,
+                // backgroundImage: `url(${externalImage})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                width: "100%",
+              }}
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
+            >
+              <div className="row">
+                <div className="col-6 mt-3 mb-3 al">
+                  <span className="green blue rad">
+                    <i
+                      style={{ color: "white" }}
+                      className="fa-solid fa-champagne-glasses"
+                    ></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 mb-3 ar">
+                  <span className="white rad">
+                    <i className="fa-regular fa-bookmark"></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 al">
+                  <span
+                    className="whiteBigi radi row"
+                    style={{ display: "block" }}
+                  >
+                    <span className="first">24</span>
+                    <span className="second">Mar</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
+                <i
+                  style={{ color: "#7165E3" }}
+                  className="fa-solid fa-location-dot"
+                ></i>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
+            </div>
           </div>
-        </div>
+          <div
+            className="item shadowC card roborobo mb-3"
+            onClick={() => {
+              return navigate("/display", {
+                state: {
+                  img: img3,
+                  icon: "fa-solid fa-music",
+                  color: "#0ead69",
+                },
+              });
+            }}
+          >
+            <div
+              style={{
+                backgroundImage: `url(${img3})`,
+                // backgroundImage: `url(${externalImage})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                width: "100%",
+              }}
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
+            >
+              <div className="row">
+                <div className="col-6 mt-3 mb-3 al">
+                  <span className="green rad">
+                    <i
+                      style={{ color: "white" }}
+                      className="fa-solid fa-music"
+                    ></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 mb-3 ar">
+                  <span className="white rad">
+                    <i className="fa-regular fa-bookmark"></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 al">
+                  <span
+                    className="whiteBigi radi row"
+                    style={{ display: "block" }}
+                  >
+                    <span className="first">24</span>
+                    <span className="second">Mar</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
+                <i
+                  style={{ color: "#7165E3" }}
+                  className="fa-solid fa-location-dot"
+                ></i>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
+            </div>
+          </div>
+          <div
+            className="item shadowC card roborobo mb-3"
+            onClick={() => {
+              return navigate("/display", {
+                state: {
+                  img: img4,
+                  icon: "fa-solid fa-music",
+                  color: "#55CCF8",
+                },
+              });
+            }}
+          >
+            <div
+              style={{
+                backgroundImage: `url(${img4})`,
+                // backgroundImage: `url(${externalImage})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                width: "100%",
+              }}
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
+            >
+              <div className="row">
+                <div className="col-6 mt-3 mb-3 al">
+                  <span className="green blue rad">
+                    <i
+                      style={{ color: "white" }}
+                      className="fa-solid fa-music"
+                    ></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 mb-3 ar">
+                  <span className="white rad">
+                    <i className="fa-regular fa-bookmark"></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 al">
+                  <span
+                    className="whiteBigi radi row"
+                    style={{ display: "block" }}
+                  >
+                    <span className="first">24</span>
+                    <span className="second">Mar</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
+                <i
+                  style={{ color: "#7165E3" }}
+                  className="fa-solid fa-location-dot"
+                ></i>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
+            </div>
+          </div>
+          <div
+            className="item shadowC card roborobo mb-3"
+            onClick={() => {
+              return navigate("/display", {
+                state: {
+                  img: img5,
+                  icon: "fa-solid fa-music",
+                  color: "#0ead69",
+                },
+              });
+            }}
+          >
+            <div
+              style={{
+                backgroundImage: `url(${img5})`,
+                // backgroundImage: `url(${externalImage})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                width: "100%",
+              }}
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
+            >
+              <div className="row">
+                <div className="col-6 mt-3 mb-3 al">
+                  <span className="green rad">
+                    <i
+                      style={{ color: "white" }}
+                      className="fa-solid fa-music"
+                    ></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 mb-3 ar">
+                  <span className="white rad">
+                    <i className="fa-regular fa-bookmark"></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 al">
+                  <span
+                    className="whiteBigi radi row"
+                    style={{ display: "block" }}
+                  >
+                    <span className="first">24</span>
+                    <span className="second">Mar</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
+                <i
+                  style={{ color: "#7165E3" }}
+                  className="fa-solid fa-location-dot"
+                ></i>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
+            </div>
+          </div>
+          <div
+            className="item shadowC card roborobo mb-3"
+            onClick={() => {
+              return navigate("/display", {
+                state: {
+                  img: img6,
+                  icon: "fa-solid fa-music",
+                  color: "#0ead69",
+                },
+              });
+            }}
+          >
+            <div
+              style={{
+                backgroundImage: `url(${img6})`,
+                // backgroundImage: `url(${externalImage})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                width: "100%",
+              }}
+              className={`${classes.img} card-image-top roboroboT regimeHeight`}
+            >
+              <div className="row">
+                <div className="col-6 mt-3 mb-3 al">
+                  <span className="green rad">
+                    <i
+                      style={{ color: "white" }}
+                      className="fa-solid fa-music"
+                    ></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 mb-3 ar">
+                  <span className="white rad">
+                    <i className="fa-regular fa-bookmark"></i>
+                  </span>
+                </div>
+                <div className="col-6 mt-3 al">
+                  <span
+                    className="whiteBigi radi row"
+                    style={{ display: "block" }}
+                  >
+                    <span className="first">24</span>
+                    <span className="second">Mar</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="card-body myContainer title1">
+              <h6>Calabar Pool Party</h6>
+              <h6>
+                <i
+                  style={{ color: "#7165E3" }}
+                  className="fa-solid fa-location-dot"
+                ></i>
+                <span className="locationCol">&nbsp;Marina Resort</span>
+              </h6>
+            </div>
+          </div>
+        </OwlCarousel>
+      </div>
+
+      {/* loader */}
+      <div className="container mt-5">
+        <h1 className={`${classes.h1}`} style={{ fontWeight: "bold" }}>
+          Loader events
+        </h1>
+        <OwlCarousel
+          className="owl-theme"
+          loop
+          margin={10}
+          autoplay
+          responsive={state.responsive}
+          dots={false}
+        >
+          <div
+            className="item shadowC card roborobo mb-3">
+            <div
+              className={`${classes.img} ${classes.skeleton} card-image-top roboroboT regimeHeight`}
+            >
+              {/* <div
+                className={``}
+              ></div> */}
+            </div>
+            <div className="card-body myContainer title1">
+              <div className={`${classes.skeleton} ${classes.title}`}></div>
+              <div className={`${classes.skeleton} ${classes.location}`}></div>
+            </div>
+          </div>
+        </OwlCarousel>
       </div>
     </>
-  )
+  );
 };
 
 export default SearchTest;
