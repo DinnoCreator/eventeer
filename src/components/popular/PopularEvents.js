@@ -122,7 +122,7 @@ const PopularEvents = () => {
                         </div>
                         <div className="col-6 mt-3 mb-3 ar">
                           <span className="white rad">
-                            <i className="fa-regular fa-bookmark"></i>
+                            <i style={{color: '#828282'}} className="fa-regular fa-bookmark"></i>
                           </span>
                         </div>
                         <div className="col-6 mt-3  al">
@@ -130,8 +130,8 @@ const PopularEvents = () => {
                             className="whiteBigi radi row"
                             style={{ display: "block" }}
                           >
-                            <span className="first">24</span>
-                            <span className="second">Mar</span>
+                            <span className="first">{moment(event.start_date).format('DD')}</span>
+                            <span className="second">{moment(event.start_date).format('MMM')}</span>
                           </span>
                         </div>
                       </div>
@@ -143,7 +143,7 @@ const PopularEvents = () => {
                           style={{ color: "#7165E3" }}
                           className="fa-solid fa-location-dot"
                         ></i>
-                        <span className="locationCol">&nbsp;Marina Resort</span>
+                        <span className="locationCol">&nbsp;{event.city}</span>
                       </h6>
                     </div>
                   </div>
