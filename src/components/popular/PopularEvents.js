@@ -66,7 +66,7 @@ const PopularEvents = () => {
   };
   if (isAuthenticating) {
     return (
-      <div className="container mt-5">
+      <div className="mt-5">
         <PopularEventsSkeleton />
       </div>
     )
