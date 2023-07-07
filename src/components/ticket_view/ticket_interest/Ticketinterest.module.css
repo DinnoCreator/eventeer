@@ -140,6 +140,7 @@ span p {
 }
 .ul {
     list-style: none; /* Remove default bullets */
+    font-family: italic;
   }
 .ul li{
     font-size: 1.2rem;

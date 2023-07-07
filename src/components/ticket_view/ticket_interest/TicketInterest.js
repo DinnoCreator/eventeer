@@ -10,14 +10,14 @@ const TicketInterest = () => {
             <li className="mb-2 stuff">
               <span className={`reventlify`}>Regular</span>&nbsp;
               -&nbsp;
-              <span className={`${classes.priceAmount} ${classes.go}`}>N2,000</span> &nbsp;&nbsp;
+              <span className={`${classes.priceAmount} ${classes.go}`}>N</span>2,000 &nbsp;&nbsp;
               <span className={`${classes.priceName}`}>Buy</span>
               {/* <button className={`btn ${classes.buy}`}>BUY</button> */}
             </li>
             <li className="stuff">
               <span className={`reventlify`}> Vip</span>&nbsp;
               -&nbsp;
-              <span className={`${classes.priceAmount} ${classes.go}`}>N10,000</span> &nbsp;&nbsp;
+              <span className={`${classes.priceAmount} ${classes.go}`}>N</span>10,000 &nbsp;&nbsp;
               <span className={`${classes.priceName}`}>Buy</span>
               {/* <button className={`btn ${classes.buy}`}>BUY</button> */}
             </li>
