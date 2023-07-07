@@ -1,46 +1,56 @@
-.imgInfo{
+.imgInfo {
     background-color: white;
     padding-top: 0.5rem;
     padding-bottom: 1.5rem;
     margin-bottom: 0;
 }
-.imgInfo h1{
-    font-size: 23px;
+
+.imgInfo h1 {
+    font-size: 25px;
     font-weight: 700;
     padding-bottom: 2rem;
 }
-.imgInfo h3{
-    font-size: 23px;
+
+.imgInfo h3 {
+    font-size: 25px;
 }
 
 
-
-.buy{
+.priceName{
+    color: #7165E3;
+    font-weight: 700;
+}
+.priceAmount{
+    font-weight: 600;
+}
+.buy {
     background-color: #7165E3;
     color: white;
 }
 
-.buy:hover{
-    background-color: white;
-    color: #7165E3;
+.buy:hover {
+    background-color: #7165E3;
+    color: white;
 }
 
-.but{
+.but {
     margin-top: 0;
 }
 
-.mag{
-    margin-top: 1.3rem;
-    margin-bottom: 1.8rem;
+.mag {
+    margin-top: 0.5rem;
+    /* margin-bottom: 6rem; */
 }
-.pad{
+
+.pad {
     margin-top: 2.5rem;
 }
-.go{
+
+.go {
     color: #828282;
 }
 
-.icon i{
+.icon i {
     background-color: #E7E7E9;
     padding: 10px;
     padding-left: 14px;
@@ -51,53 +61,138 @@
     display: inline-block;
 }
 
-.icon i{
+.icon i {
     color: #7165E3;
     font-size: xx-large;
 }
 
-.date{
+.date {
     display: inline-block;
     margin-left: 1rem;
 }
-.date span{
+
+.date span {
     display: inline-block;
 }
-span p{
+
+span p {
     line-height: 0.3;
     font-size: large;
 }
 
-.p2{
+.p2 {
     position: relative;
-    top: 0.8rem;
+    /* top: 0.8rem; */
     font-size: 20px;
     font-weight: 600;
 }
 
-.direction a{
+.direction a {
     font-size: 50px;
     color: #7165E3;
 }
 
 @media (max-height: 710px) {
-    .imgInfo h3{
+    .imgInfo h3 {
         font-size: 20px;
     }
-    .icon i{
+
+    .icon i {
         font-size: x-large;
     }
-    .date p{
+
+    .date p {
         line-height: 0;
         font-size: medium;
     }
-    .mag{
-        margin-top: 1.4rem;
-        margin-bottom: 1.4rem;
-    }
-  }
+
+    /* .mag {
+        margin-bottom: 4rem;
+    } */
+}
+
 @media (max-height: 610px) {
-    .pad{
+    .pad {
         margin-top: 1.5rem;
     }
+}
+
+.flexTDP{
+    display: flex;
+    flex-direction: row;
+}
+.flexTDCL{
+    display: flex;
+    flex-grow: 0.2;
+}
+.flexTDCC{
+    display: flex;
+    flex-grow: 3;
+}
+.flexTDCR{
+    display: flex;
+    flex-grow: 1;
+    justify-content: right;
+}
+.directionA{
+    height: 40px;
+    width: 40px;
+}
+.ul {
+    list-style: none; /* Remove default bullets */
   }
+.ul li{
+    font-size: 1.2rem;
+}
+  .ul li::before {
+    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #7165E3; /* Change the color */
+    font-weight: bolder; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1.5rem; /* Also needed for space (tweak if needed) */
+  }
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 80%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 90%);
+    }
+}
+
+.skeleton.iconI{
+    height: 45px;
+    width: 52px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: inline-block;
+}
+.skeleton.LTextA{
+    height: 16px;
+    width: 160px;
+}
+.skeleton.STextA{
+    margin-top: 0.5rem;
+    height: 16px;
+    width: 110px;
+}
+.skeleton.directionA{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transform: rotate(45deg);
+}
+@media (max-width: 590px) {
+    .flexTDCL{
+        flex-grow: 1;
+    }
+}

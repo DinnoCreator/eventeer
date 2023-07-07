@@ -30,14 +30,11 @@ const TicketImageView = () => {
             </div>
             <div className={classes.imgInfo}>
               <div className="container">
-                <div className={`container hstack ${classes.pad}`}>
+                <div className={`container ${classes.pad}`}>
                   <div className={`${classes.imgInfoHolder}`}>
-                  <h1>Calabar Pool Party</h1>
+                  <h1 className="mb-3">Calabar Pool Party Calabar Pool Party Calabar Pool Party</h1>
                   <img src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large" alt="profile_image"/>
                   <h3>Edidiong Obodom </h3>
-                  </div>
-                  <div className={`ms-auto ${classes.imgInfoIcon}`} style={{backgroundColor: location.state.color}}>
-                  <i className={location.state.icon}></i>
                   </div>
                 </div>
               </div>

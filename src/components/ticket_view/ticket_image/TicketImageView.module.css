@@ -1,15 +1,16 @@
-.img{
+.img {
     display: flex;
     flex-direction: column;
     height: 260px;
 }
 
 
-.img h1{
+/* .img h1 {
     font-size: 23px;
     font-weight: 700;
-}
-.img h3{
+} */
+
+.img h3 {
     font-size: 16px;
     font-weight: 700;
     padding-left: 0.8rem;
@@ -17,7 +18,7 @@
     color: #828282;
 }
 
-.imgInfo{
+.imgInfo {
     background-color: white;
     margin-top: auto;
     border-top-left-radius: 40px;
@@ -27,20 +28,22 @@
     margin-bottom: 0;
 }
 
-.imgInfoHolder{
+.imgInfoHolder {
     display: inline-block;
     padding-top: 0;
     margin-top: 0;
 }
 
-.imgInfoHolder img{
+.imgInfoHolder img {
     width: 30px;
     border-radius: 100%;
 }
-.imgInfoHolder div{
+
+.imgInfoHolder div {
     display: inline;
 }
-.imgInfoIcon{
+
+.imgInfoIcon {
     display: inline-block;
     color: white;
     padding: 5px;
@@ -49,30 +52,74 @@
     border-radius: 25%;
     font-size: 30px;
 }
-.follow{
+
+.follow {
     color: #7165E3;
 }
 
-.options{
+.options {
     margin-top: 1.5rem;
 }
 
-.optionsIcon{
+.optionsIcon {
     background-color: white;
     border-radius: 50%;
     padding: 10px 15px;
     font-weight: 800;
 }
 
-.optionsIcon:hover{
+.optionsIcon:hover {
     cursor: pointer;
 }
 
-@media (max-height: 710px) {
-    .img{
-        height: 220px;
+.imgInfoHolder h1 {
+    font-size: 26px;
+}
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 80%);
     }
-    .imgInfoHolder h1{
+
+    100% {
+        background-color: hsl(200, 20%, 90%);
+    }
+}
+
+.skeleton.eventTitle {
+    height: 25px;
+    width: 190px;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+.skeleton.eventCreator {
+    height: 20px;
+    width: 150px;
+    display: inline-block;
+}
+.skeleton.imge {
+    display: inline-block;
+    width: 30px;
+    border-radius: 100%;
+    height: 30px;
+}
+
+.skeleton.imgInfoIcon{
+    height: 50px;
+    width: 40px;
+}
+@media (max-width: 710px) {
+    .imgInfoHolder h1 {
         font-size: 20px;
     }
-  }
+}
+
+
+/* @media (max-height: 710px) {
+    .img {
+        height: 220px;
+    }
+} */
