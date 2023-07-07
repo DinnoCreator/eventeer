@@ -9,7 +9,8 @@ const TicketDisplay = () => {
   }, []);
 
   return (
-    <div className="smartContainer">
+    // <div className="smartContainer">
+    <>
       {/* <div class="mapouter">
             <div class="gmap_canvas">
                 <iframe title="Campus Tour" class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
@@ -20,7 +21,8 @@ const TicketDisplay = () => {
       <TicketImageView />
       <TicketInterest />
       <TicketDescription />
-    </div>
+    </>
+    // </div>
   );
 };
 

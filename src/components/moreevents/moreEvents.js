@@ -5,6 +5,7 @@ import { api } from "../../link/API";
 import useLazyLoader from "../../useLazyLoading";
 import MoreSkeleton from "./moreSkeleton";
 import { eventAddressTrimmer, neat } from "../../utilities/textUtil";
+import { useNavigate } from "react-router-dom";
 
 const testData = [
     {
@@ -160,6 +161,7 @@ const testData = [
 ];
 
 const MoreEvents = () => {
+    const navigate = useNavigate();
     const [events, setEvents] = useState("");
     const [fetching, setFetching] = useState(true);
     const [divVis, setDivVis] = useState(true);
@@ -236,7 +238,16 @@ const MoreEvents = () => {
                     {
                         data.map((event) => {
                             return (
-                                <div className="moreGridChild shadowB stuff" key={event.regime_id}>
+                                <div className="moreGridChild shadowB stuff"
+                                onClick={() => {
+                                  return navigate("/display", {
+                                    state: {
+                                      img: event.regime_media,
+                                      icon: "fa-solid fa-music",
+                                      color: "#0ead69",
+                                    },
+                                  });
+                                }} key={event.regime_id}>
                                     <div className="" div>
                                         <img
                                             className="moreImage"
