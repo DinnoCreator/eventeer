@@ -130,7 +130,10 @@ const WelcomeBoard = ({ searchHandler, name }) => {
     ) {
       return items.map((item) => {
         return (
-          <div className={`stripFlexGeneral ${classes2.ticketStrip} mt-3`}>
+          <div className={`stripFlexGeneral ${classes2.ticketStrip} mt-3`}
+            onClick={() => {
+              return navigate(`/event/${item.regime_id.toUpperCase()}`);
+            }}>
             <div className="stripFlexGeneralChild1">
               <img src={item.regime_media} className="shrink" alt="event photo" />
             </div>
@@ -253,7 +256,7 @@ const WelcomeBoard = ({ searchHandler, name }) => {
           <div className={`container ${classes.welcome}`}>
             {name === 'you are offline' ?
               <>
-                <h5 className="stuff" onClick={() => { navigate('/login')}}>Login &nbsp;<i className="fa-solid fa-right-to-bracket"></i></h5>
+                <h5 className="stuff" onClick={() => { navigate('/login') }}>Login &nbsp;<i className="fa-solid fa-right-to-bracket"></i></h5>
                 <h1>{neat(truncate(name))}</h1>
               </> :
               <>
