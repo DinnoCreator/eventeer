@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect} from "react";
 import classes from "../regimecreate/RegimeCreate.module.css";
 import { api } from "../../link/API";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,7 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import TimeAndDate from "../formComponents/timeAndDate";
+import trim from "lodash.trim";
 
 const steps = [
   'Check regime name availability',
@@ -23,6 +24,9 @@ const steps = [
 
 const RegimeCreation = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [])
 
   // useEffect(() => {
   //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -36,7 +40,7 @@ const RegimeCreation = () => {
 
   // form data
   const [regimeMediaBase64, setregimeMediaBase64] = useState("");
-  const [regimeName, setRegimeName] = useState("");
+  const [regimeName, setregimeName] = useState("");
   const [regimeCity, setRegimeCity] = useState("");
   const [regimeDescription, setRegimeDescription] = useState("");
   const [regimePricing, setRegimePricing] = useState([]);
@@ -115,14 +119,17 @@ const RegimeCreation = () => {
         }),
       }).then(async (res) => {
         const data = await res.json();
-        if (res.status === 200) {
+        if (res.status === 200 && res.status !== 409) {
           setLoginError("");
           setLoading(false);
           return setNameChecker(true);
-        } else if (res.status !== 200) {
+        } else if (res.status !== 200 && res.status !== 409) {
           setLoading(false);
           setLoginError(data);
           return navigate("/login");
+        } else if (res.status !== 200 && res.status === 409) {
+          setLoading(false);
+          return setLoginError(data);
         }
       });
     } catch (error) {
@@ -238,7 +245,7 @@ const RegimeCreation = () => {
             <div className="container">
               {loginError && ( // then if changed flag is false show error message.
                 <div
-                  className="container mb-3"
+                  className="mb-3"
                   style={{ color: "red", display: { dip } }}
                 >
                   <span>{loginError}</span>
@@ -255,9 +262,9 @@ const RegimeCreation = () => {
                     autoComplete="off"
                     id="regimeName"
                     aria-describedby="regimeNameHelp"
-                    value={regimeName}
+                    // value={regimeName}
                     required
-                    onChange={(e) => setRegimeName(e.target.value)}
+                    onChange={(e) => setregimeName(trim(e.target.value))}
                   />
                 </div>
 
@@ -370,8 +377,8 @@ const RegimeCreation = () => {
                     autoComplete="off"
                     id="regimeAddress"
                     aria-describedby="regimeAddressHelp"
-                    value={regimeAddress}
-                    onChange={(e) => setRegimeAddress(e.target.value)}
+                    // value={regimeAddress}
+                    onChange={(e) => setRegimeAddress(trim(e.target.value))}
                     required
                   />
                 </div>
@@ -385,8 +392,8 @@ const RegimeCreation = () => {
                     autoComplete="off"
                     id="regimeCity"
                     aria-describedby="rregimeCityHelp"
-                    value={regimeCity}
-                    onChange={(e) => setRegimeCity(e.target.value)}
+                    // value={regimeCity}
+                    onChange={(e) => setRegimeCity(trim(e.target.value))}
                     required
                   />
                 </div>
@@ -406,9 +413,9 @@ const RegimeCreation = () => {
                       maxLength="4"
                       pattern="[0-9]+"
                       ref={pass}
-                      value={regimeWithdrawalPin}
+                      // value={regimeWithdrawalPin}
                       required
-                      onChange={(e) => setRegimeWithdrawalPin(e.target.value)}
+                      onChange={(e) => setRegimeWithdrawalPin(trim(e.target.value))}
                     />
                     <button
                       className={`btn ${classes.eye}`}
@@ -428,8 +435,8 @@ const RegimeCreation = () => {
                     autoComplete="off"
                     id="regimeDescription"
                     aria-describedby="regimeDescriptionHelp"
-                    value={regimeDescription}
-                    onChange={(e) => setRegimeDescription(e.target.value)}
+                    // value={regimeDescription}
+                    onChange={(e) => setRegimeDescription(trim(e.target.value))}
                     required
                   />
                 </div>

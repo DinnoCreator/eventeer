@@ -13,11 +13,11 @@ const TicketDisplay = () => {
   const [found, setFound] = useState(false);
   const [eventDetails, setEventDetails] = useState();
   const [pricingDetails, setPricingDetails] = useState();
-  const { id } = useParams();
+  let { id } = useParams();
   const { affiliate } = useParams();
   const getEventDetails = useCallback(async () => {
-    console.log(id);
     try {
+      id = id.toLowerCase()
       await fetch(`${api}/user/event/${id}`, {
         method: "GET",
         headers: {

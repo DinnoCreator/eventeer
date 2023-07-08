@@ -19,9 +19,6 @@ const Dashboard = () => {
   const searchHandler = (booleanValue) => {
     setIsSearching(booleanValue);
   };
-  // const cathegoriesHandler = (value) => {
-  //   setCathegories(value);
-  // };
   const getUser = useCallback(async () => {
     try {
       await fetch(`${api}/user/whois`, {
@@ -40,7 +37,6 @@ const Dashboard = () => {
           }
         })
         .then((data) => {
-          console.log(data);
           setName(data.userName);
           // setPhoto(data.userPhoto)
           return setIsAuthenticating(false);

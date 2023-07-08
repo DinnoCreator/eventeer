@@ -13,11 +13,11 @@ const ProfileView = () => {
     return (
       <>
         <div className="smartContainer">
-            <div className={`container`}>
+            {/* <div className={`container`}>
                 <div className={`${classes.settings}`} onClick={handleSettings}>
                 <i className="fa-solid fa-gear"></i>
                 </div>
-            </div>
+            </div> */}
             <div className={`container grid-container ${classes.dp}`}>
                 <div></div>
                 <div className="grid-item">

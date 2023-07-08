@@ -1,3 +1,4 @@
+import { neat } from "../../../utilities/textUtil";
 import classes from "../ticket_image/TicketImageView.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -32,9 +33,9 @@ const TicketImageView = ({regimeImg, regimeName, creatorName}) => {
               <div className="container">
                 <div className={`container ${classes.pad}`}>
                   <div className={`${classes.imgInfoHolder}`}>
-                  <h1 className="mb-3">{regimeName}</h1>
+                  <h1 className="mb-3">{neat(regimeName)}</h1>
                   <img src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large" alt="profile_image"/>
-                  <h3>{creatorName}</h3>
+                  <h3>{neat(creatorName)}</h3>
                   </div>
                 </div>
               </div>

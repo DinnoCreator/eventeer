@@ -5,6 +5,7 @@ import { api } from "../../link/API";
 import { BeatLoader } from "react-spinners";
 import { neat, textShrink } from "../../utilities/textUtil";
 import { useNavigate } from "react-router-dom";
+import truncate from "lodash.truncate";
 
 const WelcomeBoard = ({ searchHandler, name }) => {
   const [searchClick, setSearchClick] = useState(false);
@@ -252,8 +253,8 @@ const WelcomeBoard = ({ searchHandler, name }) => {
           <div className={`container ${classes.welcome}`}>
             {name === 'you are offline' ?
               <>
-                <h5 className="stuff" onClick={() => { navigate('/login')}}>Login</h5>
-                <h1>{neat(name)}</h1>
+                <h5 className="stuff" onClick={() => { navigate('/login')}}>Login &nbsp;<i className="fa-solid fa-right-to-bracket"></i></h5>
+                <h1>{neat(truncate(name))}</h1>
               </> :
               <>
                 <h5>Welcome back</h5>

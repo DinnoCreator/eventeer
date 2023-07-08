@@ -1,4 +1,6 @@
+import { neat } from "../../../utilities/textUtil";
 import classes from "../ticket_interest/Ticketinterest.module.css";
+import truncate from "lodash.truncate"
 
 const TicketInterest = ({
   regimeStartDate,
@@ -8,7 +10,7 @@ const TicketInterest = ({
   regimeCity,
   regimePricings
 }) => {
-  const location = "eleven eleven calabar";
+  const location = `${regimeAddress} ${regimeCity}`;
   return (
     <div className={classes.imgInfo}>
       <div className="container">
@@ -17,11 +19,14 @@ const TicketInterest = ({
             {
               regimePricings.map((pricing) => {
                 return (
-                  <li className="mb-2 stuff">
-                    <span className={`reventlify`}>{pricing.pricing_name}</span>&nbsp;
+                  <li key={pricing.pricing_id} className="mb-2 stuff">
+                    <span className={`reventlify`}>{truncate(pricing.pricing_name, {
+                      'length': 25,
+                      'separator': /,? +/
+                    })}</span>&nbsp;
                     -&nbsp;
 
-                    {Number(pricing.pricing_amount) === 0 ? `Free` : (`N ${Number(pricing.pricing_amount).toLocaleString()} `)}
+                    {Number(pricing.pricing_amount) === 0 ? `Free` : (`N${Number(pricing.pricing_amount).toLocaleString()} `)}
                     &nbsp;&nbsp;
                     <span className={`${classes.priceName}`}>
                       {Number(pricing.pricing_amount) === 0 ? `Get ticket` : `Buy`}
@@ -60,8 +65,14 @@ const TicketInterest = ({
           </div>
           <div className={`${classes.flexTDCC}`}>
             <div>
-              <div className={`${classes.go}`}>{regimeAddress}</div>
-              <div className={`bold`}>{regimeCity}</div>
+              <div className={`${classes.go}`}>{neat(truncate(regimeAddress, {
+                'length': 25,
+                'separator': /,? +/
+              }))}</div>
+              <div className={`bold`}>{neat(truncate(regimeCity, {
+                'length': 25,
+                'separator': /,? +/
+              }))}</div>
             </div>
           </div>
           <div className={` ${classes.flexTDCR}`}>

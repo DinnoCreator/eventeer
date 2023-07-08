@@ -8,6 +8,7 @@ import { api } from "../../link/API";
 import moment from 'moment';
 import { neat } from "../../utilities/textUtil";
 import PopularEventsSkeleton from "./PopularEventsSkeleton";
+import truncate from "lodash.truncate";
 
 const PopularEvents = () => {
   const navigate = useNavigate();
@@ -90,8 +91,9 @@ const PopularEvents = () => {
                 return (
                   <div
                     className="item shadowC card roborobo mb-3"
+                    key={event.idd}
                     onClick={() => {
-                      return navigate(`/event/${event.idd}`);
+                      return navigate(`/event/${event.idd.toUpperCase()}`);
                     }}
                   >
                     <div
@@ -116,7 +118,7 @@ const PopularEvents = () => {
                         </div>
                         <div className="col-6 mt-3 mb-3 ar">
                           <span className="white rad">
-                            <i style={{color: '#828282'}} className="fa-regular fa-bookmark"></i>
+                            <i style={{ color: '#828282' }} className="fa-regular fa-bookmark"></i>
                           </span>
                         </div>
                         <div className="col-6 mt-3  al">
@@ -131,7 +133,10 @@ const PopularEvents = () => {
                       </div>
                     </div>
                     <div className="card-body myContainer title1">
-                      <h6>{neat(event.namer)}</h6>
+                      <h6>{neat(truncate(event.namer, {
+                        'length': 30,
+                        'separator': /,? +/
+                      }))}</h6>
                       <h6>
                         <i
                           style={{ color: "#7165E3" }}

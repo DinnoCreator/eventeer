@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import { neat } from "../../utilities/textUtil";
+import trim from "lodash.trim";
 
 const PricingInput = ({ pricingHandler, affiliateValue }) => {
   const [regimePricingC, setRegimePricingC] = useState([
@@ -73,7 +74,7 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                   aria-describedby="pricingNameHelp"
                   required
                   onChange={(e) => {
-                    value.pricingName = e.target.value;
+                    value.pricingName = trim(e.target.value);
                   }}
                 />
               </div>
@@ -89,7 +90,7 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                   aria-describedby="pricingAmountHelp"
                   required
                   onChange={(e) => {
-                    value.pricingAmount = e.target.value;
+                    value.pricingAmount = trim(e.target.value);
                   }}
                 />
               </div>
@@ -106,7 +107,7 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                   min="1"
                   required
                   onChange={(e) => {
-                    value.pricingTotalSeats = e.target.value;
+                    value.pricingTotalSeats = trim(e.target.value);
                   }}
                 />
               </div>
@@ -125,7 +126,7 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                     aria-describedby="pricingAffiliateAmountSeatsHelp"
                     required
                     onChange={(e) => {
-                      value.pricingAffiliateAmount = e.target.value;
+                      value.pricingAffiliateAmount = trim(e.target.value);
                     }}
                   />
                 </div>
@@ -233,11 +234,11 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
         {valueAdder()}
         <div
           className="btncti reventlifyBg white mb-3 shadowB mr-1"
-          style={{borderRadius: `50%`}}
+          style={{ borderRadius: `50%` }}
           type="button"
           onClick={formAdd}
         >
-          <AddIcon/>
+          <AddIcon />
         </div>
       </div>
     </>
