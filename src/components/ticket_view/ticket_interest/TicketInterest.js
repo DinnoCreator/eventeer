@@ -1,6 +1,7 @@
 import { neat } from "../../../utilities/textUtil";
 import classes from "../ticket_interest/Ticketinterest.module.css";
 import truncate from "lodash.truncate"
+import { useNavigate } from "react-router-dom";
 
 const TicketInterest = ({
   regimeStartDate,
@@ -8,8 +9,11 @@ const TicketInterest = ({
   regimeEndTime,
   regimeAddress,
   regimeCity,
-  regimePricings
+  regimePricings,
+  regimeName,
+  regimeId
 }) => {
+  const navigate = useNavigate();
   const location = `${regimeAddress} ${regimeCity}`;
   return (
     <div className={classes.imgInfo}>
@@ -19,7 +23,17 @@ const TicketInterest = ({
             {
               regimePricings.map((pricing) => {
                 return (
-                  <li key={pricing.pricing_id} className="mb-2 stuff">
+                  <li key={pricing.pricing_id} className="mb-2 stuff" onClick={() => {
+                    navigate("/purchase", {
+                      state: {
+                        regimeName,
+                        regimeId,
+                        priceId: pricing.pricing_id,
+                        priceName: pricing.pricing_name,
+                        priceAmount: pricing.pricing_amount,
+                      }
+                    })
+                  }}>
                     <span className={`reventlify`}>{truncate(pricing.pricing_name, {
                       'length': 25,
                       'separator': /,? +/

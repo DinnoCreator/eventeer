@@ -55,7 +55,7 @@ const TicketDisplay = () => {
   } else if (!isFetching && !found) {
     return (
       <>
-        <h1 className="center">No event found</h1>
+        <h1 className="center mt-5">No event found</h1>
       </>
     )
   } else if (!isFetching && found) {
@@ -75,6 +75,8 @@ const TicketDisplay = () => {
         creatorName={eventDetails[0].client_name}
         />
         <TicketInterest 
+        regimeName={eventDetails[0].regime_name}
+        regimeId={id}
         regimeStartDate={moment(eventDetails[0].regime_start_date).format("MMMM DD, YYYY")}
         regimeStartTime={moment(eventDetails[0].regime_start_time, 'HH:mm:ss').format('h:mm A')}
         regimeEndTime={moment(eventDetails[0].regime_end_time, 'HH:mm:ss').format('h:mm A')}
