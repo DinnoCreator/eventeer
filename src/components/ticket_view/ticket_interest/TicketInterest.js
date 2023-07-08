@@ -1,26 +1,37 @@
 import classes from "../ticket_interest/Ticketinterest.module.css";
 
-const TicketInterest = () => {
+const TicketInterest = ({
+  regimeStartDate,
+  regimeStartTime,
+  regimeEndTime,
+  regimeAddress,
+  regimeCity,
+  regimePricings
+}) => {
   const location = "eleven eleven calabar";
   return (
     <div className={classes.imgInfo}>
       <div className="container">
         <div className={`container ${classes.mag}`}>
           <ul className={`${classes.ul}`}>
-            <li className="mb-2 stuff">
-              <span className={`reventlify`}>Regular</span>&nbsp;
-              -&nbsp;
-              <span className={`${classes.priceAmount} ${classes.go}`}>N</span>2,000 &nbsp;&nbsp;
-              <span className={`${classes.priceName}`}>Buy</span>
-              {/* <button className={`btn ${classes.buy}`}>BUY</button> */}
-            </li>
-            <li className="stuff">
-              <span className={`reventlify`}> Vip</span>&nbsp;
-              -&nbsp;
-              <span className={`${classes.priceAmount} ${classes.go}`}>N</span>10,000 &nbsp;&nbsp;
-              <span className={`${classes.priceName}`}>Buy</span>
-              {/* <button className={`btn ${classes.buy}`}>BUY</button> */}
-            </li>
+            {
+              regimePricings.map((pricing) => {
+                return (
+                  <li className="mb-2 stuff">
+                    <span className={`reventlify`}>{pricing.pricing_name}</span>&nbsp;
+                    -&nbsp;
+
+                    {Number(pricing.pricing_amount) === 0 ? `Free` : (`N ${Number(pricing.pricing_amount).toLocaleString()} `)}
+                    &nbsp;&nbsp;
+                    <span className={`${classes.priceName}`}>
+                      {Number(pricing.pricing_amount) === 0 ? `Get ticket` : `Buy`}
+
+                    </span>
+                    {/* <button className={`btn ${classes.buy}`}>BUY</button> */}
+                  </li>
+                )
+              })
+            }
           </ul>
         </div>
         <div className={`${classes.pad} ${classes.flexTDP} container`}>
@@ -31,8 +42,9 @@ const TicketInterest = () => {
           </div>
           <div className={`${classes.flexTDCC}`}>
             <div>
-              <div className={`${classes.go}`}>December 24, 2022</div>
-              <div className={`bold`}>8:00 - 10:00 PM</div>
+              <div className={`${classes.go}`}>{regimeStartDate}</div>
+              {/* <div className={`${classes.go}`}>December 24, 2022</div> */}
+              <div className={`bold`}>{regimeStartTime} - {regimeEndTime}</div>
             </div>
           </div>
           <div className={` ${classes.flexTDCR}`}>
@@ -48,8 +60,8 @@ const TicketInterest = () => {
           </div>
           <div className={`${classes.flexTDCC}`}>
             <div>
-              <div className={`${classes.go}`}>Eleven Eleven, Calabar</div>
-              <div className={`bold`}>Marina Resort</div>
+              <div className={`${classes.go}`}>{regimeAddress}</div>
+              <div className={`bold`}>{regimeCity}</div>
             </div>
           </div>
           <div className={` ${classes.flexTDCR}`}>

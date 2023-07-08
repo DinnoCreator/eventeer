@@ -1,7 +1,7 @@
 import classes from "../ticket_image/TicketImageView.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const TicketImageView = () => {
+const TicketImageView = ({regimeImg, regimeName, creatorName}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -11,8 +11,8 @@ const TicketImageView = () => {
     return(
         <div className={classes.img} 
         style={{
-            backgroundImage: `url(${location.state.img})`,
-            // backgroundImage: `url(${externalImage})`,
+            // backgroundImage: `url(${location.state.img})`,
+            backgroundImage: `url(${regimeImg})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -32,9 +32,9 @@ const TicketImageView = () => {
               <div className="container">
                 <div className={`container ${classes.pad}`}>
                   <div className={`${classes.imgInfoHolder}`}>
-                  <h1 className="mb-3">Calabar Pool Party Calabar Pool Party Calabar Pool Party</h1>
+                  <h1 className="mb-3">{regimeName}</h1>
                   <img src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large" alt="profile_image"/>
-                  <h3>Edidiong Obodom </h3>
+                  <h3>{creatorName}</h3>
                   </div>
                 </div>
               </div>

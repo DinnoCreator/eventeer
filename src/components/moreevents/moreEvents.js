@@ -240,13 +240,7 @@ const MoreEvents = () => {
                             return (
                                 <div className="moreGridChild shadowB stuff"
                                 onClick={() => {
-                                  return navigate("/display", {
-                                    state: {
-                                      img: event.regime_media,
-                                      icon: "fa-solid fa-music",
-                                      color: "#0ead69",
-                                    },
-                                  });
+                                  return navigate(`/event/${event.regime_id}`);
                                 }} key={event.regime_id}>
                                     <div className="" div>
                                         <img

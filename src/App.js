@@ -26,7 +26,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/regime/:regimeid/:id" element={<RegimeDashboard />} />
         <Route path="/regimecreate" element={<RegimeCreate />} />
-        <Route path="/display" element={<TicketDisplay />} />
+        <Route path="/event/:id/:affiliate" element={<TicketDisplay />} />
+        <Route path="/event/:id" element={<TicketDisplay />} />
         <Route path="/ticket" element={<PurchasedTicket />} />
         <Route path="/tickets" element={<OpenedTickets />} />
         <Route path="/profile" element={<Profile />} />

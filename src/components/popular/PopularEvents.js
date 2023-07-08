@@ -91,13 +91,7 @@ const PopularEvents = () => {
                   <div
                     className="item shadowC card roborobo mb-3"
                     onClick={() => {
-                      return navigate("/display", {
-                        state: {
-                          img: event.media,
-                          icon: "fa-solid fa-music",
-                          color: "#0ead69",
-                        },
-                      });
+                      return navigate(`/event/${event.idd}`);
                     }}
                   >
                     <div
