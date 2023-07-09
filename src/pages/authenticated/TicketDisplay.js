@@ -81,7 +81,7 @@ const TicketDisplay = () => {
         <TicketInterest
           regimeName={eventDetails[0].regime_name}
           affiliate={affiliateId()}
-          regimeId={id}
+          regimeId={id.toLowerCase()}
           regimeStartDate={moment(eventDetails[0].regime_start_date).format(
             "MMMM DD, YYYY"
           )}
