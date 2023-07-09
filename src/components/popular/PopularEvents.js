@@ -91,7 +91,7 @@ const PopularEvents = () => {
                 return (
                   <div
                     className="item shadowC card roborobo mb-3"
-                    key={event.idd}
+                    //key={event.idd}
                     onClick={() => {
                       return navigate(`/event/${event.idd.toUpperCase()}`);
                     }}
