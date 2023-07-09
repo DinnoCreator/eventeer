@@ -85,8 +85,8 @@ const MoreEvents = () => {
                     {
                         data.map((event) => {
                             return (
-                                <div className="moreGridChild shadowB stuff" key={event.regime_id}>
-                                    <div className=""
+                                <div className="moreGridChild shadowB" key={event.regime_id}>
+                                    <div className="stuff"
                                         onClick={() => {
                                             return navigate(`/event/${event.regime_id.toUpperCase()}`);
                                         }} >

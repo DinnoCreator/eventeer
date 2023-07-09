@@ -11,7 +11,8 @@ const TicketInterest = ({
   regimeCity,
   regimePricings,
   regimeName,
-  regimeId
+  regimeId,
+  affiliate
 }) => {
   const navigate = useNavigate();
   const location = `${regimeAddress} ${regimeCity}`;
@@ -28,7 +29,8 @@ const TicketInterest = ({
                       state: {
                         regimeName,
                         regimeId,
-                        priceId: pricing.pricing_id,
+                        affiliate,
+                        pricingId: pricing.pricing_id,
                         priceName: pricing.pricing_name,
                         priceAmount: pricing.pricing_amount,
                       }

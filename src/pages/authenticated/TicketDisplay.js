@@ -14,15 +14,15 @@ const TicketDisplay = () => {
   const [eventDetails, setEventDetails] = useState();
   const [pricingDetails, setPricingDetails] = useState();
   let { id } = useParams();
-  const { affiliate } = useParams();
+  const { affiliateID } = useParams();
   const getEventDetails = useCallback(async () => {
     try {
-      id = id.toLowerCase()
+      id = id.toLowerCase();
       await fetch(`${api}/user/event/${id}`, {
         method: "GET",
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       }).then(async (res) => {
         const jsonData = await res.json();
         if (res.status !== 200) {
@@ -33,31 +33,35 @@ const TicketDisplay = () => {
           setFound(true);
           return setIsFetching(false);
         }
-
-      })
-    } catch (error) {
-
-    }
+      });
+    } catch (error) {}
   }, [id]);
-
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     getEventDetails();
   }, [getEventDetails]);
 
+  const affiliateId = () => {
+    if (affiliateID === undefined) {
+      return "none";
+    } else {
+      return affiliateID;
+    }
+  };
   if (isFetching && !found) {
     return (
       <>
         <TicketImageViewSkeleton />
         <TicketInterestSkeleton />
-      </>)
+      </>
+    );
   } else if (!isFetching && !found) {
     return (
       <>
         <h1 className="center mt-5">No event found</h1>
       </>
-    )
+    );
   } else if (!isFetching && found) {
     return (
       // <div className="smartContainer">
@@ -69,22 +73,33 @@ const TicketDisplay = () => {
                 <a href="https://formatjson.org/">format json</a>
             </div>
         </div> */}
-        <TicketImageView 
-        regimeImg={eventDetails[0].regime_media} 
-        regimeName={eventDetails[0].regime_name}
-        creatorName={eventDetails[0].client_name}
+        <TicketImageView
+          regimeImg={eventDetails[0].regime_media}
+          regimeName={eventDetails[0].regime_name}
+          creatorName={eventDetails[0].client_name}
         />
-        <TicketInterest 
-        regimeName={eventDetails[0].regime_name}
-        regimeId={id}
-        regimeStartDate={moment(eventDetails[0].regime_start_date).format("MMMM DD, YYYY")}
-        regimeStartTime={moment(eventDetails[0].regime_start_time, 'HH:mm:ss').format('h:mm A')}
-        regimeEndTime={moment(eventDetails[0].regime_end_time, 'HH:mm:ss').format('h:mm A')}
-        regimeAddress={eventDetails[0].regime_address}
-        regimeCity={eventDetails[0].regime_city}
-        regimePricings={pricingDetails}
+        <TicketInterest
+          regimeName={eventDetails[0].regime_name}
+          affiliate={affiliateId()}
+          regimeId={id}
+          regimeStartDate={moment(eventDetails[0].regime_start_date).format(
+            "MMMM DD, YYYY"
+          )}
+          regimeStartTime={moment(
+            eventDetails[0].regime_start_time,
+            "HH:mm:ss"
+          ).format("h:mm A")}
+          regimeEndTime={moment(
+            eventDetails[0].regime_end_time,
+            "HH:mm:ss"
+          ).format("h:mm A")}
+          regimeAddress={eventDetails[0].regime_address}
+          regimeCity={eventDetails[0].regime_city}
+          regimePricings={pricingDetails}
         />
-        <TicketDescription regimeDescription={eventDetails[0].regime_description}/>
+        <TicketDescription
+          regimeDescription={eventDetails[0].regime_description}
+        />
       </>
       // </div>
     );

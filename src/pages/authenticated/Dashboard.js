@@ -34,14 +34,14 @@ const Dashboard = () => {
             return setIsAuthenticating(false);
           } else {
             setName(data.userName);
-            return  setIsAuthenticating(false);
+            return setIsAuthenticating(false);
           }
         })
-        // .then((data) => {
-        //   setName(data.userName);
-        //   // setPhoto(data.userPhoto)
-        //   return setIsAuthenticating(false);
-        // });
+      // .then((data) => {
+      //   setName(data.userName);
+      //   // setPhoto(data.userPhoto)
+      //   return setIsAuthenticating(false);
+      // });
     } catch (err) {
       console.error(err.message);
     }
@@ -100,7 +100,7 @@ const Dashboard = () => {
             {/* <Categories cathegories={cathegories} cathegoriesHandler={cathegoriesHandler} /> */}
             <PopularEvents />
             <MoreEvents />
-            <div style={{height: "200px"}}></div>
+            <div style={{ height: "200px" }}></div>
             <Footer />
           </>
         )}

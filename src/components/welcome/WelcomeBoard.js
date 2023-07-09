@@ -74,9 +74,7 @@ const WelcomeBoard = ({ searchHandler, name }) => {
       searchType === "affiliate enabled events"
     ) {
       return (
-        <h1 className="mt-5 center">
-          Search for affiliate enabled events
-        </h1>
+        <h1 className="mt-5 center">Search for affiliate enabled events</h1>
       );
     } else if (loading) {
       return (
@@ -89,16 +87,16 @@ const WelcomeBoard = ({ searchHandler, name }) => {
       );
     } else if (items === "No result found" && !loading) {
       return <h1 className="mt-5 center">No result found</h1>;
-    } else if (
-      items.length !== 0 &&
-      !loading &&
-      searchType === "people"
-    ) {
+    } else if (items.length !== 0 && !loading && searchType === "people") {
       return items.map((item) => {
         return (
           <div className={`stripFlexGeneral ${classes2.ticketStrip} mt-3`}>
             <div className="stripFlexGeneralChild1">
-              <img src={item.client_photo} className="shrink" alt="client photo" />
+              <img
+                src={item.client_photo}
+                className="shrink"
+                alt="client photo"
+              />
             </div>
             <div
               className={`stripFlexGeneralChild stripFlex ${classes2.ticketStripInfo}`}
@@ -116,26 +114,30 @@ const WelcomeBoard = ({ searchHandler, name }) => {
                     }}
                     class="fa-solid fa-champagne-glasses"
                   ></i>
-                  <span className={classes2.ID}>{item.client_id.toUpperCase()}</span>
+                  <span className={classes2.ID}>
+                    {item.client_id.toUpperCase()}
+                  </span>
                 </p>
               </div>
             </div>
           </div>
         );
       });
-    } else if (
-      items.length !== 0 &&
-      !loading &&
-      searchType !== "people"
-    ) {
+    } else if (items.length !== 0 && !loading && searchType !== "people") {
       return items.map((item) => {
         return (
-          <div className={`stripFlexGeneral ${classes2.ticketStrip} mt-3`}
+          <div
+            className={`stripFlexGeneral ${classes2.ticketStrip} mt-3`}
             onClick={() => {
               return navigate(`/event/${item.regime_id.toUpperCase()}`);
-            }}>
+            }}
+          >
             <div className="stripFlexGeneralChild1">
-              <img src={item.regime_media} className="shrink" alt="event photo" />
+              <img
+                src={item.regime_media}
+                className="shrink"
+                alt="event photo"
+              />
             </div>
             <div
               className={`stripFlexGeneralChild stripFlex ${classes2.ticketStripInfo}`}
@@ -153,7 +155,9 @@ const WelcomeBoard = ({ searchHandler, name }) => {
                     }}
                     class="fa-solid fa-champagne-glasses"
                   ></i>
-                  <span className={classes2.ID}>{item.regime_id.toUpperCase()}</span>
+                  <span className={classes2.ID}>
+                    {item.regime_id.toUpperCase()}
+                  </span>
                 </p>
               </div>
             </div>
@@ -218,8 +222,8 @@ const WelcomeBoard = ({ searchHandler, name }) => {
               className="btnct mr-1 shadowB"
               style={cathegoryButtonE()}
               onClick={() => {
-                setItem([])
-                setSearchType("events")
+                setItem([]);
+                setSearchType("events");
               }}
             >
               Events
@@ -228,8 +232,8 @@ const WelcomeBoard = ({ searchHandler, name }) => {
               className="btnct mr-1 shadowB"
               style={cathegoryButtonP()}
               onClick={() => {
-                setItem([])
-                setSearchType("people")
+                setItem([]);
+                setSearchType("people");
               }}
             >
               People
@@ -238,8 +242,8 @@ const WelcomeBoard = ({ searchHandler, name }) => {
               className="btnct shadowB"
               style={cathegoryButtonA()}
               onClick={() => {
-                setItem([])
-                setSearchType("affiliate enabled events")
+                setItem([]);
+                setSearchType("affiliate enabled events");
               }}
             >
               Affiliates
@@ -254,15 +258,24 @@ const WelcomeBoard = ({ searchHandler, name }) => {
       <>
         <div className={` ${classes.img}`}>
           <div className={`container ${classes.welcome}`}>
-            {name === 'you are offline' ?
+            {name === "you are offline" ? (
               <>
-                <h5 className="stuff" onClick={() => { navigate('/login') }}>Login &nbsp;<i className="fa-solid fa-right-to-bracket"></i></h5>
+                <h5
+                  className="stuff"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Login &nbsp;<i className="fa-solid fa-right-to-bracket"></i>
+                </h5>
                 <h1>{neat(truncate(name))}</h1>
-              </> :
+              </>
+            ) : (
               <>
                 <h5>Welcome back</h5>
                 <h1>{neat(name)}</h1>
-              </>}
+              </>
+            )}
           </div>
           <div className="container">
             <div className={`container ${classes.foc} shadowB roboroboS edit`}>
