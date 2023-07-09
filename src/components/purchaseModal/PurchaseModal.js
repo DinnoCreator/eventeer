@@ -13,7 +13,8 @@ import { api } from "../../link/API";
 function PurchaseModal() {
     const location = useLocation();
     let navigate = useNavigate();
-    const rAmount = location.state.priceAmount;
+    const rAmount = Number(location.state.priceAmount);
+    const priceName = location.state.priceName;
     //  Counter is a state initialized to 0
     const [counter, setCounter] = useState(1)
     const [amount, setAmount] = useState(rAmount)
@@ -40,6 +41,44 @@ function PurchaseModal() {
 
     const handleClose = () => {
         navigate(-1)
+    }
+
+    const buyOrGet = () => {
+        if (rAmount === 0) {
+            return (
+                <span>Get&nbsp;</span>
+            )
+        } else {
+            return (
+                <span>Buy&nbsp;</span>
+            )
+        }
+    }
+    const freeOrNot = () => {
+        if (rAmount === 0) {
+            return (
+                <span>&nbsp;Free&nbsp;</span>
+            )
+        } else {
+            return (
+                <span>&nbsp;</span>
+            )
+        }
+    }
+    const pName = () => {
+        if (
+            priceName.toLowerCase() === 'ticket'
+            || priceName.toLowerCase() === 'tickets'
+            || priceName.toLowerCase() === 'free'
+        ) {
+            return (
+                <span>ticket</span>
+            )
+        } else {
+            return (
+                <span>{priceName}&nbsp;ticket</span>
+            )
+        }
     }
 
     //state for copy account number button
@@ -80,7 +119,7 @@ function PurchaseModal() {
     return (
         <>
             <Modal show={show} onHide={handleClose} centered>
-            {/* <Modal show={show} backdrop="static" centered> */}
+                {/* <Modal show={show} backdrop="static" centered> */}
                 <Modal.Header>
                     <Modal.Title>
                         <h1 className="modal-title fs-5" id="staticBackdropLabel">
@@ -90,7 +129,12 @@ function PurchaseModal() {
                 </Modal.Header>
                 <Modal.Body>
                     <div className="centree">
-                        <h3 className="center">Buy {counter} {location.state.priceName} ticket{counter > 1 ? 's' : ''}</h3>
+                        <h3 className="center">
+                            {buyOrGet()}
+                            {counter}
+                            {freeOrNot()}
+                            {pName()}{counter > 1 ? 's' : ''}
+                        </h3>
                         <strong>
                             <h1 className="center">N{Number(amount).toLocaleString()}</h1>
                         </strong>
