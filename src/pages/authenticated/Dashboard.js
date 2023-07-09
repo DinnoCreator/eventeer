@@ -12,7 +12,7 @@ const Dashboard = () => {
   // const [cathegories, setCathegories] = useState('concert');
   // const [city, setCity] = useState("calabar");
   // const [state, setState] = useState("cross river");
-  const [name, setName] = useState("");
+  const [name, setName] = useState("you are offline");
   // const [photo, setPhoto] = useState("emptysring");
   // let navigate = useNavigate();
 
@@ -29,18 +29,19 @@ const Dashboard = () => {
         }
       })
         .then(async (res) => {
+          const data = await res.json();
           if (res.status !== 200 && res.status !== 201 && res.status !== 202) {
-            setName("you are offline");
             return setIsAuthenticating(false);
           } else {
-            return await res.json();
+            setName(data.userName);
+            return  setIsAuthenticating(false);
           }
         })
-        .then((data) => {
-          setName(data.userName);
-          // setPhoto(data.userPhoto)
-          return setIsAuthenticating(false);
-        });
+        // .then((data) => {
+        //   setName(data.userName);
+        //   // setPhoto(data.userPhoto)
+        //   return setIsAuthenticating(false);
+        // });
     } catch (err) {
       console.error(err.message);
     }
