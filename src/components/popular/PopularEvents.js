@@ -80,7 +80,7 @@ const PopularEvents = () => {
           </h1>
           <OwlCarousel
             className="owl-theme"
-            // loop
+            loop
             margin={10}
             autoplay
             responsive={state.responsive}
