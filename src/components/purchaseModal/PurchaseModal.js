@@ -126,7 +126,7 @@ function PurchaseModal() {
                 <span>{postError}</span>
               </div>
             )}
-            <h3 className="center">
+            <h3 className="center" style={{color: '#828282'}}>
               {buyOrGet()}
               {counter}
               {freeOrNot()}
@@ -147,7 +147,8 @@ function PurchaseModal() {
             <h1 className="center">
               <button
                 type="button"
-                className="btn btn-danger"
+                className="btn white"
+                style={{ backgroundColor: "#828282" }}
                 onClick={handleClick2}
               >
                 <RemoveIcon />
@@ -155,7 +156,9 @@ function PurchaseModal() {
               &nbsp;&nbsp;{counter}&nbsp;&nbsp;
               <button
                 type="button"
-                className="btn btn-success"
+                // className="btn btn-success"
+                className="btn white"
+                style={{ backgroundColor: "#828282" }}
                 onClick={handleClick1}
               >
                 <AddIcon />
