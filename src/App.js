@@ -14,7 +14,7 @@ import RegimeDashboard from "./pages/authenticated/RegimeDashboard";
 import Imager from "./pages/ImageUpload";
 import RegimeCreate from "./pages/authenticated/RegimeCreation";
 import Test from "./pages/unauthenticated/test";
-import TestQr from "./pages/unauthenticated/testSearch";
+import ScanAll from "./pages/unauthenticated/testSearch";
 import PurchaseModal from "./components/purchaseModal/PurchaseModal";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
         <Route path="/settings/profile" element={<ProfileEdit />} />
         <Route path="/image" element={<Imager />} />
         <Route path="/test" element={<Test />} />
-        <Route path="/test/search" element={<TestQr />} />
+        <Route path="/test/search" element={<ScanAll />} />
         <Route path="/purchase" element={<PurchaseModal />} />
     </Routes>
   );
