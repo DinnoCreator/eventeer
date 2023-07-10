@@ -79,6 +79,7 @@ const TicketDisplay = () => {
           creatorName={eventDetails[0].client_name}
         />
         <TicketInterest
+          regimeImg={eventDetails[0].regime_media}
           regimeName={eventDetails[0].regime_name}
           affiliate={affiliateId()}
           regimeId={id.toLowerCase()}

@@ -1,0 +1,14 @@
+.image{
+    height: 100vh;
+    width: 100%;
+}
+
+.buy{
+    background-color: #7165E3;
+    color: white;
+}
+
+.buy:hover{
+    background-color: #7165E3;
+    color: white;
+}

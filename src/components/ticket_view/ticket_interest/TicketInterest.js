@@ -1,6 +1,6 @@
 import { neat } from "../../../utilities/textUtil";
 import classes from "../ticket_interest/Ticketinterest.module.css";
-import truncate from "lodash.truncate"
+import truncate from "lodash.truncate";
 import { useNavigate } from "react-router-dom";
 
 const TicketInterest = ({
@@ -12,7 +12,8 @@ const TicketInterest = ({
   regimePricings,
   regimeName,
   regimeId,
-  affiliate
+  affiliate,
+  regimeImg,
 }) => {
   const navigate = useNavigate();
   const location = `${regimeAddress} ${regimeCity}`;
@@ -21,38 +22,45 @@ const TicketInterest = ({
       <div className="container">
         <div className={`container ${classes.mag}`}>
           <ul className={`${classes.ul}`}>
-            {
-              regimePricings.map((pricing) => {
-                return (
-                  <li key={pricing.pricing_id} className="mb-2 stuff" onClick={() => {
+            {regimePricings.map((pricing) => {
+              return (
+                <li
+                  key={pricing.pricing_id}
+                  className="mb-2 stuff"
+                  onClick={() => {
                     navigate("/purchase", {
                       state: {
                         regimeName,
                         regimeId,
                         affiliate,
+                        regimeImg,
                         pricingId: pricing.pricing_id,
                         priceName: pricing.pricing_name,
                         priceAmount: pricing.pricing_amount,
-                      }
-                    })
-                  }}>
-                    <span className={`reventlify`}>{truncate(pricing.pricing_name, {
-                      'length': 25,
-                      'separator': /,? +/
-                    })}</span>&nbsp;
-                    -&nbsp;
-
-                    {Number(pricing.pricing_amount) === 0 ? `Free` : (`N${Number(pricing.pricing_amount).toLocaleString()} `)}
-                    &nbsp;&nbsp;
-                    <span className={`${classes.priceName}`}>
-                      {Number(pricing.pricing_amount) === 0 ? `Get ticket` : `Buy`}
-
-                    </span>
-                    {/* <button className={`btn ${classes.buy}`}>BUY</button> */}
-                  </li>
-                )
-              })
-            }
+                      },
+                    });
+                  }}
+                >
+                  <span className={`reventlify`}>
+                    {truncate(pricing.pricing_name, {
+                      length: 25,
+                      separator: /,? +/,
+                    })}
+                  </span>
+                  &nbsp; -&nbsp;
+                  {Number(pricing.pricing_amount) === 0
+                    ? `Free`
+                    : `N${Number(pricing.pricing_amount).toLocaleString()} `}
+                  &nbsp;&nbsp;
+                  <span className={`${classes.priceName}`}>
+                    {Number(pricing.pricing_amount) === 0
+                      ? `Get ticket`
+                      : `Buy`}
+                  </span>
+                  {/* <button className={`btn ${classes.buy}`}>BUY</button> */}
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className={`${classes.pad} ${classes.flexTDP} container`}>
@@ -65,12 +73,13 @@ const TicketInterest = ({
             <div>
               <div className={`${classes.go}`}>{regimeStartDate}</div>
               {/* <div className={`${classes.go}`}>December 24, 2022</div> */}
-              <div className={`bold`}>{regimeStartTime} - {regimeEndTime}</div>
+              <div className={`bold`}>
+                {regimeStartTime} - {regimeEndTime}
+              </div>
             </div>
           </div>
           <div className={` ${classes.flexTDCR}`}>
-            <div className={`${classes.directionA}`}>
-            </div>
+            <div className={`${classes.directionA}`}></div>
           </div>
         </div>
         <div className={`${classes.pad} ${classes.flexTDP} container`}>
@@ -81,14 +90,22 @@ const TicketInterest = ({
           </div>
           <div className={`${classes.flexTDCC}`}>
             <div>
-              <div className={`${classes.go}`}>{neat(truncate(regimeAddress, {
-                'length': 25,
-                'separator': /,? +/
-              }))}</div>
-              <div className={`bold`}>{neat(truncate(regimeCity, {
-                'length': 25,
-                'separator': /,? +/
-              }))}</div>
+              <div className={`${classes.go}`}>
+                {neat(
+                  truncate(regimeAddress, {
+                    length: 25,
+                    separator: /,? +/,
+                  })
+                )}
+              </div>
+              <div className={`bold`}>
+                {neat(
+                  truncate(regimeCity, {
+                    length: 25,
+                    separator: /,? +/,
+                  })
+                )}
+              </div>
             </div>
           </div>
           <div className={` ${classes.flexTDCR}`}>

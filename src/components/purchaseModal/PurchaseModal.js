@@ -8,15 +8,19 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { neat } from "../../utilities/textUtil";
 import { api } from "../../link/API";
+import classes from "../purchaseModal/PurchaseModal.module.css";
+import { BeatLoader } from "react-spinners";
 
 function PurchaseModal() {
   const location = useLocation();
   let navigate = useNavigate();
   const rAmount = Number(location.state.priceAmount);
-  const { regimeId, priceName, pricingId, affiliate } = location.state;
+  const { regimeId, priceName, pricingId, affiliate, regimeImg } =
+    location.state;
   // error messages and status
   const [postError, setPostError] = useState("");
   const [dip, setDip] = useState("none");
+  const [buying, setBuying] = useState(false);
   //  Counter is a state initialized to 0
   const [counter, setCounter] = useState(1);
   const [amount, setAmount] = useState(rAmount);
@@ -74,8 +78,10 @@ function PurchaseModal() {
   //state for showing modal on load
   // const [show, setShow] = useState(true);
   const getUser = async () => {
+    setBuying(true);
     try {
       if (rAmount === 0) {
+        setBuying(false);
         return;
       } else {
         await fetch(`${api}/user/buyticket`, {
@@ -93,10 +99,13 @@ function PurchaseModal() {
         }).then(async (res) => {
           const data = await res.json();
           if (res.status !== 401 && res.status !== 200) {
+            setBuying(false);
             return setPostError(data);
           } else if (res.status === 401 && res.status !== 200) {
+            setBuying(false);
             return navigate("/login");
           } else {
+            setBuying(false);
             return window.location.replace(data);
           }
         });
@@ -107,6 +116,23 @@ function PurchaseModal() {
   };
   return (
     <>
+      <div
+        style={{
+          // backgroundImage: `url(${regimeImg})`,
+          // backgroundSize: "cover",
+          // backgroundRepeat: "no-repeat",
+          // backgroundPosition: "center",
+          width: "100%",
+          height: "100vh",
+        }}
+      >
+        <img
+          className={classes.image}
+          src={regimeImg}
+          alt={location.state.regimeName}
+          loading="lazy"
+        />
+      </div>
       <Modal show={true} onHide={handleClose} centered>
         {/* <Modal show={show} backdrop="static" centered> */}
         <Modal.Header>
@@ -126,7 +152,7 @@ function PurchaseModal() {
                 <span>{postError}</span>
               </div>
             )}
-            <h3 className="center" style={{color: '#828282'}}>
+            <h3 className="center" style={{ color: "#828282" }}>
               {buyOrGet()}
               {counter}
               {freeOrNot()}
@@ -147,7 +173,7 @@ function PurchaseModal() {
             <h1 className="center">
               <button
                 type="button"
-                className="btn white"
+                className="btn shadowB white"
                 style={{ backgroundColor: "#828282" }}
                 onClick={handleClick2}
               >
@@ -157,7 +183,7 @@ function PurchaseModal() {
               <button
                 type="button"
                 // className="btn btn-success"
-                className="btn white"
+                className="btn shadowB white"
                 style={{ backgroundColor: "#828282" }}
                 onClick={handleClick1}
               >
@@ -167,8 +193,14 @@ function PurchaseModal() {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={getUser}>
-            Buy Ticket!
+          <Button className={`btn shadowB bold`} onClick={getUser}>
+            {buying ? (
+              <>
+                <BeatLoader color="#fff" loading={true} size={"12"} />
+              </>
+            ) : (
+              <>Buy {counter} ticket{counter > 1 ? "s" : ""} !</>
+            )}
           </Button>
         </Modal.Footer>
       </Modal>
