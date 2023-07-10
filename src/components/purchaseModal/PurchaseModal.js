@@ -133,16 +133,16 @@ function PurchaseModal() {
           loading="lazy"
         />
       </div>
-      <Modal style={{backgroundColor: "#f7f7f7c7"}} show={true} onHide={handleClose} centered>
+      <Modal show={true} onHide={handleClose} centered>
         {/* <Modal show={show} backdrop="static" centered> */}
-        <Modal.Header>
+        <Modal.Header style={{backgroundColor: "#f7f7f7c7"}}>
           <Modal.Title>
             <h1 className="modal-title fs-5" id="staticBackdropLabel">
               {neat(location.state.regimeName)}
             </h1>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{backgroundColor: "#f7f7f7c7"}}>
           <div className="">
             {postError && ( // then if changed flag is false show error message.
               <div
@@ -192,7 +192,7 @@ function PurchaseModal() {
             </h1>
           </div>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer style={{backgroundColor: "#f7f7f7c7"}}>
           <Button className={`btn shadowB bold`} onClick={getUser}>
             {buying ? (
               <>
