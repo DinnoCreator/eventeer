@@ -133,7 +133,7 @@ function PurchaseModal() {
           loading="lazy"
         />
       </div>
-      <Modal show={true} onHide={handleClose} centered>
+      <Modal style={{backgroundColor: "#f7f7f7c7"}} show={true} onHide={handleClose} centered>
         {/* <Modal show={show} backdrop="static" centered> */}
         <Modal.Header>
           <Modal.Title>
