@@ -135,7 +135,7 @@ function PurchaseModal() {
       </div>
       <Modal show={true} onHide={handleClose} centered>
         {/* <Modal show={show} backdrop="static" centered> */}
-        <Modal.Header style={{backgroundColor: "red"}}>
+        <Modal.Header style={{backgroundColor: "#f7f7f7c7"}}>
           <Modal.Title>
             <h1 className="modal-title fs-5" id="staticBackdropLabel">
               {neat(location.state.regimeName)}
