@@ -104,8 +104,7 @@ function PurchaseModal() {
           } else if (res.status === 401 && res.status !== 200) {
             setBuying(false);
             return navigate("/login");
-          } else {
-            setBuying(false);
+          } else{
             return window.location.replace(data);
           }
         });
