@@ -1,6 +1,7 @@
 import { textShrink } from "../../../utilities/textUtil";
 import classes from "../tickets/Tickets.module.css";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const TicketsBody = ({ tickets, status }) => {
   const navigate = useNavigate();
@@ -13,6 +14,18 @@ const TicketsBody = ({ tickets, status }) => {
     }
   }).length;
 
+  const timeHandler = (date) => {
+    if (
+      moment(date).format("ddd, MMM DD yy.") ===
+        moment(new Date()).format("ddd, MMM DD yy.") ||
+      moment(date).subtract(1, "days") ===
+        moment(new Date()).subtract(1, "days")
+    ) {
+      return moment(date).fromNow();
+    } else {
+      return moment(date).format("ddd, MMM DD yy.");
+    }
+  };
   const splicer = () => {
     return tickets.map((item) => {
       if (item.regime_status === status) {
@@ -34,9 +47,15 @@ const TicketsBody = ({ tickets, status }) => {
             <div
               className={`stripFlexGeneralChild stripFlex ${classes.ticketStripInfo}`}
             >
-              <div className="stripFlexChild">
+              <div className="stripFlexChild mt-2">
                 {/* <p>{item.regime_name}</p> */}
                 <p>{textShrink(item.regime_name)}</p>
+              </div>
+              <div className="stripFlexChild">
+                {/* <p>{item.regime_name}</p> */}
+                <p style={{ fontStyle: "italic", color: "#828282" }}>
+                  {timeHandler(item.c_date)}
+                </p>
               </div>
               <div className="stripFlexChild">
                 <p>

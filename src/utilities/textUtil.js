@@ -7,7 +7,7 @@ export function textShrink(textgot) {
     return width;
   }
 
-  console.log(widthResizer());
+  // console.log(widthResizer());
   // makes first alphabet caps
   const neat = (textgot) => {
     let firstChar = textgot.slice(0, 1);
