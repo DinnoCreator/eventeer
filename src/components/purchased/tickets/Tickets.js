@@ -22,6 +22,7 @@ const Tickets = () => {
       return false;
     }
   }).length;
+  // const count = 0;
   const getTickets = useCallback(async () => {
     try {
       await fetch(`${api}/user/ticketsowned`, {
@@ -50,6 +51,13 @@ const Tickets = () => {
     }
   }, []);
 
+  const zeroCount = () => {
+    if (count !== 0) {
+      return <TicketsBody tickets={tickets} status={"ongoing"} />;
+    } else {
+      return <h1 className="center mt-5"> Nothing to show</h1>;
+    }
+  };
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     getTickets();
@@ -66,7 +74,7 @@ const Tickets = () => {
               <i className="fa-solid fa-clock-rotate-left"></i>
             </h2>
           </div>
-          <TicketsBody tickets={tickets} status={"ongoing"} />
+          {zeroCount()}
         </div>
       </>
     );
