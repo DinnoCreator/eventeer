@@ -37,7 +37,7 @@ const Tickets = () => {
           setTickets(data);
           console.log(data);
           return setFetching(false);
-        } else if (res.status === 401) {
+        } else if (res.status === 401 || res.status === 403) {
           setFetching(false);
           return navigate("/login");
         } else {
