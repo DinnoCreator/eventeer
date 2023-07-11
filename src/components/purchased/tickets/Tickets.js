@@ -40,7 +40,7 @@ const Tickets = () => {
           setFetching(false);
           return navigate("/login");
         } else {
-          setTickets(data);
+          setTickets([]);
           return setFetching(false);
         }
       });

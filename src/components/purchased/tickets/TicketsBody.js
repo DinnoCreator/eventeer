@@ -17,19 +17,19 @@ const TicketsBody = ({ tickets, status }) => {
   const timeHandler = (date) => {
     if (
       moment(date).format("ddd, MMM DD yy.") ===
-      moment(new Date()).format("ddd, MMM DD yy.")
+      moment(moment()).format("ddd, MMM DD yy.")
     ) {
-      return "today";
+      return "Today";
     } else if (
       moment(date).subtract(1, "days").format("ddd, MMM DD yy.") ===
-      moment(new Date()).subtract(1, "days").format("ddd, MMM DD yy.")
+      moment(moment()).subtract(1, "days").format("ddd, MMM DD yy.")
     ) {
-      return "yesterday";
+      return "Yesterday";
     } else if (
       moment(date).subtract(2, "days").format("ddd, MMM DD yy.") ===
-      moment(new Date()).subtract(2, "days").format("ddd, MMM DD yy.")
+      moment(moment()).subtract(2, "days").format("ddd, MMM DD yy.")
     ) {
-      return "two days ago";
+      return "Two days ago";
     } else {
       return moment(date).format("ddd, MMM DD yy.");
     }
@@ -37,6 +37,7 @@ const TicketsBody = ({ tickets, status }) => {
   const splicer = () => {
     return tickets.map((item) => {
       if (item.regime_status === status) {
+        
         return (
           <div
             className={`stripFlexGeneral ${classes.ticketStrip} mt-3`}
@@ -64,6 +65,10 @@ const TicketsBody = ({ tickets, status }) => {
                 <p style={{ fontStyle: "italic", color: "#828282" }}>
                   {timeHandler(item.c_date)}
                 </p>
+                {/* <p>{moment(item.c_date).subtract(2, "days").format("ddd, MMM DD yy.")}</p> */}
+                {/* <p>
+                  {moment(day).subtract(2, "days").format("ddd, MMM DD yy.")}
+                </p> */}
               </div>
               <div className="stripFlexChild">
                 <p>

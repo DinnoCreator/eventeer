@@ -325,7 +325,8 @@ img {
 }
 
 .shrink {
-  height: 100px;
+  /* height: 100px; */
+  height: 100%;
   width: 140px;
 }
 
