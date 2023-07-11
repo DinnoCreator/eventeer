@@ -1,7 +1,8 @@
-import { textShrink } from "../../../utilities/textUtil";
+import { neat, textShrink } from "../../../utilities/textUtil";
 import classes from "../tickets/Tickets.module.css";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import truncate from "lodash.truncate";
 
 const TicketsBody = ({ tickets, status }) => {
   const navigate = useNavigate();
@@ -45,9 +46,13 @@ const TicketsBody = ({ tickets, status }) => {
             <div
               className={`stripFlexGeneralChild stripFlex ${classes.ticketStripInfo}`}
             >
-              <div className="stripFlexChild mt-2">
+              <div className="stripFlexChild">
                 {/* <p>{item.regime_name}</p> */}
-                <p>{textShrink(item.regime_name)}</p>
+                {/* <p>{textShrink(item.regime_name)}</p> */}
+                <p>{neat(truncate(item.regime_name, {
+                        'length': 26,
+                        'separator': /,? +/
+                      }))}</p>
               </div>
               <div className="stripFlexChild">
                 {/* <p>{item.regime_name}</p> */}
@@ -61,13 +66,13 @@ const TicketsBody = ({ tickets, status }) => {
               </div>
               <div className="stripFlexChild">
                 <p>
-                  <i
+                  {/* <i
                     style={{
                       color: "white",
                       backgroundColor: "#55CCF8",
                     }}
                     className="fa-solid fa-champagne-glasses"
-                  ></i>
+                  ></i> */}
                   <span className={classes.ID}>#{item.ticket_id}</span>
                 </p>
               </div>
