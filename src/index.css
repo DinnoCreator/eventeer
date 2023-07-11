@@ -316,18 +316,21 @@ img {
 .stripFlexGeneral {
   display: flex;
   flex-direction: row;
+  height: 100px;
 }
 
 .stripFlexGeneralChild1 {
   /* flex-grow: 1; */
   display: flex;
   width: 140px;
+  height: 100px;
 }
 
 .shrink {
-  /* height: 100px; */
-  height: 100%;
+  height: 100px;
+  /* height: 100%; */
   width: 140px;
+  border: 1px solid red;
 }
 
 .stripFlexGeneralChild {
