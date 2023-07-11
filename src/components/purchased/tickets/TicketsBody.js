@@ -20,16 +20,6 @@ const TicketsBody = ({ tickets, status }) => {
       moment(moment()).format("ddd, MMM DD yy.")
     ) {
       return "Today";
-    } else if (
-      moment(date).subtract(1, "days").format("ddd, MMM DD yy.") ===
-      moment(moment()).subtract(1, "days").format("ddd, MMM DD yy.")
-    ) {
-      return "Yesterday";
-    } else if (
-      moment(date).subtract(2, "days").format("ddd, MMM DD yy.") ===
-      moment(moment()).subtract(2, "days").format("ddd, MMM DD yy.")
-    ) {
-      return "Two days ago";
     } else {
       return moment(date).format("ddd, MMM DD yy.");
     }
@@ -37,7 +27,6 @@ const TicketsBody = ({ tickets, status }) => {
   const splicer = () => {
     return tickets.map((item) => {
       if (item.regime_status === status) {
-        
         return (
           <div
             className={`stripFlexGeneral ${classes.ticketStrip} mt-3`}
