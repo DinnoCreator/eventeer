@@ -134,7 +134,7 @@ const PopularEvents = () => {
                     </div>
                     <div className="card-body myContainer title1">
                       <h6>{neat(truncate(event.namer, {
-                        'length': 30,
+                        'length': 26,
                         'separator': /,? +/
                       }))}</h6>
                       <h6>
