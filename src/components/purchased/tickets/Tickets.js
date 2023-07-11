@@ -35,14 +35,12 @@ const Tickets = () => {
         const data = await res.json();
         if (res.status === 200) {
           setTickets(data);
-          console.log(data);
           return setFetching(false);
         } else if (res.status === 401 || res.status === 403) {
           setFetching(false);
           return navigate("/login");
         } else {
           setTickets(data);
-          console.log(data);
           return setFetching(false);
         }
       });
