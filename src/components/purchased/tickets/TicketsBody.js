@@ -1,99 +1,70 @@
+import { textShrink } from "../../../utilities/textUtil";
 import classes from "../tickets/Tickets.module.css";
 import { useNavigate } from "react-router-dom";
 
-const TicketsBody = () => {
+const TicketsBody = ({ tickets, status }) => {
   const navigate = useNavigate();
-  const img1 =
-    "https://media.istockphoto.com/id/1412446063/photo/multiracial-smiling-friends-enjoying-on-the-boat.jpg?s=612x612&w=is&k=20&c=SSIv0T1DBO9z60EnM_FhVFVUvkXP4vWj54793--xGLY=";
 
-  return (
-    <>
-      <div
-        className={`hstack ${classes.ticketStrip}`}
-        onClick={() => {
-          return navigate("/ticket");
-        }}
-      >
-        <img src={img1} width="130x" alt="ticket" />
-        <span className={`ms-auto ${classes.ticketStripInfo}`}>
-          <p>Calabar Pool Party</p>
-          <p>
-            <i
-              style={{
-                color: "white",
-                backgroundColor: "#55CCF8",
-              }}
-              className="fa-solid fa-champagne-glasses"
-            ></i>
-            <span className={classes.ID}>#04512365741</span>
-          </p>
-        </span>
-      </div>
-      <div
-        className={`hstack ${classes.ticketStrip}`}
-        onClick={() => {
-          return navigate("/ticket");
-        }}
-      >
-        <img src={img1} width="130px" alt="ticket" />
-        <span className={`ms-auto ${classes.ticketStripInfo}`}>
-          <p>Calabar Pool Party</p>
-          <p>
-            <i
-              style={{
-                color: "white",
-                backgroundColor: "#55CCF8",
-              }}
-              className="fa-solid fa-champagne-glasses"
-            ></i>
-            <span className={classes.ID}>#04512365741</span>
-          </p>
-        </span>
-      </div>
-      <div
-        className={`hstack ${classes.ticketStrip}`}
-        onClick={() => {
-          return navigate("/ticket");
-        }}
-      >
-        <img src={img1} width="130px" alt="ticket" />
-        <span className={`ms-auto ${classes.ticketStripInfo}`}>
-          <p>Calabar Pool Party</p>
-          <p>
-            <i
-              style={{
-                color: "white",
-                backgroundColor: "#55CCF8",
-              }}
-              className="fa-solid fa-champagne-glasses"
-            ></i>
-            <span className={classes.ID}>#04512365741</span>
-          </p>
-        </span>
-      </div>
-      <div
-        className={`hstack ${classes.ticketStrip}`}
-        onClick={() => {
-          return navigate("/ticket");
-        }}
-      >
-        <img src={img1} width="130px" alt="ticket" />
-        <span className={`ms-auto ${classes.ticketStripInfo}`}>
-          <p>Calabar Pool Party</p>
-          <p>
-            <i
-              style={{
-                color: "white",
-                backgroundColor: "#55CCF8",
-              }}
-              className="fa-solid fa-champagne-glasses"
-            ></i>
-            <span className={classes.ID}>#04512365741</span>
-          </p>
-        </span>
-      </div>
-    </>
-  );
+  const count = tickets.filter(function (item) {
+    if (item.regime_status === status) {
+      return true;
+    } else {
+      return false;
+    }
+  }).length;
+
+  const splicer = () => {
+    return tickets.map((item) => {
+      if (item.regime_status === status) {
+        return (
+          <div
+            className={`stripFlexGeneral ${classes.ticketStrip} mt-3`}
+            key={item.ticket_id}
+            onClick={() => {
+              return navigate(`/ticket/${item.ticket_id}`);
+            }}
+          >
+            <div className="stripFlexGeneralChild1">
+              <img
+                src={item.regime_media}
+                className="shrink"
+                alt="event photo"
+              />
+            </div>
+            <div
+              className={`stripFlexGeneralChild stripFlex ${classes.ticketStripInfo}`}
+            >
+              <div className="stripFlexChild">
+                {/* <p>{item.regime_name}</p> */}
+                <p>{textShrink(item.regime_name)}</p>
+              </div>
+              <div className="stripFlexChild">
+                <p>
+                  <i
+                    style={{
+                      color: "white",
+                      backgroundColor: "#55CCF8",
+                    }}
+                    className="fa-solid fa-champagne-glasses"
+                  ></i>
+                  <span className={classes.ID}>#{item.ticket_id}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    });
+  };
+  if (Number(count) > 0) {
+    return <>{splicer()}</>;
+  } else {
+    return (
+      <>
+        <h1 className="center mt-5"> Nothing to show</h1>
+      </>
+    );
+  }
 };
 
 export default TicketsBody;

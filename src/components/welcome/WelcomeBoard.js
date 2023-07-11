@@ -112,7 +112,7 @@ const WelcomeBoard = ({ searchHandler, name }) => {
                       color: "white",
                       backgroundColor: "#55CCF8",
                     }}
-                    class="fa-solid fa-champagne-glasses"
+                    className="fa-solid fa-champagne-glasses"
                   ></i>
                   <span className={classes2.ID}>
                     {item.client_id.toUpperCase()}
@@ -153,7 +153,7 @@ const WelcomeBoard = ({ searchHandler, name }) => {
                       color: "white",
                       backgroundColor: "#55CCF8",
                     }}
-                    class="fa-solid fa-champagne-glasses"
+                    className="fa-solid fa-champagne-glasses"
                   ></i>
                   <span className={classes2.ID}>
                     {item.regime_id.toUpperCase()}
