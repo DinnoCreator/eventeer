@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import { neat } from "../../utilities/textUtil";
 import trim from "lodash.trim";
 
 const PricingInput = ({ pricingHandler, affiliateValue }) => {
-  const [addError, setAddError] = useState('Type the number 0 into the pricing amount input and save it, to create a free ticket ');
+  const [addError, setAddError] = useState(
+    "Type the number 0 into the pricing amount input and save it, if you want to create a free ticket. Else type an amount greater than N49 into the input. "
+  );
   const [dip, setDip] = useState("block");
+  useEffect(() => {
+    if (affiliateValue === `enabled`) {
+      setAddError("");
+      setDip("none");
+    }
+  }, []);
   const [regimePricingC, setRegimePricingC] = useState([
     {
       saved: false,
@@ -17,8 +25,8 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
   ]);
 
   const formAdd = () => {
-    setAddError('');
-    setDip('none');
+    setAddError("");
+    setDip("none");
     if (
       Number(regimePricingC[0].pricingAmount) === 0 ||
       regimePricingC[0].pricingAmount === ""
