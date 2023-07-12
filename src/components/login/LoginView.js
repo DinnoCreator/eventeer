@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../link/API";
 import { BeatLoader } from "react-spinners";
 import { motion } from "framer-motion";
+import trim from "lodash.trim";
 
 const LoginView = () => {
   // values inputed in the form
@@ -104,8 +105,7 @@ const LoginView = () => {
                   id="exampleInputEmail1"
                   autoComplete="off"
                   aria-describedby="emailHelp"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(trim(e.target.value))}
                   required
                   whileFocus={{ scale: 1.1 }}
                 >
@@ -140,8 +140,7 @@ const LoginView = () => {
                     id="exampleInputPassword1"
                     autoComplete="off"
                     ref={pass}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(trim(e.target.value))}
                     required
                   />
                   <button

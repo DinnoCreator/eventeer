@@ -52,8 +52,10 @@ const TicketDisplay = () => {
   if (isFetching && !found) {
     return (
       <>
-        <TicketImageViewSkeleton />
-        <TicketInterestSkeleton />
+        <div className="smartContainer">
+          <TicketImageViewSkeleton />
+          <TicketInterestSkeleton />
+        </div>
       </>
     );
   } else if (!isFetching && !found) {
@@ -64,7 +66,6 @@ const TicketDisplay = () => {
     );
   } else if (!isFetching && found) {
     return (
-      // <div className="smartContainer">
       <>
         {/* <div class="mapouter">
             <div class="gmap_canvas">
@@ -73,36 +74,38 @@ const TicketDisplay = () => {
                 <a href="https://formatjson.org/">format json</a>
             </div>
         </div> */}
-        <TicketImageView
-          regimeImg={eventDetails[0].regime_media}
-          regimeName={eventDetails[0].regime_name}
-          creatorName={eventDetails[0].client_name}
-        />
-        <TicketInterest
-          regimeImg={eventDetails[0].regime_media}
-          regimeName={eventDetails[0].regime_name}
-          affiliate={affiliateId()}
-          regimeId={id.toLowerCase()}
-          regimeStartDate={moment(eventDetails[0].regime_start_date).format(
-            "MMMM DD, YYYY"
-          )}
-          regimeStartTime={moment(
-            eventDetails[0].regime_start_time,
-            "HH:mm:ss"
-          ).format("h:mm A")}
-          regimeEndTime={moment(
-            eventDetails[0].regime_end_time,
-            "HH:mm:ss"
-          ).format("h:mm A")}
-          regimeAddress={eventDetails[0].regime_address}
-          regimeCity={eventDetails[0].regime_city}
-          regimePricings={pricingDetails}
-        />
-        <TicketDescription
-          regimeDescription={eventDetails[0].regime_description}
-        />
+        <div className="smartContainer better">
+          <TicketImageView
+            regimeImg={eventDetails[0].regime_media}
+            regimeName={eventDetails[0].regime_name}
+            creatorName={eventDetails[0].client_name}
+          />
+          <TicketInterest
+            regimeImg={eventDetails[0].regime_media}
+            regimeName={eventDetails[0].regime_name}
+            affiliate={affiliateId()}
+            regimeId={id.toLowerCase()}
+            regimeStartDate={moment(eventDetails[0].regime_start_date).format(
+              "MMMM DD, YYYY"
+            )}
+            regimeStartTime={moment(
+              eventDetails[0].regime_start_time,
+              "HH:mm:ss"
+            ).format("h:mm A")}
+            regimeEndTime={moment(
+              eventDetails[0].regime_end_time,
+              "HH:mm:ss"
+            ).format("h:mm A")}
+            regimeAddress={eventDetails[0].regime_address}
+            regimeCity={eventDetails[0].regime_city}
+            regimeState={eventDetails[0].regime_state}
+            regimePricings={pricingDetails}
+          />
+          <TicketDescription
+            regimeDescription={eventDetails[0].regime_description}
+          />
+        </div>
       </>
-      // </div>
     );
   }
 };

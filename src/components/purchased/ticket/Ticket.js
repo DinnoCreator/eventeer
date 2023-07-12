@@ -1,14 +1,17 @@
 import classes from "../ticket/Ticket.module.css";
 import { useNavigate } from "react-router-dom";
 import QRCode from "react-qr-code";
+import truncate from "lodash.truncate";
+import { neat } from "../../../utilities/textUtil";
+import moment from "moment";
 
-const Ticket = () => {
+const Ticket = ({ ticketDetails }) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
     return navigate("/tickets");
   };
-  const location = "eleven eleven calabar";
+  const location = `${ticketDetails.regime_address} ${ticketDetails.regime_city} ${ticketDetails.regime_state}`;
 
   return (
     <div className="container">
@@ -18,7 +21,7 @@ const Ticket = () => {
             <i className="fa-solid fa-arrow-left"></i>
           </div>
           <div className={`grid-item ${classes.ID}`}>
-            <h3>#04512365741</h3>
+            <h3>#{ticketDetails.ticket_id}</h3>
           </div>
           <div
             className={`${classes.optionsIcon} ms-auto`}
@@ -44,23 +47,39 @@ const Ticket = () => {
           <div className={`container ${classes.info}`}>
             <div className={`container`}>
               {/* <div className={`${classes.header}`}> */}
-              <h3>Calabar Pool Party</h3>
+              <h3>{neat(ticketDetails.regime_name)}</h3>
               {/* </div> */}
               <div className={`row ${classes.content}`}>
                 <div className={`col-6 ${classes.date}`}>
                   <p className={`${classes.go}`}>Date</p>
-                  <p className={`${classes.p2}`}>December 24, 2022</p>
+                  <p className={`${classes.p2}`}>
+                    {moment(ticketDetails.regime_start_date).format(
+                      "MMMM DD, YYYY"
+                    )}
+                  </p>
                 </div>
                 <div className={`col-6 ${classes.date} ${classes.left}`}>
                   <p className={`${classes.go}`}>Time</p>
-                  <p className={`${classes.p2}`}>8:00 PM</p>
+                  <p className={`${classes.p2}`}>
+                    {moment(ticketDetails.regime_start_time, "HH:mm:ss").format(
+                      "h:mm A"
+                    )}
+                  </p>
                 </div>
               </div>
               <div className={`row ${classes.content}`}>
                 <div className={`col-6 ${classes.date}`}>
                   <p className={`${classes.go}`}>Place</p>
                   <p className={`${classes.p2}`}>
-                    Marina Resort Calabar, CRS NIG
+                    {neat(
+                      truncate(ticketDetails.regime_address, {
+                        length: 25,
+                        separator: /,? +/,
+                      })
+                    )}{" "}
+                    {neat(ticketDetails.regime_city)},{" "}
+                    {neat(ticketDetails.regime_state)}{" "}
+                    {neat(ticketDetails.regime_country)}.
                   </p>
                 </div>
                 <div className={`col-6 ${classes.date} ${classes.left}`}>
@@ -98,11 +117,7 @@ const Ticket = () => {
             <QRCode
               size={256}
               style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-              value={`
-                       {
-                         ticket_id: 'ct63646p'
-                       }
-                    `}
+              value={ticketDetails.ticket_id}
               viewBox={`0 0 256 256`}
             />
           </div>

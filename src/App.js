@@ -29,7 +29,7 @@ function App() {
         <Route path="/regimecreate" element={<RegimeCreate />} />
         <Route path="/event/:id/:affiliate" element={<TicketDisplay />} />
         <Route path="/event/:id" element={<TicketDisplay />} />
-        <Route path="/ticket" element={<PurchasedTicket />} />
+        <Route path="/ticket/:id" element={<PurchasedTicket />} />
         <Route path="/tickets" element={<OpenedTickets />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />

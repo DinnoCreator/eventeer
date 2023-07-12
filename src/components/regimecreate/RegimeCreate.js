@@ -1,32 +1,32 @@
-import { useState, useRef, useEffect} from "react";
+import { useState, useRef, useEffect } from "react";
 import classes from "../regimecreate/RegimeCreate.module.css";
 import { api } from "../../link/API";
 import { useNavigate } from "react-router-dom";
 import State from "../formComponents/State";
 import { BeatLoader } from "react-spinners";
 import PricingInput from "../formComponents/pricingInput";
-import Switch from '@mui/material/Switch';
+import Switch from "@mui/material/Switch";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
+import Box from "@mui/material/Box";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
 import TimeAndDate from "../formComponents/timeAndDate";
 import trim from "lodash.trim";
 
 const steps = [
-  'Check regime name availability',
-  'Enter regime details',
-  'Create pricings for your regime',
-  'Set date and time',
+  "Check regime name availability",
+  "Enter regime details",
+  "Create pricings for your regime",
+  "Set date and time",
 ];
 
 const RegimeCreation = () => {
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, [])
+  }, []);
 
   // useEffect(() => {
   //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -84,7 +84,6 @@ const RegimeCreation = () => {
       ? setRegimeAffiliate("disabled")
       : setRegimeAffiliate("enabled");
   };
-
 
   const pricingHandler = (value) => {
     setRegimePricing(value);
@@ -232,7 +231,7 @@ const RegimeCreation = () => {
     if (!nameChecker && !firstWave && !secondWave && !success) {
       return (
         <>
-          <Box sx={{ width: '100%' }}>
+          <Box sx={{ width: "100%" }}>
             <Stepper activeStep={0} alternativeLabel>
               {steps.map((label) => (
                 <Step key={label}>
@@ -261,6 +260,8 @@ const RegimeCreation = () => {
                     className="form-control shadowB"
                     autoComplete="off"
                     id="regimeName"
+                    minLength="3"
+                    maxLength="71"
                     aria-describedby="regimeNameHelp"
                     // value={regimeName}
                     required
@@ -292,8 +293,7 @@ const RegimeCreation = () => {
     } else if (nameChecker && !firstWave && !secondWave && !success) {
       return (
         <>
-
-          <Box sx={{ width: '100%' }}>
+          <Box sx={{ width: "100%" }}>
             <Stepper activeStep={1} alternativeLabel>
               {steps.map((label) => (
                 <Step key={label}>
@@ -312,23 +312,34 @@ const RegimeCreation = () => {
                   <span>{loginError}</span>
                 </div>
               )}
-              <form onSubmit={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                setFirstWave(true);
-              }}>
-
-                <FormGroup>
-                  <FormControlLabel
-                    control={<Switch />}
-                    label={
-                      regimeAffiliate === "enabled"
-                        ? "Affiliate enabled"
-                        : "Affiliate disabled"
-                    }
-                    onChange={handleAffiliate}
-                  />
-                </FormGroup>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  setFirstWave(true);
+                }}
+              >
+                <div
+                  className="mb-3"
+                  style={{
+                    backgroundColor: "#dbdae9",
+                    color: "#7165E3",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <FormGroup>
+                    <FormControlLabel
+                      control={<Switch />}
+                      label={
+                        regimeAffiliate === "enabled"
+                          ? "Disable affiliate"
+                          : "Click to enable affiliate"
+                      }
+                      onChange={handleAffiliate}
+                    />
+                  </FormGroup>
+                </div>
                 <div className="mb-3">
                   <label htmlFor="regimeName" className="form-label">
                     Enter Regime Name
@@ -376,6 +387,8 @@ const RegimeCreation = () => {
                     className="form-control shadowB"
                     autoComplete="off"
                     id="regimeAddress"
+                    minLength="2"
+                    maxLength="71"
                     aria-describedby="regimeAddressHelp"
                     // value={regimeAddress}
                     onChange={(e) => setRegimeAddress(trim(e.target.value))}
@@ -415,7 +428,9 @@ const RegimeCreation = () => {
                       ref={pass}
                       // value={regimeWithdrawalPin}
                       required
-                      onChange={(e) => setRegimeWithdrawalPin(trim(e.target.value))}
+                      onChange={(e) =>
+                        setRegimeWithdrawalPin(trim(e.target.value))
+                      }
                     />
                     <button
                       className={`btn ${classes.eye}`}
@@ -467,7 +482,7 @@ const RegimeCreation = () => {
     } else if (nameChecker && firstWave && !secondWave && !success) {
       return (
         <>
-          <Box sx={{ width: '100%' }}>
+          <Box sx={{ width: "100%" }}>
             <Stepper activeStep={2} alternativeLabel>
               {steps.map((label) => (
                 <Step key={label}>
@@ -486,9 +501,11 @@ const RegimeCreation = () => {
                   <span>{loginError}</span>
                 </div>
               )}
-              <PricingInput pricingHandler={pricingHandler} affiliateValue={regimeAffiliate} />
-              <div
-                style={{ display: "flex", justifyContent: "end" }}>
+              <PricingInput
+                pricingHandler={pricingHandler}
+                affiliateValue={regimeAffiliate}
+              />
+              <div style={{ display: "flex", justifyContent: "end" }}>
                 <button
                   className="btnct reventlifyBg white mr-1 shadowB mt-3"
                   type="button"
@@ -496,23 +513,29 @@ const RegimeCreation = () => {
                     e.preventDefault();
                     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                     if (regimePricing.length === 0) {
-                      return setLoginError("Please create at least one event pricing and set the pricing amount to 0 if you want the tickets to be free")
+                      return setLoginError(
+                        "Please create at least one event pricing and set the pricing amount to 0 if you want the tickets to be free"
+                      );
                     } else {
                       return setSecondWave(true);
                     }
                   }}
-                  style={{ backgroundColor: "green", border: "1px solid green" }}
+                  style={{
+                    backgroundColor: "green",
+                    border: "1px solid green",
+                  }}
                 >
                   Next <i className="fa-solid fa-angles-right"></i>
                 </button>
               </div>
-            </div></div>
+            </div>
+          </div>
         </>
       );
     } else if (nameChecker && firstWave && secondWave && !success) {
       return (
         <>
-          <Box sx={{ width: '100%' }}>
+          <Box sx={{ width: "100%" }}>
             <Stepper activeStep={3} alternativeLabel>
               {steps.map((label) => (
                 <Step key={label}>
@@ -555,7 +578,7 @@ const RegimeCreation = () => {
             </div>
           </div>
         </>
-      )
+      );
     }
   };
 
@@ -626,16 +649,14 @@ const RegimeCreation = () => {
             </div>
           </div>
         </div>
-        <div className="mt-4">
-          {formBody()}
-        </div>
+        <div className="mt-4">{formBody()}</div>
       </>
     );
   } else if (success) {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setTimeout(() => {
       navigate("/profile");
-    }, 4000)
+    }, 4000);
     return (
       <div className="box">
         <div className="success alert">
@@ -644,7 +665,6 @@ const RegimeCreation = () => {
       </div>
     );
   }
-
 };
 
 export default RegimeCreation;

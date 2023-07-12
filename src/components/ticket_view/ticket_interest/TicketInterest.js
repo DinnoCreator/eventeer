@@ -9,6 +9,7 @@ const TicketInterest = ({
   regimeEndTime,
   regimeAddress,
   regimeCity,
+  regimeState,
   regimePricings,
   regimeName,
   regimeId,
@@ -16,7 +17,7 @@ const TicketInterest = ({
   regimeImg,
 }) => {
   const navigate = useNavigate();
-  const location = `${regimeAddress} ${regimeCity}`;
+  const location = `${regimeAddress} ${regimeCity} ${regimeState}`;
   return (
     <div className={classes.imgInfo}>
       <div className="container">

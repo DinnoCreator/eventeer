@@ -1,9 +1,11 @@
 import { useState } from "react";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import { neat } from "../../utilities/textUtil";
 import trim from "lodash.trim";
 
 const PricingInput = ({ pricingHandler, affiliateValue }) => {
+  const [addError, setAddError] = useState('Type the number 0 into the pricing amount input and save it, to create a free ticket ');
+  const [dip, setDip] = useState("block");
   const [regimePricingC, setRegimePricingC] = useState([
     {
       saved: false,
@@ -15,6 +17,18 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
   ]);
 
   const formAdd = () => {
+    setAddError('');
+    setDip('none');
+    if (
+      Number(regimePricingC[0].pricingAmount) === 0 ||
+      regimePricingC[0].pricingAmount === ""
+    ) {
+      setAddError(
+        `You can not add more pricing if the first pricing amount is free or zero.`
+      );
+      return setDip("block");
+    }
+    setDip("none");
     setRegimePricingC((current) => [
       ...current,
       {
@@ -60,7 +74,9 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
               value.saved = true;
             }}
           >
-            <h1 className="left" style={{ marginTop: 0, textAlign: `left` }}>{index + 1}.</h1>
+            <h1 className="left" style={{ marginTop: 0, textAlign: `left` }}>
+              {index + 1}.
+            </h1>
             <div id={`${index}`}>
               <div className="mb-3">
                 <label htmlFor="pricingName" className="form-label">
@@ -72,6 +88,8 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                   autoComplete="off"
                   id="pricingName"
                   aria-describedby="pricingNameHelp"
+                  minLength="3"
+                  maxLength="30"
                   required
                   onChange={(e) => {
                     value.pricingName = trim(e.target.value);
@@ -112,9 +130,11 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                 />
               </div>
               {affiliateValue === `enabled` ? (
-
                 <div className="mb-3">
-                  <label htmlFor="pricingAffiliateAmount" className="form-label">
+                  <label
+                    htmlFor="pricingAffiliateAmount"
+                    className="form-label"
+                  >
                     Pricing Affiliate Amount in Naira
                   </label>
                   <input
@@ -130,7 +150,9 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                     }}
                   />
                 </div>
-              ) : ``}
+              ) : (
+                ``
+              )}
               <button
                 className="btnct reventlifyBg white mr-1 shadowB"
                 type="submit"
@@ -155,7 +177,9 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
         return (
           <>
             <div id={`${index}`} key={index}>
-              <h1 className="left" style={{ marginTop: 0, textAlign: `left` }}>{index + 1}. {neat(regimePricingC[index].pricingName)}</h1>
+              <h1 className="left" style={{ marginTop: 0, textAlign: `left` }}>
+                {index + 1}. {neat(regimePricingC[index].pricingName)}
+              </h1>
               <div className="mb-3">
                 <label htmlFor="pricingName" className="form-label">
                   Pricing Name
@@ -203,9 +227,11 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                 />
               </div>
               {affiliateValue === `enabled` ? (
-
                 <div className="mb-3">
-                  <label htmlFor="pricingAffiliateAmount" className="form-label">
+                  <label
+                    htmlFor="pricingAffiliateAmount"
+                    className="form-label"
+                  >
                     Pricing Affiliate Amount in Naira
                   </label>
                   <input
@@ -220,7 +246,9 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
                     readOnly
                   />
                 </div>
-              ) : ``}
+              ) : (
+                ``
+              )}
               <div className="btnct reventlify mb-3">Saved</div>
             </div>
           </>
@@ -231,6 +259,11 @@ const PricingInput = ({ pricingHandler, affiliateValue }) => {
   return (
     <>
       <div>
+        {addError && ( // then if changed flag is false show error message.
+          <div style={{ color: "red", display: { dip } }}>
+            <span>{addError}</span>
+          </div>
+        )}
         {valueAdder()}
         <div
           className="btncti reventlifyBg white mb-3 shadowB mr-1"

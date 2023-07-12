@@ -72,6 +72,12 @@ img {
   margin-right: auto;
 }
 
+@media (max-width: 750px) {
+  .smartContainer.better{
+    padding: 0;
+  }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -253,6 +259,9 @@ img {
 
 .p {
   line-height: normal;
+}
+.italic{
+  font-style: italic;
 }
 
 .btnct {

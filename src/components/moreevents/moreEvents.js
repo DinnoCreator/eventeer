@@ -107,7 +107,7 @@ const MoreEvents = () => {
                                         {/* <div className="titleOfEvent">{neat(event.regime_name)}</div> */}
                                         <div className="dateOfEvent">
                                             <i
-                                                style={{ color: "#7165E3" }}
+                                                style={{ color: "#828282" }}
                                                 className="fa-regular fa-clock"
                                             ></i> &nbsp;
                                             {
@@ -117,7 +117,7 @@ const MoreEvents = () => {
                                             `
                                             }
                                         </div>
-                                        <div className="addOfEvent">
+                                        <div className="addOfEvent italic">
                                             <i
                                                 style={{ color: "#7165E3" }}
                                                 className="fa-solid fa-location-dot"
