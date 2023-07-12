@@ -34,7 +34,7 @@ const Ticket = ({ ticketDetails }) => {
           <div
             className={`container ${classes.img}`}
             style={{
-              backgroundImage: `url(https://media.istockphoto.com/id/1412446063/photo/multiracial-smiling-friends-enjoying-on-the-boat.jpg?s=612x612&w=is&k=20&c=SSIv0T1DBO9z60EnM_FhVFVUvkXP4vWj54793--xGLY=)`,
+              backgroundImage: `url(${ticketDetails.regime_media})`,
               // backgroundImage: `url(${externalImage})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",

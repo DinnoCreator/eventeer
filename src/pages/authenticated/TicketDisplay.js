@@ -52,7 +52,7 @@ const TicketDisplay = () => {
   if (isFetching && !found) {
     return (
       <>
-        <div className="smartContainer">
+        <div className="smartContainer better">
           <TicketImageViewSkeleton />
           <TicketInterestSkeleton />
         </div>
