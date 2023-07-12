@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../link/API";
 import { BeatLoader } from "react-spinners";
 import { motion } from "framer-motion";
+import trim from "lodash.trim";
 
 const SignUpView = () => {
   // form data
@@ -134,8 +135,7 @@ const SignUpView = () => {
                   id="exampleInputEmail1"
                   autoComplete="off"
                   aria-describedby="emailHelp"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(trim(e.target.value))}
                   required
                   whileFocus={{ scale: 1.1 }}
                 >
@@ -166,9 +166,10 @@ const SignUpView = () => {
                   className="form-control"
                   autoComplete="off"
                   id="labusername"
-                  value={name}
+                  maxLength={30}
+                  minLength={2}
                   required
-                  onChange={(e) => setUName(e.target.value)}
+                  onChange={(e) => setUName(trim(e.target.value))}
                   whileFocus={{ scale: 1.1 }}
                 >
                 {/* <input
@@ -201,9 +202,8 @@ const SignUpView = () => {
                     aria-describedby="emailHelp"
                     minLength="8"
                     ref={pass}
-                    value={password}
                     required
-                    onChange={(e) => setPWord(e.target.value)}
+                    onChange={(e) => setPWord(trim(e.target.value))}
                   />
                   <button
                     className={`btn ${classes.eye}`}
@@ -268,10 +268,10 @@ const SignUpView = () => {
                   type="text"
                   className="form-control"
                   autoComplete="off"
+                  maxLength={5}
                   id="vcode"
-                  value={verificationCode}
                   required
-                  onChange={(e) => setVerificationCode(e.target.value)}
+                  onChange={(e) => setVerificationCode(trim(e.target.value))}
                 />
               </div>
             </motion.div>
