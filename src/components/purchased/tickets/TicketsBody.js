@@ -87,7 +87,7 @@ const TicketsBody = ({ tickets, status }) => {
   } else {
     return (
       <>
-        <h1 className="center mt-5"> Nothing to show</h1>
+        <h1 className="center mt-5 italic locationCol"> Nothing to show</h1>
       </>
     );
   }

@@ -66,16 +66,16 @@ const WelcomeBoard = ({ searchHandler, name }) => {
   };
   const display = () => {
     if (items.length === 0 && !loading && searchType === "events") {
-      return <h1 className="mt-5 center">Search for event</h1>;
+      return <h1 className="mt-5 center italic locationCol">Search for event</h1>;
     } else if (items.length === 0 && !loading && searchType === "people") {
-      return <h1 className="mt-5 center">Search for people</h1>;
+      return <h1 className="mt-5 center italic locationCol">Search for people</h1>;
     } else if (
       items.length === 0 &&
       !loading &&
       searchType === "affiliate enabled events"
     ) {
       return (
-        <h1 className="mt-5 center">Search for affiliate enabled events</h1>
+        <h1 className="mt-5 center italic locationCol">Search for affiliate enabled events</h1>
       );
     } else if (loading) {
       return (
@@ -87,7 +87,7 @@ const WelcomeBoard = ({ searchHandler, name }) => {
         />
       );
     } else if (items === "No result found" && !loading) {
-      return <h1 className="mt-5 center">No result found</h1>;
+      return <h1 className="mt-5 center italic locationCol">No result found</h1>;
     } else if (items.length !== 0 && !loading && searchType === "people") {
       return items.map((item) => {
         return (
