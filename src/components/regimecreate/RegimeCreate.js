@@ -265,7 +265,7 @@ const RegimeCreation = () => {
                     aria-describedby="regimeNameHelp"
                     // value={regimeName}
                     required
-                    onChange={(e) => setregimeName(trim(e.target.value, '`_- ,:;/.{}[]()|?"*^%#@!~+&%'))}
+                    onChange={(e) => setregimeName(trim(e.target.value.replace(/\\/g, ""), '`_- ,:;/.{}[]()<>|?"*^%#@!~+&%'))}
                   />
                 </div>
 
