@@ -50,6 +50,7 @@ const PurchasedTicket = () => {
     return (
       <>
         <Ticket ticketDetails={ticketDetails} />
+        <div style={{ height: "200px" }}></div>
       </>
     );
   } else {

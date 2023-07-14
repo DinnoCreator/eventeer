@@ -105,6 +105,7 @@ const TicketDisplay = () => {
           <TicketDescription
             regimeDescription={eventDetails[0].regime_description}
           />
+          <div style={{ height: "200px" }}></div>
         </div>
       </>
     );
