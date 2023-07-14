@@ -1,5 +1,7 @@
 import classes from "../profile/ProfileView.module.css";
 import { useNavigate } from "react-router-dom";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useEffect, useCallback, useState } from "react";
 import Footer from "../../Layout/Footer";
 
 const ProfileView = () => {
@@ -21,10 +23,14 @@ const ProfileView = () => {
             <div className={`container grid-container ${classes.dp}`}>
                 <div></div>
                 <div className="grid-item">
-                <img
+                {/* <img
                 alt="tr"
                 src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large"
-                />
+                /> */}
+                <AccountCircleIcon
+                    className="reventlify"
+                    sx={{ fontSize: "180px" }}
+                  />
                 <h3>Edidiong Obodom</h3>
                 <h6> <i className="fa-solid fa-location-dot"></i> Calabar, CRS.</h6>
                 <div>

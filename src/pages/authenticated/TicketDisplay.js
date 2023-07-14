@@ -77,6 +77,7 @@ const TicketDisplay = () => {
         <div className="smartContainer better">
           <TicketImageView
             regimeImg={eventDetails[0].regime_media}
+            clientImg={eventDetails[0].client_photo}
             regimeName={eventDetails[0].regime_name}
             creatorName={eventDetails[0].client_name}
           />

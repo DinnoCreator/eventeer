@@ -6,6 +6,7 @@ import { BeatLoader } from "react-spinners";
 import { neat, textShrink } from "../../utilities/textUtil";
 import { useNavigate } from "react-router-dom";
 import truncate from "lodash.truncate";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const WelcomeBoard = ({ searchHandler, name }) => {
   const [searchClick, setSearchClick] = useState(false);
@@ -91,30 +92,32 @@ const WelcomeBoard = ({ searchHandler, name }) => {
       return items.map((item) => {
         return (
           <div className={`stripFlexGeneral ${classes2.ticketStrip} mt-3`}>
-            <div className="stripFlexGeneralChild1">
-              <img
-                src={item.client_photo}
-                className="shrink"
-                alt="client photo"
-              />
-            </div>
+            {item.client_photo === null ? (
+              <div className={`stripFlexGeneralChild1 centerFlex reventlifyBg ${classes2.noImg}`}>
+                <AccountCircleIcon
+                  className="whiteCol"
+                  sx={{ fontSize: "100px" }}
+                />
+              </div>
+            ) : (
+              <div className="stripFlexGeneralChild1">
+                <img
+                  src={item.client_photo}
+                  className="shrink"
+                  alt="client photo"
+                />
+              </div>
+            )}
             <div
               className={`stripFlexGeneralChild stripFlex ${classes2.ticketStripInfo}`}
             >
               <div className="stripFlexChild">
                 {/* <p>{item.regime_name}</p> */}
-                <p>{textShrink(item.client_name)}</p>
+                <p className="italic">{textShrink(item.client_name)}</p>
               </div>
               <div className="stripFlexChild">
                 <p>
-                  <i
-                    style={{
-                      color: "white",
-                      backgroundColor: "#55CCF8",
-                    }}
-                    className="fa-solid fa-champagne-glasses"
-                  ></i>
-                  <span className={classes2.ID}>
+                  <span className={`italic ${classes2.ID}`}>
                     {item.client_id.toUpperCase()}
                   </span>
                 </p>
@@ -144,7 +147,7 @@ const WelcomeBoard = ({ searchHandler, name }) => {
             >
               <div className="stripFlexChild">
                 {/* <p>{item.regime_name}</p> */}
-                <p>{textShrink(item.regime_name)}</p>
+                <p className="italic">{textShrink(item.regime_name)}</p>
               </div>
               <div className="stripFlexChild">
                 <p>
@@ -153,7 +156,7 @@ const WelcomeBoard = ({ searchHandler, name }) => {
                       color: "white",
                       backgroundColor: "#55CCF8",
                     }}
-                    className="fa-solid fa-champagne-glasses"
+                    className="fa-solid fa-champagne-glasses mr-1"
                   ></i>
                   <span className={classes2.ID}>
                     {item.regime_id.toUpperCase()}

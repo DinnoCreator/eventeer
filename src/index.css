@@ -33,7 +33,7 @@ body {
 }
 
 .compHover:hover {
-  color: #7165E3;
+  color: #7165e3;
 }
 
 .padT {
@@ -43,7 +43,7 @@ body {
 img {
   display: inline-block;
 }
-.bold{
+.bold {
   font-weight: 600;
 }
 /* code {
@@ -53,7 +53,7 @@ img {
 .load {
   border: 5px solid #f3f3f3;
   /* Light grey */
-  border-top: 5px solid #7165E3;
+  border-top: 5px solid #7165e3;
   /* Blue */
   border-right: 5px solid #f7f7f7c7;
   border-left: 5px solid #f7f7f7c7;
@@ -73,7 +73,7 @@ img {
 }
 
 @media (max-width: 750px) {
-  .smartContainer.better{
+  .smartContainer.better {
     padding: 0;
   }
 }
@@ -91,7 +91,9 @@ img {
 .white {
   background-color: white;
 }
-
+.whiteCol {
+  color: white;
+}
 /* Popular events */
 .shadow {
   box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.2);
@@ -150,7 +152,7 @@ img {
 }
 
 .green.rad.blue {
-  background-color: #55CCF8;
+  background-color: #55ccf8;
 }
 
 .whiteBig {
@@ -240,13 +242,17 @@ img {
 .center {
   text-align: center;
 }
+.centerFlex {
+  display: flex;
+  justify-content: center;
+}
 
 .ba {
   color: white;
 }
 
 .ba:hover {
-  color: #7165E3;
+  color: #7165e3;
 }
 
 .ba i {
@@ -254,13 +260,13 @@ img {
 }
 
 .ba i:hover {
-  color: #7165E3;
+  color: #7165e3;
 }
 
 .p {
   line-height: normal;
 }
-.italic{
+.italic {
   font-style: italic;
 }
 
@@ -271,7 +277,7 @@ img {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   padding: 5px 15px;
-  border: 1px solid #7165E3;
+  border: 1px solid #7165e3;
 }
 
 .btncti {
@@ -281,7 +287,7 @@ img {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   padding: 10px 10px;
-  border: 1px solid #7165E3;
+  border: 1px solid #7165e3;
 }
 
 .btnct:hover {
@@ -299,11 +305,11 @@ img {
 }
 
 .b:hover i {
-  color: #7165E3;
+  color: #7165e3;
 }
 
 .bGreen {
-  background-color: #7165E3;
+  background-color: #7165e3;
 }
 
 .real {
@@ -311,11 +317,11 @@ img {
 }
 
 .reventlify {
-  color: #7165E3;
+  color: #7165e3;
 }
 
 .reventlifyBg {
-  background-color: #7165E3;
+  background-color: #7165e3;
 }
 
 .results {
@@ -387,8 +393,8 @@ img {
   padding-block: 2rem;
   width: min(85%, 70rem);
   margin-inline: auto;
-  font-family:
-    "Neue Plak", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
+  font-family: "Neue Plak", -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
 }
 
 .moreGridChild {
@@ -414,7 +420,7 @@ img {
 }
 
 .dateOfEvent {
-  color: #7165E3;
+  color: #7165e3;
   font-size: 0.9rem;
   margin-top: 0.5rem;
 }
@@ -454,7 +460,7 @@ img {
     background-color: hsl(200, 20%, 90%);
   }
 }
-.skeleton.moreImage{
+.skeleton.moreImage {
   height: 150px;
   width: 100%;
 }
@@ -658,7 +664,7 @@ img {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   opacity: 0;
-  color: #7165E3;
+  color: #7165e3;
   font-size: 32px;
 }
 
@@ -851,7 +857,7 @@ img {
   animation-timing-function: ease-in-out;
 }
 
-.alert>.alert-body {
+.alert > .alert-body {
   opacity: 0;
   animation-name: reveal-message;
   animation-duration: 1s;
@@ -875,7 +881,7 @@ img {
 }
 
 .success::before {
-  content: '✓';
+  content: "✓";
   background-color: #eff;
   box-shadow: 0px 0px 12px 7px rgba(200, 255, 150, 0.8) inset;
   border: 5px solid green;
@@ -886,7 +892,7 @@ img {
 }
 
 .error::before {
-  content: '✗';
+  content: "✗";
   background-color: #fef;
   box-shadow: 0px 0px 12px 7px rgba(255, 200, 150, 0.8) inset;
   border: 5px solid red;

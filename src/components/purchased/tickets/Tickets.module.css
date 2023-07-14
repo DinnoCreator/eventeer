@@ -24,6 +24,10 @@
   border-bottom-left-radius: 12px;
   display: inline-block;
 }
+.ticketStrip .noImg {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
 
 .ticketStripInfo i {
   border-top-left-radius: 10px;
