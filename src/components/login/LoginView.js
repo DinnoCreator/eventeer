@@ -1,13 +1,14 @@
 import classes from "../login/LoginView.module.css";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { api } from "../../link/API";
 import { BeatLoader } from "react-spinners";
 import { motion } from "framer-motion";
 import trim from "lodash.trim";
 
 const LoginView = () => {
+  const location = useLocation();
   // values inputed in the form
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +29,6 @@ const LoginView = () => {
   const handleSignUp = () => {
     navigate("/signup");
   };
-
   //password visibility handler
   const showPassword = () => {
     setshow(!show);
@@ -58,7 +58,12 @@ const LoginView = () => {
           } else {
             setLoading(false);
             sessionStorage.setItem("token", "Bearer " + data.token);
-            return navigate("/dashboard");
+            if(location.state === null) {
+              return navigate('/dashboard');
+            } else{
+              return navigate(-1);
+            }
+            // return navigate("/dashboard");
           }
         })
     } catch (error) {

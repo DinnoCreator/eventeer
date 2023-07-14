@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import classes from "../regimecreate/RegimeCreate.module.css";
 import { api } from "../../link/API";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import State from "../formComponents/State";
 import { BeatLoader } from "react-spinners";
 import PricingInput from "../formComponents/pricingInput";
@@ -23,6 +23,7 @@ const steps = [
 ];
 
 const RegimeCreation = () => {
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -122,10 +123,14 @@ const RegimeCreation = () => {
           setLoginError("");
           setLoading(false);
           return setNameChecker(true);
-        } else if (res.status !== 200 && res.status !== 409) {
+        } else if (res.status === 401 || res.status === 403) {
           setLoading(false);
           setLoginError(data);
-          return navigate("/login");
+          return navigate("/login", {
+            state: {
+              prevPath: pathname,
+            },
+          });
         } else if (res.status !== 200 && res.status === 409) {
           setLoading(false);
           return setLoginError(data);
@@ -188,10 +193,16 @@ const RegimeCreation = () => {
             setLoading(false);
             window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             return setSuccess(true);
-          } else if (res.status !== 200) {
+          } else if (res.status !== 403 && res.status !== 401) {
             setLoading(false);
             setLoginError(data);
             return setDip("block");
+          } else {
+            return navigate("/login", {
+              state: {
+                prevPath: pathname,
+              },
+            });
           }
         });
       }
@@ -265,7 +276,14 @@ const RegimeCreation = () => {
                     aria-describedby="regimeNameHelp"
                     // value={regimeName}
                     required
-                    onChange={(e) => setregimeName(trim(e.target.value.replace(/\\/g, ""), '`_- ,:;/.{}[]()<>|?"*^%#@!~+&%'))}
+                    onChange={(e) =>
+                      setregimeName(
+                        trim(
+                          e.target.value.replace(/\\/g, ""),
+                          '`_- ,:;/.{}[]()<>|?"*^%#@!~+&%'
+                        )
+                      )
+                    }
                   />
                 </div>
 

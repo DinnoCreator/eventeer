@@ -2,10 +2,11 @@ import classes from "../tickets/Tickets.module.css";
 import TicketsBody from "./TicketsBody";
 import TicketHistory from "./TicketHistory";
 import { useState, useCallback, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { api } from "../../../link/API";
 
 const Tickets = () => {
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const [switchh, switchhSet] = useState(false);
   const [fetching, setFetching] = useState(true);
@@ -38,7 +39,11 @@ const Tickets = () => {
           return setFetching(false);
         } else if (res.status === 401 || res.status === 403) {
           setFetching(false);
-          return navigate("/login");
+          return navigate("/login", {
+            state: {
+              prevPath: pathname,
+            },
+          });
         } else {
           setTickets([]);
           return setFetching(false);

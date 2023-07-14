@@ -1,7 +1,6 @@
 import Ticket from "../../components/purchased/ticket/Ticket";
 import { useEffect, useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { api } from "../../link/API";
 import TicketSkeleton from "../../components/purchased/ticket/TicketSkeleton";
 
@@ -10,6 +9,7 @@ const PurchasedTicket = () => {
   const [isFetching, setIsFetching] = useState(true);
   const [found, setFound] = useState(false);
   const [ticketDetails, setTicketDetails] = useState();
+  const { pathname } = useLocation();
   const { id } = useParams();
   const getTicketDetails = useCallback(async () => {
     try {
@@ -27,7 +27,11 @@ const PurchasedTicket = () => {
           return setIsFetching(false);
         } else if (res.status === 401 || res.status === 403) {
           setIsFetching(false);
-          return navigate("/login");
+          return navigate("/login", {
+            state: {
+              prevPath: pathname,
+            },
+          });
         } else {
           setFound(false);
           return setIsFetching(false);
@@ -41,11 +45,11 @@ const PurchasedTicket = () => {
   }, [getTicketDetails]);
 
   if (isFetching && !found) {
-    return <TicketSkeleton/>
+    return <TicketSkeleton />;
   } else if (!isFetching && found) {
     return (
       <>
-        <Ticket ticketDetails={ticketDetails}/>
+        <Ticket ticketDetails={ticketDetails} />
       </>
     );
   } else {
