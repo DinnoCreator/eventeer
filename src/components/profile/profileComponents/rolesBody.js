@@ -21,9 +21,9 @@ const RolesBody = ({ roles, status }) => {
           <div
             className={`stripFlexGeneral ${classes.ticketStrip} mt-3`}
             key={item.regime_id}
-            // onClick={() => {
-            //   return navigate(`/ticket/${item.ticket_id}`);
-            // }}
+            onClick={() => {
+              return navigate(`/regime/${item.regime_id}`);
+            }}
           >
             <div className="stripFlexGeneralChild1">
               <img

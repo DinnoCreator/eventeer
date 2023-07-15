@@ -25,7 +25,7 @@ function App() {
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/emailverification" element={<EmailVerification/>} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/regime/:regimeid/:id" element={<RegimeDashboard />} />
+        <Route path="/regime/:id" element={<RegimeDashboard />} />
         <Route path="/regimecreate" element={<RegimeCreate />} />
         <Route path="/event/:id/:affiliate" element={<TicketDisplay />} />
         <Route path="/event/:id" element={<TicketDisplay />} />

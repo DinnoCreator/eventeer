@@ -1,161 +1,116 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import classes from "../regime/RegimeView.module.css";
-import { Link } from "react-router-dom";
-// import { useParams } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import RegimeDashNav from "./regimeDashComp/regimeDashNav/regimeDashNav";
+import RegimeBal from "./regimeDashComp/regimeBal/regimeBal";
+import RegimeSalesAnalytics from "./regimeDashComp/regimeSalesAnalytics/regimeSalesAnalytics";
+import RegimeParticipants from "./regimeDashComp/regimeParticipants/regimeParticipants";
+import RegimeActivity from "./regimeDashComp/regimeActivity/regimeActivity";
+import RegimeAffiliate from "./regimeDashComp/regimeAffiliate/regimeAffiliate";
+import { api } from "../../link/API";
 
 const RegimeView = () => {
-  const [affiliate, setAffiliate] = useState("disabled");
-  const handleAffiliate = () => {
-    affiliate === "enabled"
-      ? setAffiliate("disabled")
-      : setAffiliate("enabled");
-  };
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const { pathname } = useLocation();
 
-  // const { regimeid } = useParams();
-  // const { id } = useParams();
+  // states
+  const [staticDetails, setStaticDetails] = useState("");
+  const [error, setError] = useState('');
+  const [fetching, setFetching] = useState(true);
+  const [found, setFound] = useState(false);
 
-  return (
-    <>
-      {[false].map((expand) => (
-        <Navbar
-          fixed="top"
-          key={expand}
-          bg="light"
-          expand={expand}
-          className="container"
-        >
-          <Container fluid>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-            <Navbar.Brand href="/regime">
-              <span className={`${classes.creator}`}> Creator <i className="fa-solid fa-chevron-right"></i></span>
-              <img
-                alt="tr"
-                src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large"
-                width="40px"
-                className={`${classes.bodrad}`}
-              />
-            </Navbar.Brand>
-            <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  <img
-                    alt="tr"
-                    src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large"
-                    width="50px"
-                    className={`${classes.bodrad}`}
-                  />
-                  <span className={`${classes.creator1}`}> <i className="fa-solid fa-chevron-left"></i> Creator</span>
-                </Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Link className={`${classes.link}`} to="/tickets">Regime info</Link>
-                  <Link className={`${classes.link}`} to="/profile">Admins</Link>
-                  <Link className={`${classes.link}`} to="/profile">Scan clients</Link>
-                  <Link className={`${classes.link}`} to="/profile">Withdrawal</Link>
-                  <hr></hr>
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-      ))}
+  const getStaticDetails = useCallback(async () => {
+    try {
+      await fetch(`${api}/user/regime/dashboard/static/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: sessionStorage.getItem("token"),
+        },
+      }).then(async (res) => {
+        const data = await res.json();
+        if (res.status === 200) {
+          setStaticDetails(data);
+          setFound(true);
+          return setFetching(false);
+        } else if (res.status === 404) {
+          setError(data);
+          setFound(false);
+          return setFetching(false);
+        } else {
+          return navigate("/login", {
+            state: {
+              prevPath: pathname,
+            },
+          });
+        }
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
+  }, [navigate, pathname]);
 
-      <div className={`container center ${classes.bal}`}>
-        <h2>Bal: N25,000,000.00 </h2>
-        {/* <div>Regime ID: {regimeid}</div>
-        <div>Affiliate ID: {id}</div> */}
-        <h4>Calabar pool party</h4>
-      </div>
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    getStaticDetails();
+  }, [getStaticDetails]);
 
-      <div className="hstack fixed-bottom">
-        <div className={`ms-auto btn ${classes.clickable}`}>
-          <FormGroup>
-            <FormControlLabel
-              control={<Switch />}
-              label={
-                affiliate === "enabled"
-                  ? "Affiliate enabled"
-                  : "Affiliate disabled"
-              }
-              onChange={handleAffiliate}
-            />
-          </FormGroup>
-        </div>
-      </div>
-
-      <div className="container">
-      <div className={`container shadowB ${classes.strip}`}>
-        <div className={`container hstack ${classes.details}`}>
-          <div>
-            <h3>Sales</h3>
-            <h6>Today</h6>
+  if (fetching && !found) {
+    return (
+      <>
+        <div className={`center`}>
+          <div className={`cool compName`}>
+            <h1>R</h1>
           </div>
-          <div className="ms-auto">
-            <i className="fa-solid fa-arrow-trend-up"></i>
-            <p>N37,000.00</p>
+          <div className={`second cool compName`}>
+            <h1>e</h1>
+          </div>
+          <div className={`third cool compName`}>
+            <h1>v</h1>
+          </div>
+          <div className={`fourth cool compName`}>
+            <h1>e</h1>
+          </div>
+          <div className={`fifth cool compName`}>
+            <h1>n</h1>
+          </div>
+          <div className={`sixth cool compName`}>
+            <h1>t</h1>
+          </div>
+          <div className={`seventh cool compName`}>
+            <h1>l</h1>
+          </div>
+          <div className={`eight cool compName`}>
+            <h1>i</h1>
+          </div>
+          <div className={`ninth cool compName`}>
+            <h1>f</h1>
+          </div>
+          <div className={`tenth cool compName`}>
+            <h1>y</h1>
           </div>
         </div>
-      </div>
-      <div className={`container shadowB ${classes.strip}`}>
-        <div className={`container hstack ${classes.details}`}>
-          <div>
-            <h3>People going</h3>
-            <h6>Total</h6>
-          </div>
-          <div className="ms-auto">
-            <img
-              alt="tr"
-              src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large"
-              className={`${classes.bodrad}`}
-            />
-            <img
-              alt="tr"
-              src="https://pbs.twimg.com/media/Fc3hYzzXEAAhn6u?format=jpg&name=large"
-              className={`${classes.bodrad}`}
-            />
-            <div className={`${classes.fake}`}>
-              +2
-            </div>
-            <p>5,000</p>
-          </div>
-        </div>
-      </div>
-      <div className={`container ${classes.activity}`}>
+      </>
+    );
+  } else if (!fetching && found) {
+    return (
+      <>
+        <RegimeDashNav />
+        <RegimeBal />
+        <RegimeAffiliate regAffiliate={staticDetails.regime_affiliate} />
         <div className="container">
-        <h3>Activity</h3>
+          <RegimeSalesAnalytics />
+          <RegimeParticipants />
+          <RegimeActivity />
         </div>
-        <div>
-        <h5>Ticket #123452637451 was purchased</h5>
-        <h6>30 mins ago</h6>
-        </div>
-        <div>
-        <h5>Ticket #123452637452 was purchased</h5>
-        <h6>1 hour ago</h6>
-        </div>
-        <div>
-        <h5>Ticket #123452637453 was purchased</h5>
-        <h6>1 hour 30 mins ago</h6>
-        </div>
-        <div>
-        <h5>Ticket #123452637454 was purchased</h5>
-        <h6>2 hours ago</h6>
-        </div>
-      </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  } else if (!fetching && !found){
+    return (
+      <h1 className="center mt-5 locationCol italic"> {error} </h1>
+    );
+  }
 };
 
 export default RegimeView;

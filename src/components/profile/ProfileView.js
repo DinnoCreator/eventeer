@@ -81,7 +81,7 @@ const ProfileView = ({ profile, roles }) => {
           <div className="container">
             <div className={`container hstack ${classes1.pad}`}>
               <h2>
-                Inactive Regime{countIn > 1 ? "s" : ""}: {countIn}
+                Inactive Regimes: {countIn}
               </h2>
               <h2
                 className={`ms-auto ${classes1.switch}`}
@@ -97,7 +97,7 @@ const ProfileView = ({ profile, roles }) => {
           <div className="container">
             <div className={`container hstack ${classes1.pad}`}>
               <h2>
-                Active Regime{count > 1 ? "s" : ""}: {count}
+                Active Regimes: {count}
               </h2>
               <h2
                 className={`ms-auto ${classes1.switch}`}
