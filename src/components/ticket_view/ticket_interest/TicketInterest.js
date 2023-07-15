@@ -29,7 +29,10 @@ const TicketInterest = ({
                   key={pricing.pricing_id}
                   className="mb-2 stuff"
                   onClick={() => {
-                    navigate("/purchase", {
+                    if (pricing.pricing_available_seats === 0) {
+                      return;
+                    }
+                    return navigate("/purchase", {
                       state: {
                         regimeName,
                         regimeId,
@@ -38,6 +41,7 @@ const TicketInterest = ({
                         pricingId: pricing.pricing_id,
                         priceName: pricing.pricing_name,
                         priceAmount: pricing.pricing_amount,
+                        priceAvail: pricing.pricing_available_seats,
                       },
                     });
                   }}
@@ -54,7 +58,9 @@ const TicketInterest = ({
                     : `N${Number(pricing.pricing_amount).toLocaleString()} `}
                   &nbsp;&nbsp;
                   <span className={`${classes.priceName}`}>
-                    {Number(pricing.pricing_amount) === 0
+                    {Number(pricing.pricing_available_seats) === 0
+                      ? "Sold out"
+                      : Number(pricing.pricing_amount) === 0
                       ? `Get ticket`
                       : `Buy`}
                   </span>

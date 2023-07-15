@@ -7,6 +7,7 @@ import RegimeSalesAnalytics from "./regimeDashComp/regimeSalesAnalytics/regimeSa
 import RegimeParticipants from "./regimeDashComp/regimeParticipants/regimeParticipants";
 import RegimeActivity from "./regimeDashComp/regimeActivity/regimeActivity";
 import RegimeAffiliate from "./regimeDashComp/regimeAffiliate/regimeAffiliate";
+import { Link } from "react-router-dom";
 import { api } from "../../link/API";
 
 const RegimeView = () => {
@@ -16,7 +17,7 @@ const RegimeView = () => {
 
   // states
   const [staticDetails, setStaticDetails] = useState("");
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [fetching, setFetching] = useState(true);
   const [found, setFound] = useState(false);
 
@@ -97,7 +98,7 @@ const RegimeView = () => {
     return (
       <>
         <RegimeDashNav />
-        <RegimeBal />
+        <RegimeBal regimeName={staticDetails.regime_name} />
         <RegimeAffiliate regAffiliate={staticDetails.regime_affiliate} />
         <div className="container">
           <RegimeSalesAnalytics />
@@ -106,9 +107,19 @@ const RegimeView = () => {
         </div>
       </>
     );
-  } else if (!fetching && !found){
+  } else if (!fetching && !found) {
     return (
-      <h1 className="center mt-5 locationCol italic"> {error} </h1>
+      <div className="centerFlexV">
+        <div>
+          <h1 className="center locationCol italic"> {error} </h1>
+          <div className="centerFlex mt-3">
+            <Link className={`${classes.link} reventlify`} to="/dashboard">
+              <i className="fa-solid fa-chevron-right reventlify"></i> &nbsp;
+              <span className="reventlify">To Dashboard</span>
+            </Link>
+          </div>
+        </div>
+      </div>
     );
   }
 };

@@ -2,8 +2,7 @@
 import React, { useState, useRef } from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { neat } from "../../utilities/textUtil";
@@ -13,9 +12,10 @@ import { BeatLoader } from "react-spinners";
 
 function PurchaseModal() {
   const location = useLocation();
+  // const { pathname } = useLocation();
   let navigate = useNavigate();
   const rAmount = Number(location.state.priceAmount);
-  const { regimeId, priceName, pricingId, affiliate, regimeImg } =
+  const { regimeId, priceName, pricingId, affiliate, regimeImg, priceAvail } =
     location.state;
   // error messages and status
   const [postError, setPostError] = useState("");
@@ -80,9 +80,13 @@ function PurchaseModal() {
   const getUser = async () => {
     setBuying(true);
     try {
-      if (rAmount === 0) {
+      if (priceAvail < counter) {
         setBuying(false);
-        return;
+        return setPostError(
+          `Only ${Number(priceAvail).toLocaleString()} ticket${
+            priceAvail > 1 ? "s" : ""
+          } ${priceAvail > 1 ? "are" : "is"} currently available`
+        );
       } else {
         await fetch(`${api}/user/buyticket`, {
           method: "POST",
@@ -95,17 +99,21 @@ function PurchaseModal() {
             pricingId,
             regimeId,
             affiliate,
+            counter,
           }),
         }).then(async (res) => {
           const data = await res.json();
-          if (res.status !== 401 && res.status !== 200) {
+          if (res.status === 200) {
+            return window.location.replace(data);
+          } else if (res.status === 401 || res.status === 403) {
+            return navigate("/login", {
+              state: {
+                prevPath: "/purchase",
+              },
+            });
+          } else {
             setBuying(false);
             return setPostError(data);
-          } else if (res.status === 401 && res.status !== 200) {
-            setBuying(false);
-            return navigate("/login");
-          } else{
-            return window.location.replace(data);
           }
         });
       }
@@ -134,14 +142,14 @@ function PurchaseModal() {
       </div>
       <Modal show={true} onHide={handleClose} centered>
         {/* <Modal show={show} backdrop="static" centered> */}
-        <Modal.Header style={{backgroundColor: "#f7f7f7c7"}}>
+        <Modal.Header style={{ backgroundColor: "#f7f7f7c7" }}>
           <Modal.Title>
             <h1 className="modal-title fs-5" id="staticBackdropLabel">
               {neat(location.state.regimeName)}
             </h1>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{backgroundColor: "#f7f7f7c7"}}>
+        <Modal.Body style={{ backgroundColor: "#f7f7f7c7" }}>
           <div className="">
             {postError && ( // then if changed flag is false show error message.
               <div
@@ -191,14 +199,16 @@ function PurchaseModal() {
             </h1>
           </div>
         </Modal.Body>
-        <Modal.Footer style={{backgroundColor: "#f7f7f7c7"}}>
+        <Modal.Footer style={{ backgroundColor: "#f7f7f7c7" }}>
           <Button className={`btn shadowB bold`} onClick={getUser}>
             {buying ? (
               <>
                 <BeatLoader color="#fff" loading={true} size={"12"} />
               </>
             ) : (
-              <>Buy {counter} ticket{counter > 1 ? "s" : ""} !</>
+              <>
+                Buy {counter} ticket{counter > 1 ? "s" : ""} !
+              </>
             )}
           </Button>
         </Modal.Footer>

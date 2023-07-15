@@ -1,12 +1,12 @@
 import classes from "../../RegimeView.module.css";
 
-const RegimeBal = () => {
+const RegimeBal = ({ regimeName }) => {
   return (
     <div className={`container center ${classes.bal}`}>
       <h2>Bal: N25,000,000.00 </h2>
       {/* <div>Regime ID: {regimeid}</div>
           <div>Affiliate ID: {id}</div> */}
-      <h4>Calabar pool party</h4>
+      <h4>{regimeName}</h4>
     </div>
   );
 };

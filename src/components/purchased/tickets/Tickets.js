@@ -58,7 +58,12 @@ const Tickets = () => {
     if (count !== 0) {
       return <TicketsBody tickets={tickets} status={"ongoing"} />;
     } else {
-      return <h1 className="center mt-5"> Nothing to show...</h1>;
+      return (
+        <div className="centerFlexV" style={{height: '80vh'}}>
+          {" "}
+          <h3 className="center italic locationCol"> Nothing to show...</h3>
+        </div>
+      );
     }
   };
   useEffect(() => {
